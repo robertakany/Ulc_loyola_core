@@ -21,12 +21,18 @@ class News(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
+            base_slug = slugify(self.title)
+            slug = base_slug
+            count = 1
+            while News.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{count}"
 
-        if self.featured_image:
-            pass
-        else:
+                count += 1
+            self.slug = slug
+
+        if not self.featured_image:
             self.featured_image = '/static/assets/images/blog/grid/pic2.png'
-        return super(News).save(**kwargs)
+
+        super(News, self).save(*args, **kwargs)
+
 # Create your models here.

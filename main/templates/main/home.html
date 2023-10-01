@@ -77,6 +77,8 @@
                         <div class="topbar-right">
                             <ul>
                                 <li>
+                                    <a href="#"></a>Contact</li>
+                                <li hidden>
                                     <select class="header-lang-bx">
 									<option data-icon="flag flag-uk">English UK</option>
 									<option data-icon="flag flag-us">English US</option>
@@ -203,8 +205,8 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="javascript:;">Blog <i class="fa fa-chevron-down"></i></a>
-                                    <ul class="sub-menu">
+                                <li><a href="{% url 'news_list' %}">Blog <i hidden class="fa fa-chevron-down"></i></a>
+                                    <ul hidden class="sub-menu">
                                         <li><a href="blog-classic-grid.html">Blog Classic</a></li>
                                         <li><a href="blog-classic-sidebar.html">Blog Classic Sidebar</a></li>
                                         <li><a href="blog-list-sidebar.html">Blog List Sidebar</a></li>
@@ -264,7 +266,7 @@
                                 data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off" data-title="A STUDY ON HAPPINESS" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6=""
                                 data-param7="" data-param8="" data-param9="" data-param10="" data-description="Science says that Women are generally happier">
                                 <!-- MAIN IMAGE -->
-                                <img src="/static/assets/images/slider/slide1.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina />
+                                <img src="/static/assets/images/Accueil-Slider-DSC3026.webp" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina />
 
                                 <!-- LAYER NR. 1 -->
                                 <div class="tp-caption tp-shape tp-shapewrapper " id="slide-100-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" data-width="full"
@@ -309,7 +311,7 @@
                                 data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off" data-title="A STUDY ON HAPPINESS" data-param1="" data-param2="" data-param3="" data-param4="" data-param5=""
                                 data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="Science says that Women are generally happier">
                                 <!-- MAIN IMAGE -->
-                                <img src="/static/assets/images/slider/slide2.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina />
+                                <img src="/static/study-group-african-people.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina />
 
                                 <!-- LAYER NR. 1 -->
                                 <div class="tp-caption tp-shape tp-shapewrapper " id="slide-200-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" data-width="full"
@@ -369,6 +371,14 @@
 
             <div class="content-block">
 
+                <style>
+                    .action-box {
+                        height: 250px;
+                        object-fit: cover;
+                        border-radius: 10px;
+                    }
+                </style>
+
                 <!-- Our Services -->
                 <div class="section-area content-inner service-info-bx">
                     <div class="container">
@@ -376,42 +386,42 @@
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="service-bx">
                                     <div class="action-box">
-                                        <img src="/static/assets/images/our-services/pic1.jpg" alt="">
+                                        <img src="/static/assets/images/80_863_49206349206x566_66666666667_1251485546_1466675589diplomes-africains-0.jpg" alt="">
                                     </div>
                                     <div class="info-bx text-center">
                                         <div class="feature-box-sm radius bg-white">
                                             <i class="fa fa-bank text-primary"></i>
                                         </div>
-                                        <h4><a href="#">Best Industry Leaders</a></h4>
-                                        <a href="#" class="btn radius-xl">View More</a>
+                                        <h4><a href="#">Découvrir Nos anciens Etudiants</a></h4>
+                                        <a href="#" class="btn radius-xl">Decouvrir</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="service-bx">
                                     <div class="action-box">
-                                        <img src="/static/assets/images/our-services/pic2.jpg" alt="">
+                                        <img src="/static/assets/images/Accueil-2-3.jpg" alt="">
                                     </div>
                                     <div class="info-bx text-center">
                                         <div class="feature-box-sm radius bg-white">
                                             <i class="fa fa-book text-primary"></i>
                                         </div>
-                                        <h4><a href="#">Learn Courses Online</a></h4>
-                                        <a href="#" class="btn radius-xl">View More</a>
+                                        <h4><a href="#">Bureau des Etudiants</a></h4>
+                                        <a href="#" class="btn radius-xl">Découvrir</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12">
                                 <div class="service-bx m-b0">
                                     <div class="action-box">
-                                        <img src="/static/assets/images/our-services/pic3.jpg" alt="">
+                                        <img src="/static/assets/images/Activités (1).jpg" alt="">
                                     </div>
                                     <div class="info-bx text-center">
                                         <div class="feature-box-sm radius bg-white">
                                             <i class="fa fa-file-text-o text-primary"></i>
                                         </div>
-                                        <h4><a href="#">Book Library & Store</a></h4>
-                                        <a href="#" class="btn radius-xl">View More</a>
+                                        <h4><a href="#">Nos Activités culturels</a></h4>
+                                        <a href="#" class="btn radius-xl">Découvrir</a>
                                     </div>
                                 </div>
                             </div>
@@ -602,7 +612,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <img class="custom_image" src="/static/assets/images/Top-header-2-IMG_0884-1536x461.jpg " alt="Image ULC ">
+                            <img class="custom_image" src="/static/study-group-african-people.jpg " alt="Image ULC ">
                         </div>
                     </div>
                 </div>
@@ -753,7 +763,6 @@
             <style>
                 .how_to_register {
                     color: #F09A3E;
-                    text-decoration: underline;
                 }
                 
                 .conditions {
@@ -783,7 +792,7 @@
 
 
             <!-- condition to register -->
-            <div class="section-area">
+            <div style="border-bottom: #F09A3E solid 2px;" class="section-area">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
@@ -807,8 +816,61 @@
 
             </div>
 
+            <style>
+                .list-events {
+                    margin-bottom: 20px;
+                    color: #F09A3E;
+                    text-decoration: underline;
+                    font-size: large;
+                }
+                
+                .list-events a {
+                    margin-bottom: 20px;
+                    color: #F09A3E;
+                    text-decoration: underline;
+                    font-size: large;
+                }
+                
+                .list-events a:hover {
+                    color: darkgray;
+                    transition: 0.1s;
+                }
+                
+                .custom ul {
+                    list-style-type: none;
+                }
+            </style>
+
+
+            <div style="border-bottom: #F09A3E solid 2px ;" class="custom-container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="custom_image" src="/static/assets/images/Activités (1).jpg" alt="Image ULC ">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="custom">
+                            <h2>Une Diversités D'activités Prêtes à Vous Accueillir</h2>
+                            <p>Explorez notre gamme d’activités étudiantes dynamiques conçues pour enrichir votre expérience universitaire et vous permettre de développer des compétences précieuses en dehors du programme académique.</p>
+
+                            <div>
+                                <ul>
+                                    <li class="list-events"><a href="">Clubs Etudiants</a></li>
+                                    <li class="list-events"><a href="">Evenements culturels</a></li>
+                                    <li class="list-events"><a href="">Activités Physiques</a></li>
+                                    <li class="list-events"><a href="">Débats et Discussions</a> </li>
+                                    <li class="list-events"><a href="">Evenements Artistiques</a></li>
+                                    <li class="list-events"><a href="">Atelier Et Formations</a></li>
+                                </ul>
+                            </div>
+
+                            <a hidden class="read_more" href="#">S'inscrire maintenant</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Popular Courses -->
-            <div class="section-area section-sp2 popular-courses-bx ">
+            <div hidden class="section-area section-sp2 popular-courses-bx ">
                 <div class="container ">
                     <div class="row ">
                         <div class="col-md-12 heading-bx left ">
@@ -935,9 +997,107 @@
                 </div>
             </div>
             <!-- Popular Courses END -->
+            <style>
+                .conteneur {
+                    margin: 20px;
+                }
+                
+                .first-tarif-table {
+                    border: solid 2px #ccc;
+                    margin: 10px;
+                }
+            </style>
+
+            <div class="sectiion-area">
+                <div class="conteneur">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h2>Tarifs et Options</h2>
+                            <p>À l’Université Loyola du Congo, nous nous engageons à rendre l’éducation accessible à tous. Découvrez nos différentes options de tarification pour répondre aux besoins financiers de nos étudiants.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <table class="first-tarif-table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Système LMD Jour</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Frais D'inscription</td>
+                                        <td>$15,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Acompte</td>
+                                        <td>$100,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Frais D'enrôlement Première Session</td>
+                                        <td>$20,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Frais D'enrôlement Deuxième Session</td>
+                                        <td>$20,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Finalisation</td>
+                                        <td>$200,00</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td>Total</td>
+                                        <td>$ 355,00</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="col-md-4">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Système LMD Soir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Frais D'inscription</td>
+                                        <td>$15,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Acompte</td>
+                                        <td>$150,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Frais D'enrôlement Première Session</td>
+                                        <td>$20,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Frais D'enrôlement Deuxième Session</td>
+                                        <td>$20,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Finalisation</td>
+                                        <td>$210,00</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td>Total</td>
+                                        <td>$ 415,00</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
 
             <!-- Form -->
-            <div class="section-area section-sp1 ovpr-dark bg-fix online-cours " style="background-image:url(/static/assets/images/background/bg1.jpg); ">
+            <div hidden class="section-area section-sp1 ovpr-dark bg-fix online-cours " style="background-image:url(/static/assets/images/background/bg1.jpg); ">
                 <div class="container ">
                     <div class="row ">
                         <div class="col-md-12 text-center text-white ">
@@ -984,6 +1144,7 @@
                 </div>
             </div>
             <!-- Form END -->
+
             <div class="section-area section-sp2 ">
                 <div class="container ">
                     <div class="row ">

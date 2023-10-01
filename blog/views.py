@@ -13,25 +13,34 @@ def news_detail(request, news_slug, news_id):
     return render(request, 'blog/news_detail.html', {'news': news})
 
 
+from django.shortcuts import render, redirect
+from .models import News
+
+
 def add_news(request):
     user = request.user
     error = ''
-    if request.POST:
-        data = request.data, request.FILES
-        if data.is_valid():
-            print(data)
+
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        category = request.POST.get('category', '')
+        featured_image = request.FILES.get('featured_image', '/static/assets/images/blog/grid/pic2.png')
+
+        if title and content:
             news = News.objects.create(
-                title=data['title'],
+                title=title,
                 author=user,
-                content=data['content'],
-                category=data.get('category', ''),
-                featured_image=data.get("featured_image", '/static/assets/images/blog/grid/pic2.png'),
+                content=content,
+                category=category,
+                featured_image=featured_image,
             )
             news.save()
             return redirect('news_list')
         else:
             error = 'Les champs invalides'
-        return render(request, 'blog/add_news.html', locals())
+
+    return render(request, 'blog/add_news.html', {'error': error})
 
 
 def news_update(request, news_slug, news_id):

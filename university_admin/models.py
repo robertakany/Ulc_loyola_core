@@ -1,4 +1,6 @@
 from django.db import models
+
+
 from students_admin.models import Student
 
 
@@ -12,6 +14,7 @@ class Registration(models.Model):
 
 class PdfCourse(models.Model):
     teacher = models.ForeignKey('teachers_admin.Teacher', on_delete=models.CASCADE)
+    audience = models.ForeignKey('main.Audience', on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=255)
     warning = models.TextField(null=True, blank=True)
     pdf_files = models.FileField(upload_to='cours_pdfs/')
@@ -22,6 +25,7 @@ class PdfCourse(models.Model):
 class StudentCourses(models.Model):
     student = models.ForeignKey(Student, related_name="student_courses", on_delete=models.CASCADE)
     courses = models.ForeignKey(PdfCourse, on_delete=models.CASCADE)
+    audience = models.ForeignKey('main.Audience', on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
 
 

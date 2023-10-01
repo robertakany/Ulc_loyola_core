@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser
+import django.contrib.auth.models
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
@@ -16,7 +16,7 @@ ROLE = (
 
 def user_path(i, filename):
     return f'users/{i.pk}_{i.email}/images/{filename}'
-class User(AbstractUser):
+class User(django.contrib.auth.models.AbstractUser):
     # username= models.CharField(max_length=20 , verbose_name="Nom d'utilisateur")
 
     email = models.EmailField(_('email address'), unique=True)
