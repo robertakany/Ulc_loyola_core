@@ -33,7 +33,7 @@ def connect(request):
             if user is not None and user.check_password(password):
                 login(request, user)
                 print('_________OK_____________')
-                response = redirect(next or 'home1')
+                response = redirect(next or 'home')
                 return response
         else:
             error = 'Identifiants invalides'

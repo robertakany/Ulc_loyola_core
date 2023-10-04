@@ -1,7 +1,7 @@
 from django.contrib import admin
-from main.models import Audience
+from main.models import Auditoire
 
 
-admin.site.register(Audience)
+admin.site.register(Auditoire)
 
 # Register your models here.

@@ -14,6 +14,12 @@ ROLE = (
 
 )
 
+Option = (
+	('Philosophe','philosophie'),
+	('ingeniérie','ingeniérie'),
+	('Agronomiques et Vetérinaires', 'Agronomiques et Vetérinaires')
+)
+
 
 def student_path(i, filename):
 	return f'student/{i.pk}_{i.email}/images/{filename}'
@@ -24,8 +30,8 @@ class Student(models.Model):
 	last_name = models.CharField(max_length=45)
 	user = models.OneToOneField(User, related_name="student", on_delete=models.SET_NULL, null=True,blank=True)
 	year_of_added = models.CharField(max_length=255, null=True, blank=True)
-	option = models.CharField(max_length=200)
-	class_level = models.CharField(max_length=50, blank=True, null=True, verbose_name="niveau d'étude")
+	option = models.CharField(max_length=200, choices=Option)
+	auditoire = models.ForeignKey('main.Auditoire', related_name='auditoire_students', on_delete=models.SET_NULL, blank=True,null=True)
 	email = models.EmailField(_('email address'), unique=True)
 	phone = models.CharField(max_length=50)
 	avatar = models.ImageField(upload_to=student_path, null=True, blank=True)
@@ -36,11 +42,25 @@ class Student(models.Model):
 	born_date = models.DateField(null=True, blank=True)
 	address = models.CharField(max_length=70, null=True, blank=True)
 	data = models.JSONField(blank=True, null=True)
+	slug = models.SlugField(unique=True, blank=True)
 
+	def save(self, *args, **kwargs):
+		if not self.slug:
+			base_slug = slugify(self.user)
+			slug = base_slug
+			count = 1
+			while Student.objects.filter(slug=slug).exists():
+				slug = f"{base_slug}-{count}"
+
+				count += 1
+			self.slug = slug
+
+
+		super(Student, self).save(*args, **kwargs)
 
 class StudentCourses(models.Model):
 	student = models.ForeignKey(Student, verbose_name="studentOfCourse", on_delete=models.CASCADE)
-	courses = models.ForeignKey("university_admin.PdfCourse", related_name="courses", on_delete=models.CASCADE)
+	courses = models.ForeignKey("university_admin.Course", related_name="courses", on_delete=models.CASCADE)
 	date = models.DateTimeField(auto_now_add=True)
 
 # Create your models here.

@@ -5,23 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d9d8be0-ccfb-4079-a066-d02db6a7737e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ULC_loyola_core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ULC_loyola_core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/teachers_admin/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/add_news.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/add_news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/news_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/news_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ULC_loyola_core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ULC_loyola_core/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ULC_loyola_core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ULC_loyola_core/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/main/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/students_admin/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/students_admin/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/teachers_admin/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/teachers_admin/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/students_admin/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/students_admin/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teachers_admin/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/teachers_admin/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teachers_admin/templates/teachers_admin/courses.html" beforeDir="false" afterPath="$PROJECT_DIR$/teachers_admin/templates/teachers_admin/courses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teachers_admin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/teachers_admin/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/university_admin/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/university_admin/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/university_admin/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/university_admin/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userApp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/userApp/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/userApp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/userApp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -53,17 +51,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Admin/Documents/Laxtech/workshop/ULC_loyola_core-main",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Documents/Laxtech/workshop/ULC_loyola_core-main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Admin\Documents\Laxtech\workshop\ULC_loyola_core-main\userApp\templates\user" />
@@ -91,6 +89,11 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/userApp/models.py</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ULC_loyola_core/urls.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

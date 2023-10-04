@@ -40,7 +40,12 @@ class User(django.contrib.auth.models.AbstractUser):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.username, self.last_name)
+        if not self.avatar.url or self.avatar:
+            self.avatar = '/static/assets/university_mobile_logo_ulc-1 (1).png'    
         super().save(*args, **kwargs)
+        
+    def avatar_url(self):
+        return (self.avatar and hasattr(self.avatar, 'url') and self.avatar.url) or '/static/assets/university_mobile_logo_ulc-1 (1).png'
 
 
 
