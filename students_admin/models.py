@@ -1,8 +1,8 @@
 from django.db import models
 from django.db import models
-from userApp.models import User  # Import correct
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
+from main.utils import Faculty
 
 SEX_TYPES = (
 	('M', 'M'),
@@ -28,9 +28,9 @@ def student_path(i, filename):
 class Student(models.Model):
 	first_name = models.CharField(max_length=45)
 	last_name = models.CharField(max_length=45)
-	user = models.OneToOneField(User, related_name="student", on_delete=models.SET_NULL, null=True,blank=True)
+	user = models.OneToOneField('userApp.User', related_name="student", on_delete=models.SET_NULL, null=True,blank=True)
 	year_of_added = models.CharField(max_length=255, null=True, blank=True)
-	option = models.CharField(max_length=200, choices=Option)
+	faculty = models.CharField(max_length=255, choices=Faculty)
 	auditoire = models.ForeignKey('main.Auditoire', related_name='auditoire_students', on_delete=models.SET_NULL, blank=True,null=True)
 	email = models.EmailField(_('email address'), unique=True)
 	phone = models.CharField(max_length=50)

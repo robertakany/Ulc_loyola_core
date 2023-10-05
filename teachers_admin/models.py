@@ -1,12 +1,10 @@
 from django.db import models
 from django.utils.text import slugify
-
-from userApp.models import User  # Import correct
 from university_admin.models import Course
 
 
 class Teacher(models.Model):
-    user = models.OneToOneField(User, related_name="user_teacher", on_delete=models.CASCADE)
+    user = models.OneToOneField('userApp.User', related_name="user_teacher", on_delete=models.CASCADE)
     #courses = models.CharField(max_length=50, null=True, blank=True)
     year_of_experience = models.CharField(max_length=255, null=True, blank=True)
     year_of_added = models.CharField(max_length=255, null=True, blank=True)

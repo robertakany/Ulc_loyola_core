@@ -53,6 +53,7 @@ class User(django.contrib.auth.models.AbstractUser):
         
     def avatar_url(self):
         return (self.avatar and hasattr(self.avatar, 'url') and self.avatar.url) or '/static/assets/university_mobile_logo_ulc-1 (1).png'
+    
 @receiver(post_save, sender=Student)
 def set_user_is_student(sender, instance, **kwargs):
     # Lorsqu'un objet Student est sauvegardé, cette fonction sera appelée.

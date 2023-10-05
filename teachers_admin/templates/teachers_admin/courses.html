@@ -231,6 +231,7 @@
         </div>
     </header>
     <!-- header end -->
+    
     <!-- Left sidebar menu start -->
     <div class="ttr-sidebar">
         <div class="ttr-sidebar-wrapper content-scroll">
@@ -408,8 +409,8 @@
                                                     <li><i class="fa fa-star"></i></li>
                                                 </ul>
                                             </li>
-                                            <li class="card-courses-stats">
-                                                <a href="{{course.pdf_files.url}}" class="btn button-sm green radius-xl">telecharger</a>
+                                            <li hidden class="card-courses-stats">
+                                                <a href="{{course.pdf_files.url}}" class="btn button-sm green radius-xl" download>telecharger</a>
                                             </li>
                                             <li hidden class="card-courses-price">
                                                 <del>$190</del>
@@ -423,8 +424,8 @@
                                             <p>{{course.description}} </p>
                                         </div>
                                         <div hidden class="col-md-12">
-                                            <a href="#" class="btn green radius-xl outline">Approve</a>
-                                            <a href="#" class="btn red outline radius-xl ">Cancel</a>
+                                            <a href="{{course.pdf_files.url}}" class="btn green radius-xl outline" download>telecharger</a>
+                                            <a href="#" class="btn button-sm green radius-xl">modifier</a>
                                         </div>
                                     </div>
 

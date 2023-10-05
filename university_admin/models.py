@@ -2,13 +2,10 @@ from django.db import models
 from django.utils.text import slugify
 
 from students_admin.models import Student
+from main.utils import Faculty 
 
 
-Option = (
-    ('Philosophe', 'philosophie'),
-    ('ingeniérie', 'ingeniérie'),
-    ('Agronomiques et Vetérinaires', 'Agronomiques et Vetérinaires')
-)
+
 
 
 class Registration(models.Model):
@@ -17,7 +14,7 @@ class Registration(models.Model):
     user = models.OneToOneField('userApp.User', related_name="student_registration", on_delete=models.SET_NULL,
                                 null=True, blank=True)
     year_of_added = models.CharField(max_length=255, null=True, blank=True)
-    option = models.CharField(max_length=200, choices=Option)
+    faculty = models.CharField(max_length=255, choices=Faculty)
     registration_date = models.DateTimeField(auto_now_add=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     date = models.DateTimeField(auto_now_add=True)
@@ -27,6 +24,7 @@ class Registration(models.Model):
 class Course(models.Model):
     teacher = models.ForeignKey('teachers_admin.Teacher', on_delete=models.CASCADE)
     auditoire = models.ManyToManyField('main.Auditoire',related_name="course_auditoire")
+    faculty = models.CharField(max_length=255, choices=Faculty)
     title = models.CharField(max_length=255)
     image = models.ImageField(default='/static/admin/assets/images/logo-mobile.png')
     notes = models.TextField(verbose_name='note', null=True, blank=True)
@@ -50,7 +48,8 @@ class Course(models.Model):
             self.slug = slug
 
         super(Course, self).save(*args, **kwargs)
-
+    def image_url(self):
+        return (self.image and hasattr(self.image, 'url') and self.image.url) or '/static/assets/university_mobile_logo_ulc-1 (1).png'
 
 class StudentCourses(models.Model):
     student = models.ForeignKey(Student, related_name="student_courses", on_delete=models.CASCADE)

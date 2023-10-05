@@ -27,6 +27,7 @@ urlpatterns = [
     path('user/', include('userApp.urls')),
     path('blog/', include('blog.urls')),
     path('teachers_admin/', include('teachers_admin.urls')),
+    path('students_admin/', include('students_admin.urls'))
 
 ]
 if settings.DEBUG:

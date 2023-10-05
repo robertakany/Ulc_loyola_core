@@ -55,6 +55,7 @@ def add_course(request):
         title = request.POST.get('title')
         description = request.POST.get('description', '')
         notes = request.POST.get('notes', '')
+        auditoires_selected = request.POST.getlist('auditoire')
         try:
             course = Course.objects.create(
                 teacher=teacher,
@@ -65,7 +66,7 @@ def add_course(request):
                 pdf_files=pdf_files,
                 description=description
             )
-            course.save()
+            course.auditoire.set(auditoires_selected)
             print("voici le course: ", course)
             # for auditoire_id in auditoires:
             #    course.auditoire.add(auditoire_id)
