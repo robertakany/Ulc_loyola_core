@@ -14,6 +14,9 @@ class Teacher(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, blank=True)
 
+    def __str__(self):
+        return self.user.first_name
+
     def save(self, *args, **kwargs):
         if not self.slug:
             base_slug = slugify(self.user.username)

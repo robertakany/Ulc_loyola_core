@@ -1,7 +1,12 @@
 import django.contrib.auth.models
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
+
+from students_admin.models import Student
+from teachers_admin.models import Teacher
 
 SEX_TYPES = (
     ('M', 'M'),
@@ -30,6 +35,8 @@ class User(django.contrib.auth.models.AbstractUser):
     address = models.CharField(max_length=70, null=True, blank=True)
    # role = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, blank=True)
+    is_teacher = models.BooleanField(default=False)
+    is_student = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
@@ -46,7 +53,21 @@ class User(django.contrib.auth.models.AbstractUser):
         
     def avatar_url(self):
         return (self.avatar and hasattr(self.avatar, 'url') and self.avatar.url) or '/static/assets/university_mobile_logo_ulc-1 (1).png'
+@receiver(post_save, sender=Student)
+def set_user_is_student(sender, instance, **kwargs):
+    # Lorsqu'un objet Student est sauvegardé, cette fonction sera appelée.
+    # Nous allons définir is_student à True pour l'utilisateur associé.
+    if instance.user:
+        instance.user.is_student = True
+        instance.user.save()
 
+@receiver(post_save, sender=Teacher)
+def set_user_is_student(sender, instance, **kwargs):
+    # Lorsqu'un objet Student est sauvegardé, cette fonction sera appelée.
+    # Nous allons définir is_student à True pour l'utilisateur associé.
+    if instance.user:
+        instance.user.is_teacher = True
+        instance.user.save()
 
 
 class Alumni(models.Model):
