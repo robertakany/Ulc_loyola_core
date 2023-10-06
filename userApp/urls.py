@@ -11,6 +11,7 @@ from userApp import views
 urlpatterns = [
 	path('signup/', views.signup, name='register'),
 	path('login/', views.connect, name='login'),
+    path('logout', views.disconnect, name='logout'),
 	path('<str:user_slug>/update_password/', views.password, name='password'),
 	path('upload_profile_photo/', views.upload_profile_photo, name='upload-profile'),
 	path('<str:user_slug>/disconnect/', views.deconnexion, name='logout'),

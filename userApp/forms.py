@@ -14,7 +14,7 @@ class LoginForm(forms.Form):
 class SignupForm(UserCreationForm):
     class Meta:
         model = get_user_model()
-        fields = ('username','first_name','last_name','email', 'phone', 'country','password1', 'password2', 'avatar','born_date','sexe_type','address',)
+        fields = ('username','first_name','last_name','email', 'phone', 'country','password1', 'password2', 'avatar','born_date','sexe_type','address','role',)
         
         def save(self, commit = True):
             user = super(SignupForm, self).save(commit=False)

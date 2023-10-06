@@ -6,11 +6,16 @@ from userApp import User
 
 
 def home(request):
-	user=request.user
-	
-	teachers = Teacher.objects.filter(user=user)
-	students = Student.objects.filter(user=user)
-	return render(request, 'main/home.html',locals())
+    user = request.user
+    teachers = None
+    students = None
+
+    if user.is_authenticated:
+        print(user.username)
+        teachers = Teacher.objects.filter(user=user)
+        students = Student.objects.filter(user=user)
+
+    return render(request, 'main/home.html', locals())
 
 def home1(request):
 	return  render(request, 'main/home1.html')

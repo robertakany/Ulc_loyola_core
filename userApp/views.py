@@ -39,9 +39,14 @@ def connect(request):
             error = 'Identifiants invalides'
     return render(request, 'user/login_page.html', {'form': form, 'error': error, 'next': next})
 
+def disconnect(request):
+    logout(request)
+    response= redirect('home')
+    return response
 
 def signup(request):
     user_set_types = SEX_TYPES
+    roles = ROLE
 
     COUNTRIES_LIST = COUNTRIES
 
@@ -51,19 +56,23 @@ def signup(request):
 
     if request.method == 'POST':
         form = SignupForm(request.POST, request.FILES)
+        try:
+            if form.is_valid():
+            
+                print('_________beatiful God is_______')
+                user = form.save()
+                print('this is the save user',user)
+                if user:
+                    login(request, user)
+                    print('this is the user login', user)
 
-        if form.is_valid():
-            print('_________beatiful God is_______')
-            user = form.save()
-            print('this is the save user',user)
-            if user:
-                login(request, user)
-                print('this is the user login', user)
-
-                response = redirect('home')
-                print(user)
-        else:
-            errors = 'Champs invalides'
+                    response = redirect('home')
+                    print(user)
+                    return response
+            else:
+                errors = 'Champs invalides'
+        except Exception as e:
+                print('error',e)        
     return render(request, 'user/signup.html', locals())
 
 
@@ -111,7 +120,7 @@ def edit_profile(request):
             request, 'Vos informations ont été mises à jour avec succès.')
         #return redirect('account')
 
-    return render(request, 'user/account.html', locals())
+    return render(request, 'user/user_profil.html', locals())
 
 
 

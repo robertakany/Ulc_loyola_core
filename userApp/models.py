@@ -33,7 +33,7 @@ class User(django.contrib.auth.models.AbstractUser):
     is_delete = models.BooleanField(null=True, blank=True, default=False)
     born_date = models.DateField(null=True, blank=True)
     address = models.CharField(max_length=70, null=True, blank=True)
-   # role = models.CharField(max_length=100)
+    role = models.CharField(max_length=100, choices=ROLE)
     slug = models.SlugField(unique=True, blank=True)
     is_teacher = models.BooleanField(default=False)
     is_student = models.BooleanField(default=False)
@@ -69,6 +69,15 @@ def set_user_is_student(sender, instance, **kwargs):
     if instance.user:
         instance.user.is_teacher = True
         instance.user.save()
+
+@receiver(post_save, sender=User)
+def set_user_roles(sender, instance, created, **kwargs):
+    if created:
+        if instance.role == 'professeur':
+            instance.is_teacher = True
+        elif instance.role == 'etudiant':
+            instance.is_student = True
+        instance.save()        
 
 
 class Alumni(models.Model):

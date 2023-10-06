@@ -84,8 +84,29 @@
 									<option data-icon="flag flag-us">English US</option>
 								</select>
                                 </li>
-                                <li><a href="{% url 'login' %}">Login</a></li>
-                                <li><a href="{% url 'register' %}">Register</a></li>
+                                {% if user.is_authenticated %}
+                                    {% if user.is_teacher %}
+                                        {% for teacher in teachers %}
+                                        <li><a href="{% url 'teacher_admin' teacher.slug %}">Dashboard</a></li>
+                                        <li><a href="{% url 'logout' %}">logout</a></li>
+                                        {% endfor %}
+                                    {% elif user.is_student %}
+                                        {% for student in students %}
+                                        <li><a href="{% url 'student_admin' student.slug %}">Dashboard</a></li>
+                                        <li><a href="{% url 'logout' %}">logout</a></li>
+                                        {% endfor %}
+                                    {% elif user.is_superuser %}
+                                        <li><a href="{% url 'admin:index' %}">Dashboard</a></li> 
+                                        <li><a href="{% url 'logout' %}">logout</a></li>
+                                    {% else %}
+                                    <li><a href="{% url 'logout' %}">logout</a></li> 
+                                       
+                                    {% endif %}
+                                {% else %}    
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li><a href="{% url 'register' %}">Register</a></li>
+                                    
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
@@ -96,7 +117,7 @@
                     <div id="container-clearfix" class="container clearfix">
                         <!-- Header Logo ==== -->
                         <div class="menu-logo">
-                            <a href="index.html"><img src="/static/assets/images/university_logo_ulc.png" alt=""></a>
+                            <a href="{% url 'home' %}"><img src="/static/assets/images/university_logo_ulc.png" alt=""></a>
                         </div>
                         <!-- Mobile Nav Button ==== -->
                         <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -223,7 +244,7 @@
                                                     {% endfor %}
                                             {% elif user.is_student  %} 
                                                     {% for student in students %}
-                                                    <li><a href="#">Dashboard</a></li>
+                                                    <li><a href="{% url 'student_admin' student.slug %}">Dashboard</a></li>
                                                     {% endfor %}  
                                             {% elif user.is_superuser %}
                                                     <li><a href="{% url 'admin:index' %}">Dashboard</a></li>             
