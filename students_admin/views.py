@@ -13,6 +13,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib import messages
 from config.countries import COUNTRIES
+from main.utils import *
 
 from django.db.models import Q
 from userApp.models import *
@@ -62,6 +63,9 @@ def edit_profile(request):
     user_set_types = SEX_TYPES
     roles = ROLE
     COUNTRIES_LIST = COUNTRIES
+    error = "Champs invalides "
+    student= Student.objects.get( user=request.user)
+    
 
     if request.method == 'POST':
         user = request.user
@@ -102,15 +106,17 @@ def edit_profile(request):
             user.born_date = born_date
         if address:
             user.address = address
+        if role:
+            user.role = role    
         if avatar:
-            user.avatar.url = avatar
+            user.avatarl = avatar
         else:
-            user.avatar.url = '/static/assets/university_mobile_logo_ulc-1 (1).png'                            
+            user.avatar = '/static/assets/university_mobile_logo_ulc-1 (1).png'                            
         if new_password1 and new_password2:
             if new_password1 != new_password2:
                 messages.error(
                     request, 'Les nouveaux mots de passe ne correspondent pas.')
-                return redirect('account')
+                #return redirect('account')
             user.set_password(new_password1)
             # Empêche la déconnexion de l'utilisateur
             update_session_auth_hash(request, user)
@@ -118,10 +124,65 @@ def edit_profile(request):
         user.save()
 
         messages.success(
-            request, 'Vos informations ont été mises à jour avec succès.')
+                request, 'Vos informations ont été mises à jour avec succès.')
         #return redirect('account')
+        
 
     return render(request, 'students_admin/user_profile.html', locals())
+
+
+def edite_student_profile(request,student_slug):
+    COUNTRIES_LIST = COUNTRIES
+    faculty_list = Faculty
+
+
+    student= Student.objects.get(slug=student_slug, user=request.user)
+
+    if request.method == 'POST':
+        user = request.user
+        # Récupération des données du formulaire
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        country = request.POST.get('country')
+        phone = request.POST.get('phone')
+        avatar = request.FILES.get('avatar')
+        email = request.POST.get('email')
+        sexe_type = request.POST.get('sexe_type')
+        born_date = request.POST.get('born_date')
+        faculty= request.POST.get('faculty')
+        auditoire= request.POST.get('auditoire')
+        phone = models.CharField(max_length=50)
+
+        if first_name:
+            student.first_name = first_name
+        if last_name:
+            student.last_name = last_name
+        if email:
+            student.email = email
+        if phone:
+            student.phone = phone
+        if country:
+            student.country = country
+        if avatar:
+            student.avatar = avatar 
+        if faculty:
+            student.faculty = faculty
+        if auditoire:
+            student.auditoire = auditoire
+        if sexe_type:
+            student.sexe_type = sexe_type
+        if born_date:
+            student.born_date = born_date
+        student.save()
+
+        messages.success(
+            request, 'Vos informations ont été mises à jour avec succès. '
+        )
+    return render(request, 'students_admin/student_profile.html', locals())                                           
+
+
+
+      
 
 
 

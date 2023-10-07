@@ -320,13 +320,13 @@
                         </a>
                     </li>
 
-                    <li>
+                    <li hidden>
                         <a href="#" class="ttr-material-button">
                             <span class="ttr-icon"><i class="ti-user"></i></span>
-                            <span class="ttr-label">Mon Profil d'utilisateur</span>
-                            <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                            <span class="ttr-label">Mon Profil d'Etudiant</span>
+                            <span class="ttr-arrow-icon"><i hidden class="fa fa-angle-down"></i></span>
                         </a>
-                        <ul>
+                        <ul hidden>
                             <li>
                                 <a href="user-profile.html" class="ttr-material-button"><span class="ttr-label">User Profile</span></a>
                             </li>
@@ -336,21 +336,25 @@
                         </ul>
                     </li>
                     <li class="ttr-seperate"></li>
-                    <li>
-                        <a href="#" class="ttr-material-button">
+                    <li hidden >
+                        <a href="{% url 'user_profile_edit' %}" class="ttr-material-button">
                             <span class="ttr-icon"><i class="ti-user"></i></span>
-                            <span class="ttr-label">Mon Profil d'Etudiant</span>
-                            <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                            <span class="ttr-label">Mon Profil d'utilisateur</span>
+                            
                         </a>
-                        <ul>
+                        <ul hidden>
                             <li>
-                                <a href="user-profile.html" class="ttr-material-button"><span class="ttr-label">User Profile</span></a>
+                                <a href="user-profile.html" class="ttr-material-button"><span class="ttr-label">Voir mon Profil</span></a>
                             </li>
                             <li>
-                                <a href="teacher-profile.html" class="ttr-material-button"><span class="ttr-label">Student Profile</span></a>
+                                <a href="teacher-profile.html" class="ttr-material-button"><span class="ttr-label">Modifier Profil</span></a>
                             </li>
                         </ul>
                     </li>
+                    <li><a href="{% url 'student_profile_edit' student.slug %}" class="ttr-material-button"><i class="ti-user"></i> <span>Profil d'Etudiant</span></a></li>
+                    <li class="ttr-seperate"></li>
+
+                    <li><a href="{% url 'user_profile_edit' %}" class="ttr-material-button"><i class="ti-user"></i> <span>Profil d'utilisateur</span></a></li>
                 </ul>
                 <!-- sidebar menu end -->
             </nav>
@@ -363,10 +367,10 @@
     <main class="ttr-wrapper">
         <div class="container-fluid">
             <div class="db-breadcrumb">
-                <h4 class="breadcrumb-title">Teacher Profile</h4>
+                <h4 class="breadcrumb-title">{{student.user.email}}</span> ({{student.auditoire.niveau_name}} {{student.faculty}})</h4>
                 <ul class="db-breadcrumb-list">
                     <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-                    <li>Teacher Profile</li>
+                    <li>se deconnecter</li>
                 </ul>
             </div>
             <div class="row">
@@ -374,113 +378,80 @@
                 <div class="col-lg-12 m-b30">
                     <div class="widget-box">
                         <div class="wc-title">
-                            <h4>Teacher Profile</h4>
+                            <h4>Mon Profil</h4>
                         </div>
                         <div class="widget-inner">
-                            <form class="edit-profile m-b30">
+                            <form method="post" enctype="multipart/form-data" class="edit-profile m-b30">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="ml-auto">
-                                            <h3>1. Personal Details</h3>
+                                            <h3>1. Details Personnels </h3>
+                                        </div>
+                                    </div>
+                                    {% csrf_token %}
+                                    <div class="form-group col-6">
+                                        <label class="col-form-label">Nom</label>
+                                        <div>
+                                            <input class="form-control" name="last_name" type="text" value="{{student.last_name}}">
                                         </div>
                                     </div>
                                     <div class="form-group col-6">
-                                        <label class="col-form-label">Full Name</label>
+                                        <label class="col-form-label">Prenom</label>
                                         <div>
-                                            <input class="form-control" type="text" value="Mark Andre">
+                                            <input class="form-control" name="first_name" type="text" value="{{student.first_name}}">
                                         </div>
                                     </div>
                                     <div class="form-group col-6">
-                                        <label class="col-form-label">Occupation</label>
+                                        <label class="col-form-label">Email</label>
                                         <div>
-                                            <input class="form-control" type="text" value="CTO">
+                                            <input class="form-control" name="email" type="email" value="{{student.email}}">
                                         </div>
                                     </div>
                                     <div class="form-group col-6">
-                                        <label class="col-form-label">Company Name</label>
-                                        <div>
-                                            <input class="form-control" type="text" value="EduChamp">
-                                            <span class="help">If you want your invoices addressed to a company. Leave blank to use your full name.</span>
+                                        <label class="col-form-label">Pays</label>
+                                        <div class="input-group">
+                                            <select name="country" id="country">
+                                                {% for country in COUNTRIES_LIST %}
+                                                            <option value="{{country.code}}" {% if country.code == '243' %}selected{% endif %}>{{country.name}} ({{country.code}})</option>
+                                                            {% endfor %}                          
+                                            </select>
                                         </div>
                                     </div>
+                                    <div class="form-group col-6">
+                                        <label class="col-form-label">avatar</label>
+                                        <div>
+                                            <input class="form-control" name="avatar" type="file" value="{{student.avatar}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label class="col-form-label">Prenom</label>
+                                        <div>
+                                        <select name="faculty" id="faculty">
+                                            {% for faculty in faculty_list %}
+                                            <option value="{{faculty.0}}">{{faculty.0}}</option>
+                                            {% endfor %}
+                                        </select>
+                                           
+                                        </div>
+                                    </div>            
+                        
                                     <div class="form-group col-6">
                                         <label class="col-form-label">Phone No.</label>
                                         <div>
-                                            <input class="form-control" type="text" value="+120 012345 6789">
+                                            <input class="form-control" type="text" value="{{student.phone}}">
                                         </div>
                                     </div>
 
-                                    <div class="seperator"></div>
-
-                                    <div class="col-12 m-t20">
-                                        <div class="ml-auto m-b5">
-                                            <h3>2. Address</h3>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label class="col-form-label">Address</label>
-                                        <div>
-                                            <input class="form-control" type="text" value="5-S2-20 Dummy City, UK">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label class="col-form-label">City</label>
-                                        <div>
-                                            <input class="form-control" type="text" value="US">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label class="col-form-label">State</label>
-                                        <div>
-                                            <input class="form-control" type="text" value="California">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label class="col-form-label">Postcode</label>
-                                        <div>
-                                            <input class="form-control" type="text" value="000702">
-                                        </div>
-                                    </div>
-
-                                    <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
-
-                                    <div class="col-12 m-t20">
-                                        <div class="ml-auto">
-                                            <h3 class="m-form__section">3. Social Links</h3>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-6">
-                                        <label class="col-form-label">Linkedin</label>
-                                        <div>
-                                            <input class="form-control" type="text" value="www.linkedin.com">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label class="col-form-label">Facebook</label>
-                                        <div>
-                                            <input class="form-control" type="text" value="www.facebook.com">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label class="col-form-label">Twitter</label>
-                                        <div>
-                                            <input class="form-control" type="text" value="www.twitter.com">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label class="col-form-label">Instagram</label>
-                                        <div>
-                                            <input class="form-control" type="text" value="www.instagram.com">
-                                        </div>
+                                    <div class="seperator"></div>          
+                          
                                     </div>
                                     <div class="col-12">
                                         <button type="reset" class="btn">Save changes</button>
-                                        <button type="reset" class="btn-secondry">Cancel</button>
+                                        <button hidden type="reset" class="btn-secondry">Cancel</button>
                                     </div>
                                 </div>
                             </form>
-                            <form class="edit-profile">
+                            <form hidden class="edit-profile">
                                 <div class="row">
                                     <div class="col-12 m-t20">
                                         <div class="ml-auto">

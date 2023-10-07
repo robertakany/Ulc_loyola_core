@@ -327,7 +327,7 @@
                         </a>
                     </li>
 
-                    <li>
+                    <li hidden>
                         <a href="#" class="ttr-material-button">
                             <span class="ttr-icon"><i class="ti-user"></i></span>
                             <span class="ttr-label">Mon Profil d'Etudiant</span>
@@ -343,11 +343,11 @@
                         </ul>
                     </li>
                     <li class="ttr-seperate"></li>
-                    <li>
+                    <li hidden >
                         <a href="{% url 'user_profile_edit' %}" class="ttr-material-button">
                             <span class="ttr-icon"><i class="ti-user"></i></span>
                             <span class="ttr-label">Mon Profil d'utilisateur</span>
-                            <span class="ttr-arrow-icon"><i hidden class="fa fa-angle-down"></i></span>
+                            
                         </a>
                         <ul hidden>
                             <li>
@@ -358,6 +358,10 @@
                             </li>
                         </ul>
                     </li>
+                    <li><a href="{% url 'student_profile_edit' student.slug %}" class="ttr-material-button"><i class="ti-user"></i> <span>Profil d'Etudiant</span></a></li>
+                    <li class="ttr-seperate"></li>
+
+                    <li><a href="{% url 'user_profile_edit' %}" class="ttr-material-button"><i class="ti-user"></i> <span>Profil d'utilisateur</span></a></li>
                 </ul>
                 <!-- sidebar menu end -->
             </nav>

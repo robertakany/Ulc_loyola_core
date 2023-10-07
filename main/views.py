@@ -5,7 +5,7 @@ from teachers_admin.models import Teacher
 from userApp import User
 
 
-def home(request):
+""" def home(request):
     user = request.user
     teachers = None
     students = None
@@ -16,6 +16,27 @@ def home(request):
         students = Student.objects.filter(user=user)
 
     return render(request, 'main/home.html', locals())
+ """
+
+def home(request):
+    user = request.user
+    print(user. role)
+    teachers = None
+    students = None
+
+    if user.is_authenticated:
+        print(user.username)
+        # Recherchez l'utilisateur actuellement connecté en utilisant son ID
+        
+        teachers = Teacher.objects.filter(user=user)
+        students = Student.objects.filter(user=user)
+
+    return render(request, 'main/home.html', {
+        'user': user,
+        'teachers': teachers,
+        'students': students,
+    })
+
 
 def home1(request):
 	return  render(request, 'main/home1.html')
