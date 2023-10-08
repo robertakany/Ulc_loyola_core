@@ -22,7 +22,7 @@ ROLE = (
 def user_path(i, filename):
     return f'users/{i.id}_{i.email}/images/{filename}'
 class User(django.contrib.auth.models.AbstractUser):
-    # username= models.CharField(max_length=20 , verbose_name="Nom d'utilisateur")
+    username= models.CharField(max_length=20 , verbose_name="Nom d'utilisateur")
 
     email = models.EmailField(_('email address'), unique=True)
     phone = models.CharField(max_length=50)
@@ -46,7 +46,7 @@ class User(django.contrib.auth.models.AbstractUser):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.username, self.last_name)  
+            self.slug = slugify(self.first_name, self.last_name)  
         super().save(*args, **kwargs)
         
     def avatar_url(self):
@@ -66,7 +66,7 @@ def set_user_is_student(sender, instance, **kwargs):
     # Nous allons définir is_student à True pour l'utilisateur associé.
     if instance.user:
         instance.user.is_teacher = True
-        instance.user.save()
+        instance.user.save()        
 
 @receiver(post_save, sender=User)
 def set_user_roles(sender, instance, created, **kwargs):
@@ -75,7 +75,8 @@ def set_user_roles(sender, instance, created, **kwargs):
             instance.is_teacher = True
         elif instance.role == 'etudiant':
             instance.is_student = True
-        instance.save()        
+        instance.save()
+                
 
 
 class Alumni(models.Model):

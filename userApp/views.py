@@ -65,6 +65,24 @@ def signup(request):
                 if user:
                     login(request, user)
                     print('this is the user login', user)
+                    if user.role == 'professeur' or user.is_teacher :
+                        Teacher.objects.create(
+                            user=user
+                    )
+                    if user.role == 'etudiant' or user.is_student:
+                        Student.objects.create(
+                            user=user,
+                            first_name=user.first_name,
+                            last_name=user.last_name,
+                            email=user.email,
+                            phone=user.phone,
+                            avatar=user.avatar,
+                            country=user.country,
+                            sexe_type=user.sexe_type,
+                            born_date=user.born_date,
+                            #faculty=user.faculty,
+                            #auditoire=user.auditoire
+                            )
 
                     response = redirect('home')
                     print(user)

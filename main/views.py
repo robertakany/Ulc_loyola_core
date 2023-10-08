@@ -20,11 +20,12 @@ from userApp import User
 
 def home(request):
     user = request.user
-    print(user. role)
+    
     teachers = None
     students = None
 
     if user.is_authenticated:
+        print(user.role)
         print(user.username)
         # Recherchez l'utilisateur actuellement connecté en utilisant son ID
         

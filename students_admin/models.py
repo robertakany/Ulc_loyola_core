@@ -3,6 +3,9 @@ from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from main.utils import Faculty
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from userApp.models import *
 
 SEX_TYPES = (
 	('M', 'M'),
@@ -26,6 +29,7 @@ def student_path(i, filename):
 
 
 class Student(models.Model):
+	username = models.CharField(max_length=20 , verbose_name="Nom d'utilisateur")
 	first_name = models.CharField(max_length=45)
 	last_name = models.CharField(max_length=45)
 	user = models.OneToOneField('userApp.User', related_name="student", on_delete=models.SET_NULL, null=True,blank=True)
@@ -46,7 +50,7 @@ class Student(models.Model):
 
 	def save(self, *args, **kwargs):
 		if not self.slug:
-			base_slug = slugify(self.user)
+			base_slug = slugify(self.first_name, self.last_name)
 			slug = base_slug
 			count = 1
 			while Student.objects.filter(slug=slug).exists():
@@ -57,6 +61,31 @@ class Student(models.Model):
 
 
 		super(Student, self).save(*args, **kwargs)
+@receiver(post_save, sender=Student)
+def create_user_for_student(sender, instance, created, **kwargs):
+    if created:
+        # Créez un objet User associé au Student
+        user = User.objects.create(
+			username=instance.username,
+            email=instance.email,
+            phone=instance.phone,
+            avatar=instance.avatar,
+            country=instance.country,
+            date_joined=instance.date_joined,
+            sexe_type=instance.sexe_type,
+            is_delete=instance.is_delete,
+            born_date=instance.born_date,
+            address=instance.address,
+            role='etudiant',  # Vous pouvez définir le rôle ici
+
+            is_student=True,  # Assurez-vous que le champ is_student est défini à True
+        )
+
+        # Associez le nouvel utilisateur au Student
+        instance.user = user
+        instance.save()
+
+
 
 class StudentCourses(models.Model):
 	student = models.ForeignKey(Student, verbose_name="studentOfCourse", on_delete=models.CASCADE)
