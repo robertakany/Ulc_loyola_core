@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from userApp.models import *
 from django.utils.text import slugify
@@ -13,7 +14,7 @@ class News(models.Model):
     author = models.ForeignKey(User, related_name="user_author", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     is_deleted = models.BooleanField(default=False)
-    data = models.JSONField(null=True)
+    data = models.JSONField(null=True,blank=True)
     slug = models.SlugField(unique=True, blank=True)
 
     def __str__(self):
@@ -34,5 +35,45 @@ class News(models.Model):
             self.featured_image = '/static/assets/images/blog/grid/pic2.png'
 
         super(News, self).save(*args, **kwargs)
+
+    def add_view(self):
+        self.views += 1
+        self.save()
+
+    def get_likes_count(self):
+        return self.likes.count()
+
+    def get_comments_count(self):
+        return self.comments.count()
+
+    def get_views_count(self):
+        return self.views
+
+
+User = get_user_model()
+
+
+class Comment(models.Model):
+    news = models.ForeignKey(
+        News, on_delete=models.CASCADE, related_name='comments'
+    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField(max_length=200)
+    date = models.DateTimeField(auto_now_add=True)
+
+
+#  likes = models.ManyToManyField(User, related_name='photo_like')#
+# def number_of_likes(self):
+# return self.like.count()
+
+
+class Like(models.Model):
+    news = models.ForeignKey(
+        News, on_delete=models.CASCADE, related_name='likes'
+    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    # Nouveau champ pour indiquer si le like est actif ou non
+    is_active = models.BooleanField(default=True)
 
 # Create your models here.

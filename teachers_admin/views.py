@@ -117,25 +117,27 @@ def edit_user_profile(request):
     roles = ROLE
     COUNTRIES_LIST = COUNTRIES
     error = "Champs invalides "
-    student= Student.objects.get( user=request.user)
+    teacher= Teacher.objects.get( user=request.user)
     
-
+    
     if request.method == 'POST':
-        user = request.user
-        # Récupération des données du formulaire
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        country = request.POST.get('country')
-        phone = request.POST.get('phone')
-        avatar = request.FILES.get('avatar')
-        email = request.POST.get('email')
-        sexe_type = request.POST.get('sexe_type')
-        born_date = request.POST.get('born_date')
-        role=request.POST.get('role')
-        address = request.POST.get('address')
-        old_password = request.POST.get('old_password')
-        new_password1 = request.POST.get('new_password1')
-        new_password2 = request.POST.get('new_password2')
+        try:    
+            user = request.user
+            # Récupération des données du formulaire
+            first_name = request.POST.get('first_name')
+            last_name = request.POST.get('last_name')
+            country = request.POST.get('country')
+            phone = request.POST.get('phone')
+            avatar = request.FILES.get('avatar')
+            email = request.POST.get('email')
+            born_date = request.POST.get('born_date')
+            role=request.POST.get('role')
+            address = request.POST.get('address')
+            old_password = request.POST.get('old_password')
+            new_password1 = request.POST.get('new_password1')
+            new_password2 = request.POST.get('new_password2')
+        except Exception as e:
+            print('Error',e.message)    
 
         # Vérification de l'ancien mot de passe
         if old_password and not user.check_password(old_password):
@@ -145,24 +147,47 @@ def edit_user_profile(request):
         # Mise à jour des données de l'utilisateur
         if first_name:
             user.first_name = first_name
+            print('ok',user.first_name)
+        else:
+            print('no') 
         if last_name:
             user.lasst_name = last_name
+            print('ok',user.last_name)
+        else:
+            print('no')    
         if country:
             user.country = country
+            print('ok',user.country)
+        else:
+            print('no country)',user.country)    
         if phone:
             user.phone = phone
+            print('ok',user.phone)
+        else:
+            print('no') 
         if email:
             user.email = email
-        if sexe_type:
-            user.sexe_type = sexe_type
+            print('ok',user.email)
+        else:
+            print('no')  
         if born_date:
             user.born_date = born_date
+            print('ok',user.born_date)
+        else:
+            print('no') 
         if address:
             user.address = address
+            print('ok',user.address)
+        else:
+            print('no') 
         if role:
-            user.role = role    
+            user.role = role  
+            print('ok',user.role)  
+        else:
+            print('no') 
         if avatar:
             user.avatarl = avatar
+            print('ok',user.avatar)
         else:
             user.avatar = '/static/assets/university_mobile_logo_ulc-1 (1).png'                            
         if new_password1 and new_password2:
@@ -175,11 +200,14 @@ def edit_user_profile(request):
             update_session_auth_hash(request, user)
 
         user.save()
+        
 
         messages.success(
                 request, 'Vos informations ont été mises à jour avec succès.')
+        print(messages)
         #return redirect('account')
-        
+   
+               
 
     return render(request, 'teachers_admin/user_profile_teacher.html', locals())
 

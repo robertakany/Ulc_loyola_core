@@ -30,11 +30,14 @@ def connect(request):
             user = User.objects.filter(
                 Q(email=username_or_email) | Q(username=username_or_email)
             ).first()
+            print(user)
             if user is not None and user.check_password(password):
                 login(request, user)
                 print('_________OK_____________')
                 response = redirect(next or 'home')
                 return response
+            else:
+                print('_________NONE________')
         else:
             error = 'Identifiants invalides'
     return render(request, 'user/login_page.html', {'form': form, 'error': error, 'next': next})
@@ -65,25 +68,7 @@ def signup(request):
                 if user:
                     login(request, user)
                     print('this is the user login', user)
-                    if user.role == 'professeur' or user.is_teacher :
-                        Teacher.objects.create(
-                            user=user
-                    )
-                    if user.role == 'etudiant' or user.is_student:
-                        Student.objects.create(
-                            user=user,
-                            first_name=user.first_name,
-                            last_name=user.last_name,
-                            email=user.email,
-                            phone=user.phone,
-                            avatar=user.avatar,
-                            country=user.country,
-                            sexe_type=user.sexe_type,
-                            born_date=user.born_date,
-                            #faculty=user.faculty,
-                            #auditoire=user.auditoire
-                            )
-
+                 
                     response = redirect('home')
                     print(user)
                     return response

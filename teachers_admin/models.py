@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from university_admin.models import Course
 from django.utils.translation import gettext_lazy as _
-from userApp.models import *
+from userApp.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -43,7 +43,7 @@ class Teacher(models.Model):
     slug = models.SlugField(unique=True, blank=True)
 
     def __str__(self):
-        return self.user.first_name
+        return self.first_name
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -61,6 +61,8 @@ def create_user_for_teacher(sender, instance, created, **kwargs):
     if created:
         # Créez un objet User associé au Teacher
         user = User.objects.create(
+            first_name=instance.first_name,
+            last_name=instance.last_name,
             username=instance.username,
             email=instance.email,
             phone=instance.phone,
@@ -69,10 +71,13 @@ def create_user_for_teacher(sender, instance, created, **kwargs):
             is_delete=instance.is_delete,
             born_date=instance.born_date,
             address=instance.address,
+            slug=instance.slug,
             role='professeur',  # Vous pouvez définir le rôle ici,
             is_teacher=True,  # Assurez-vous que le champ is_teacher est défini à True
+            #
         )
-
+        # Définissez le mot de passe par défaut pour l'utilisateur
+        user.set_password('UlcLoyola1') 
         # Associez le nouvel utilisateur au Teacher
         instance.user = user
         instance.save()

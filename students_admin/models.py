@@ -66,6 +66,8 @@ def create_user_for_student(sender, instance, created, **kwargs):
     if created:
         # Créez un objet User associé au Student
         user = User.objects.create(
+			first_name=instance.first_name,
+			last_name=instance.last_name,
 			username=instance.username,
             email=instance.email,
             phone=instance.phone,
@@ -76,11 +78,12 @@ def create_user_for_student(sender, instance, created, **kwargs):
             is_delete=instance.is_delete,
             born_date=instance.born_date,
             address=instance.address,
+			slug=instance.slug,
             role='etudiant',  # Vous pouvez définir le rôle ici
-
             is_student=True,  # Assurez-vous que le champ is_student est défini à True
+			 
         )
-
+        user.set_password('UlcLoyola1') 
         # Associez le nouvel utilisateur au Student
         instance.user = user
         instance.save()

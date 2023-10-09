@@ -112,10 +112,6 @@
                                         <li><a href="{% url 'admin:index' %}">Dashboard</a></li> 
                                         <li><a href="#"><span class="ttr-user-avatar">{{user.username}} <img  class="user_caption" alt="user" src="{{user.avatar.url}}" width="32" height="32"></span> <i class="fas fa-circle online-icon"></i></a></li>
                                         <li><a href="{% url 'logout' %}">logout</a></li>
-                                    {% else %}
-                                     
-                                    <li><a href="#" ><span class="ttr-user-avatar">{{user.username}} <img  class="user_caption" alt="user" src="{{user.avatar.url}}" width="32" height="32"></span><i class="fas fa-circle online-icon"></i></a></li>
-                                    <li><a href="{% url 'logout' %}">logout</a></li> 
                                     {% endif %}
                                 {% else %}    
                                     <li><a href="{% url 'login' %}">Login</a></li>

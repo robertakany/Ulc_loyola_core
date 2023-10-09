@@ -63,7 +63,7 @@
         <div class="ttr-sidebar-wrapper content-scroll">
             <!-- side menu logo start -->
             <div class="ttr-sidebar-logo">
-                <a href="#"><img alt="" src="/static/admin/assets/images/logo.png" width="122" height="27"></a>
+                <a href="{% url 'home' %}"><img alt="" src="/static/admin/assets/images/logo.png" width="122" height="27"></a>
                 <!-- <div class="ttr-sidebar-pin-button" title="Pin/Unpin Menu">
 					<i class="material-icons ttr-fixed-icon">gps_fixed</i>
 					<i class="material-icons ttr-not-fixed-icon">gps_not_fixed</i>
@@ -77,18 +77,32 @@
             <nav class="ttr-sidebar-navi">
                 <ul>
                     <li>
-                        <a href="index.html" class="ttr-material-button">
+                        <a href="{% url 'teacher_admin' teacher.slug %}" class="ttr-material-button">
                             <span class="ttr-icon"><i class="ti-home"></i></span>
                             <span class="ttr-label">Dashborad</span>
                         </a>
                     </li>
                     <li>
-                        <a href="courses.html" class="ttr-material-button">
+                        <a href="{% url 'courses_list' %}" class="ttr-material-button">
                             <span class="ttr-icon"><i class="ti-book"></i></span>
-                            <span class="ttr-label">Courses</span>
+                            <span class="ttr-label">Cours</span>
                         </a>
                     </li>
                     <li>
+                        <a href="{% url 'add_course' %}" class="ttr-material-button">
+                            <span class="ttr-icon"><i class="ti-book"></i></span>
+                            <span class="ttr-label">Ajouter un cours</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'user_profile_edit_teacher_admin' %}" class="ttr-material-button">
+                            <span class="ttr-icon"><i class="ti-user"></i></span>
+                            <span class="ttr-label">Mon profile</span>
+                        </a>
+                    </li>
+
+                    <li hidden>
                         <a href="#" class="ttr-material-button">
                             <span class="ttr-icon"><i class="ti-email"></i></span>
                             <span class="ttr-label">Mailbox</span>
@@ -106,40 +120,40 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li hidden>
                         <a href="#" class="ttr-material-button">
                             <span class="ttr-icon"><i class="ti-calendar"></i></span>
                             <span class="ttr-label">Calendar</span>
                             <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
                         </a>
                         <ul>
-                            <li>
+                            <li hidden>
                                 <a href="basic-calendar.html" class="ttr-material-button"><span class="ttr-label">Basic Calendar</span></a>
                             </li>
-                            <li>
+                            <li hidden>
                                 <a href="list-view-calendar.html" class="ttr-material-button"><span class="ttr-label">List View</span></a>
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li hidden>
                         <a href="bookmark.html" class="ttr-material-button">
                             <span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
                             <span class="ttr-label">Bookmarks</span>
                         </a>
                     </li>
-                    <li>
+                    <li hidden>
                         <a href="review.html" class="ttr-material-button">
                             <span class="ttr-icon"><i class="ti-comments"></i></span>
                             <span class="ttr-label">Review</span>
                         </a>
                     </li>
-                    <li>
+                    <li hidden>
                         <a href="add-listing.html" class="ttr-material-button">
                             <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
                             <span class="ttr-label">Add listing</span>
                         </a>
                     </li>
-                    <li>
+                    <li hidden>
                         <a href="#" class="ttr-material-button">
                             <span class="ttr-icon"><i class="ti-user"></i></span>
                             <span class="ttr-label">My Profile</span>

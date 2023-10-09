@@ -5,8 +5,8 @@ from django.dispatch import receiver
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
-from students_admin.models import Student
-from teachers_admin.models import Teacher
+#from students_admin.models import *
+#from teachers_admin.models import *
 
 SEX_TYPES = (
     ('M', 'M'),
@@ -52,7 +52,7 @@ class User(django.contrib.auth.models.AbstractUser):
     def avatar_url(self):
         return (self.avatar and hasattr(self.avatar, 'url') and self.avatar.url) or 'users/university_mobile_logo_ulc-1 (1).png'
     
-@receiver(post_save, sender=Student)
+@receiver(post_save, sender='students_admin.Student')
 def set_user_is_student(sender, instance, **kwargs):
     # Lorsqu'un objet Student est sauvegardé, cette fonction sera appelée.
     # Nous allons définir is_student à True pour l'utilisateur associé.
@@ -60,7 +60,7 @@ def set_user_is_student(sender, instance, **kwargs):
         instance.user.is_student = True
         instance.user.save()
 
-@receiver(post_save, sender=Teacher)
+@receiver(post_save, sender='teachers_admin.Teacher')
 def set_user_is_student(sender, instance, **kwargs):
     # Lorsqu'un objet Student est sauvegardé, cette fonction sera appelée.
     # Nous allons définir is_student à True pour l'utilisateur associé.
