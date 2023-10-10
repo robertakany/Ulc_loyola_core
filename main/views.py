@@ -3,6 +3,7 @@ from django.shortcuts import render
 from students_admin.models import Student
 from teachers_admin.models import Teacher
 from userApp import User
+from university_admin.models import Course,Alumni
 
 
 """ def home(request):
@@ -39,6 +40,13 @@ def home(request):
     })
 
 
-def home1(request):
-	return  render(request, 'main/home1.html')
+def all_courses_list(request):
+     courses = Course.objects.filter(is_deleted=False)
+     return render(request, 'main/all_courses.html', locals())   
+
+
+def alumnis(request):
+    alumnis = Alumni.objects.filter(is_deleted=False)
+
+    
 # Create your views here.

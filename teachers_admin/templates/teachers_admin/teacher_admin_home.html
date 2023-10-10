@@ -55,11 +55,7 @@
 
 <body class="ttr-opened-sidebar ttr-pinned-sidebar">
 
-    <style>
-        .ttr-header{
-            background-color: orange;
-        }
-    </style>
+    
 
     <!-- header start -->
     {% include "teachers_admin/header.html" %}
@@ -70,7 +66,7 @@
     <div class="ttr-sidebar-wrapper content-scroll">
         <!-- side menu logo start -->
         <div class="ttr-sidebar-logo">
-            <a href="{% url 'home' %}"><img alt="" src="/static/admin/assets/images/logo.png" width="122" height="27"></a>
+            <a href="{% url 'home' %}"><img alt="" src="/static/assets/images/university_logo_ulc.png" width="122" height="27"></a>
             <!-- <div class="ttr-sidebar-pin-button" title="Pin/Unpin Menu">
                 <i class="material-icons ttr-fixed-icon">gps_fixed</i>
                 <i class="material-icons ttr-not-fixed-icon">gps_not_fixed</i>
@@ -195,7 +191,59 @@
                 </ul>
             </div>
             <!-- Card -->
+
             <div class="row">
+                <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-12">
+                    <div class="widget-card widget-bg3">
+                        <div class="wc-item">
+                            <h4 class="wc-title">
+                                Nombre de cours Ajouter
+                            </h4>
+                            <span class="wc-des">
+								<i class="ti-book"></i>
+							</span>
+                            <span class="wc-stats counter">
+								 
+                                 {{courses|length}}
+                                  
+							</span>
+                        </div>
+                    </div>
+                </div>
+                <style>
+                    #wc-title{
+                        border: solid 1px white;
+                        border-radius: 10px;
+                        color: white;
+                        background-color: rgb(236, 226, 222);
+                        height: 40px;
+                        text-align: center;
+                    }
+                     #wc-title:hover{
+                            background-color:coral;
+                            transition: 0s linear;
+                        }
+                </style>
+                        
+                <div   class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-12">
+                    <div  class="widget-card widget-bg3">
+                        <div class="wc-item">
+                            <button id="wc-title" class="wc-title">
+                                <a href="{% url 'add_course' %}">Ajouter un cours</a>
+                            </button>
+                            <span class="wc-des">
+								<i class="ti-book"></i>
+							</span>
+                            
+							
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div hidden class="row">
                 <div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12">
                     <div class="widget-card widget-bg1">
                         <div class="wc-item">
@@ -304,7 +352,7 @@
             <!-- Card END -->
             <div class="row">
                 <!-- Your Profile Views Chart -->
-                <div class="col-lg-8 m-b30">
+                <div hidden class="col-lg-8 m-b30">
                     <div class="widget-box">
                         <div class="wc-title">
                             <h4>Your Profile Views</h4>
@@ -314,8 +362,80 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <!-- Your Profile Views Chart -->
+                    <div class="col-lg-12 m-b30">
+                        <div class="widget-box">
+                            <div class="wc-title">
+                                <h4>Mes Cours</h4>
+                            </div>
+                            <div class="widget-inner">
+                                {% for course in courses%}
+                                <div class="card-courses-list admin-courses">
+                                    <div class="card-courses-media">
+                                        <img src="{{course.image.url }}" alt="" />
+                                    </div>
+                                    <div class="card-courses-full-dec">
+                                        <div class="card-courses-title">
+                                            <h4>{{course.title}}</h4>
+                                        </div>
+                                        <div class="card-courses-list-bx">
+                                            <ul class="card-courses-view">
+                                                <li class="card-courses-user">
+                                                    <div class="card-courses-user-pic">
+                                                        <img src="{{course.teacher.user.avatar_url}}" alt="" />
+                                                    </div>
+                                                    <div class="card-courses-user-info">
+                                                        <h5>Teacher</h5>
+                                                        <h4>{{course.teacher.user.username}}</h4>
+                                                    </div>
+                                                </li>
+                                                <li class="card-courses-categories">
+                                                    <h5>3 Categories</h5>
+                                                    <h4>{{course.category}}</h4>
+                                                </li>
+                                                <li class="card-courses-review">
+                                                    <h5>3 Review</h5>
+                                                    <ul class="cours-star">
+                                                        <li class="active"><i class="fa fa-star"></i></li>
+                                                        <li class="active"><i class="fa fa-star"></i></li>
+                                                        <li class="active"><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                    </ul>
+                                                </li>
+                                                <li hidden class="card-courses-stats">
+                                                    <a href="{{course.pdf_files.url}}" class="btn button-sm green radius-xl" download>telecharger</a>
+                                                </li>
+                                                <li hidden class="card-courses-price">
+                                                    <del>$190</del>
+                                                    <h5 class="text-primary">$120</h5>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="row card-courses-dec">
+                                            <div class="col-md-12">
+                                                <h6 class="m-b10">Cours Description</h6>
+                                                <p>{{course.description}} </p>
+                                            </div>
+                                            <div  class="col-md-12">
+                                                <a href="{{course.pdf_files.url}}" class="btn green radius-xl outline" download>Voir</a>
+                                                <a href="{% url 'course_update' course.pk %}" class="btn button-sm green radius-xl">modifier</a>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                </div>
+                                {% endfor %}
+    
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Your Profile Views Chart END-->
+                </div>
                 <!-- Your Profile Views Chart END-->
-                <div class="col-lg-4 m-b30">
+                <div hidden class="col-lg-4 m-b30">
                     <div class="widget-box">
                         <div class="wc-title">
                             <h4>Notifications</h4>
@@ -388,7 +508,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 m-b30">
+                <div hidden class="col-lg-6 m-b30">
                     <div class="widget-box">
                         <div class="wc-title">
                             <h4>New Users</h4>
@@ -461,7 +581,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 m-b30">
+                <div hidden class="col-lg-6 m-b30">
                     <div class="widget-box">
                         <div class="wc-title">
                             <h4>Orders</h4>
@@ -519,7 +639,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12 m-b30">
+                <div hidden class="col-lg-12 m-b30">
                     <div class="widget-box">
                         <div class="wc-title">
                             <h4>Basic Calendar</h4>

@@ -22,7 +22,7 @@ class Registration(models.Model):
 
 
 class Course(models.Model):
-    teacher = models.ForeignKey('teachers_admin.Teacher', on_delete=models.CASCADE)
+    teacher = models.ForeignKey('teachers_admin.Teacher', on_delete=models.SET_NULL, blank=True, null=True)
     auditoire = models.ManyToManyField('main.Auditoire',related_name="course_auditoire")
     faculty = models.CharField(max_length=255, choices=Faculty)
     title = models.CharField(max_length=255)
@@ -35,6 +35,7 @@ class Course(models.Model):
     view= models.PositiveIntegerField(default=0)
     data = models.JSONField(null=True, blank=True)
     slug = models.SlugField(unique=True, blank=True)
+    is_deleted = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -56,6 +57,13 @@ class StudentCourses(models.Model):
     courses = models.ForeignKey(Course, on_delete=models.CASCADE)
     auditoire = models.ForeignKey('main.Auditoire', on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
+
+
+class Alumni(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(unique=True)
+    diploma = models.CharField(max_length=255)
+    diploma_year = models.IntegerField()
 
 
 class TeacherStudentRelation(models.Model):

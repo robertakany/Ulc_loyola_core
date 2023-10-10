@@ -79,8 +79,4 @@ def set_user_roles(sender, instance, created, **kwargs):
                 
 
 
-class Alumni(models.Model):
-    name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
-    diploma = models.CharField(max_length=255)
-    diploma_year = models.IntegerField()
+

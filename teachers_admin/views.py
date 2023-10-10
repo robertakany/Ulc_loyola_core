@@ -22,6 +22,9 @@ from config.countries import COUNTRIES
 from main.utils import *
 from django.db.models import Q
 from userApp.models import *
+from teachers_admin.forms import CourseForm
+from django.shortcuts import render, redirect, get_object_or_404
+
 
 
 
@@ -62,6 +65,7 @@ def teacher_admin(request, teacher_slug):
     user= request.user
     teacher = Teacher.objects.get(user=user, slug=teacher_slug)
     print(teacher.user )
+    courses = Course.objects.filter(teacher=teacher)
     return render(request, "teachers_admin/teacher_admin_home.html", locals())
 
 
@@ -211,4 +215,29 @@ def edit_user_profile(request):
 
     return render(request, 'teachers_admin/user_profile_teacher.html', locals())
 
+
+def course_update(request, course_pk ):
+    error = "Il y a une erreur dans ces champs"
+    teacher = Teacher.objects.filter(user=request.user).first()
+    course = get_object_or_404(Course, id=course_pk, teacher=teacher)
+    
+    if request.method == 'POST':
+        form = CourseForm(request.POST, request.FILES, instance=course)
+        form.teacher = teacher
+        print(form.teacher)
+        
+        if form.is_valid():
+            form.save()
+            return redirect("courses_list")
+        else:
+            print(form.errors)
+
+    else:
+        form = CourseForm(instance=course)
+        print("error updating")
+    
+    auditoires = Auditoire.objects.all()    
+    return render(request, 'teachers_admin/course_update.html', locals())    
+        
+        
 # Create your views here.

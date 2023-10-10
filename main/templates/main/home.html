@@ -69,9 +69,9 @@
                 <div class="container">
                     <div class="row d-flex justify-content-between">
                         <div class="topbar-left">
-                            <ul>
-                                <li><a href="faq-1.html"><i class="fa fa-question-circle"></i>Ask a Question</a></li>
-                                <li><a href="javascript:;"><i class="fa fa-envelope-o"></i>Support@website.com</a></li>
+                            <ul hidden >
+                                <li hidden><a href="faq-1.html"><i class="fa fa-question-circle"></i>Ask a Question</a></li>
+                                <li hidden><a href="javascript:;"><i class="fa fa-envelope-o"></i>Support@website.com</a></li>
                                 <li><a href="#">Contact</a></li>
                             </ul>
                         </div>
@@ -159,12 +159,12 @@
                         <!-- Navigation Menu ==== -->
                         <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
                             <div class="menu-logo">
-                                <a href="index.html"><img src="/static/assets/images/logo.png" alt=""></a>
+                                <a href="index.html"><img src="/static/assets/images/university_mobile_logo_ulc-1.png" alt=""></a>
                             </div>
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="{% url 'home1' %}">Accueil</a>
+                                <li class="active"><a href="{% url 'home' %}">Accueil</a>
                                     <ul hidden class="sub-menu">
-                                        <li><a href="{% url 'home1' %}">Home</a></li>
+                                        <li><a href="#">Home</a></li>
                                         <li><a href="index-2.html">Home 2</a></li>
                                     </ul>
                                 </li>
@@ -246,7 +246,7 @@
                                         <li><a href="blog-details.html">Blog Details</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-dashboard"><a href="javascript:;">Dashboard <i class="fa fa-chevron-down"></i></a>
+                                <li class="nav-dashboard"><a href="javascript:;">Contact <i class="fa fa-chevron-down"></i></a>
                                     <ul class="sub-menu">
                                         {% if user.is_authenticated %}
                                             {% if user.is_teacher %}
@@ -331,7 +331,7 @@
                                 <div class="tp-caption Newspaper-Subtitle   tp-resizeme" id="slide-100-layer-3" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['210','210','210','210']" data-width="none"
                                     data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
                                     data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 7; white-space: nowrap; color:#fff; font-family:rubik; font-size:18px; font-weight:400;">
-                                    Batter Education For A Better
+                        
                                 </div>
                                 <style>
                                     .contact-us {
@@ -341,16 +341,16 @@
                                 <!-- LAYER NR. 3 -->
                                 <div class="tp-caption Newspaper-Subtitle   tp-resizeme" id="slide-100-layer-4" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['320','320','320','290']" data-width="['800','800','700','420']"
                                     data-height="['100','100','100','120']" data-whitespace="unset" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
-                                    data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 7; text-transform:capitalize; white-space: unset; color:#fff; font-family:rubik; font-size:18px; line-height:28px; font-weight:400;">
+                                    data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 7; text-transform:capitalize; white-space: unset; color:#fff; font-family:rubik; font-size:18px; line-height:28px; font-weight:400; margin-top: 10px;">
                                     Plongez dans un environnement d’apprentissage dynamique et stimulant, où l’excellence académique et l’innovation sont au cœur de tout ce que nous faisons.
                                 </div>
                                 <!-- LAYER NR. 4 -->
                                 <div class="tp-caption Newspaper-Button rev-btn " id="slide-100-layer-5" data-x="['center','center','center','center']" data-hoffset="['90','80','75','90']" data-y="['top','top','top','top']" data-voffset="['400','400','400','420']" data-width="none"
                                     data-height="none" data-whitespace="nowrap" data-type="button" data-responsive_offset="on" data-responsive="off" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                    data-textAlign="['center','center','center','center']" data-paddingtop="[12,12,12,12]" data-paddingright="[30,35,35,15]" data-paddingbottom="[12,12,12,12]" data-paddingleft="[30,35,35,15]" style="z-index: 8; white-space: nowrap; outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer; background-color:var(--primary) !important; border:0; border-radius:30px; margin-right:5px;">S'INSCRIRE </div>
+                                    data-textAlign="['center','center','center','center']" data-paddingtop="[12,12,12,12]" data-paddingright="[30,35,35,15]" data-paddingbottom="[12,12,12,12]" data-paddingleft="[30,35,35,15]" style="z-index: 8; white-space: nowrap; outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer; background-color:var(--primary) !important; border:0; border-radius:30px; margin-right:5px; margin-top: 5px;">S'INSCRIRE </div>
                                 <div class="tp-caption Newspaper-Button rev-btn" id="slide-100-layer-6" data-x="['center','center','center','center']" data-hoffset="['-90','-80','-75','-90']" data-y="['top','top','top','top']" data-voffset="['400','400','400','420']" data-width="none"
                                     data-height="none" data-whitespace="nowrap" data-type="button" data-responsive_offset="on" data-responsive="off" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                    data-textAlign="['center','center','center','center']" data-paddingtop="[12,12,12,12]" data-paddingright="[30,35,35,15]" data-paddingbottom="[12,12,12,12]" data-paddingleft="[30,35,35,15]" style="z-index: 8; white-space: nowrap; outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer; border-radius:30px;"><span>CONTACTEZ-NOUS</span></div>
+                                    data-textAlign="['center','center','center','center']" data-paddingtop="[12,12,12,12]" data-paddingright="[30,35,35,15]" data-paddingbottom="[12,12,12,12]" data-paddingleft="[30,35,35,15]" style="z-index: 8; white-space: nowrap; outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer; border-radius:30px; margin-top: 5px;"><span>CONTACTEZ-NOUS</span></div>
                             </li>
 
                             <li data-index="rs-200" data-transition="parallaxvertical" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="/static/assets/images/slider/slide1.jpg"
@@ -394,7 +394,7 @@
                                 <!-- LAYER NR. 3 -->
                                 <div class="tp-caption Newspaper-Subtitle   tp-resizeme" id="slide-200-layer-4" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['320','320','320','290']" data-width="['800','800','700','420']"
                                     data-height="['100','100','100','120']" data-whitespace="unset" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
-                                    data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 7; text-transform:capitalize; white-space: unset; color:#fff; font-family:rubik; font-size:18px; line-height:28px; font-weight:400;">
+                                    data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 7; text-transform:capitalize; white-space: unset; color:#fff; font-family:rubik; font-size:18px; line-height:28px; font-weight:400; margin-bottom: 5px;">
                                     <span class="cote">"</span> La science est un art qui s’exprime à travers la curiosité humaine, la créativité infinie et le désir inextinguible de comprendre le fonctionnement de l’univers qui nous entoure. – Albert
                                     Einstein <span class="cote">"</span>
                                 </div>
@@ -483,7 +483,7 @@
                             <div class="col-md-12">
                                 <div class="join-content-bx text-black">
                                     <img src="/static/assets/images/favicon-144x144-1.png" alt="">
-                                    <h2 hidden>Learn a new skill online on <br> your time</h2>
+                                    
                                     <h2>À la poursuite de l’excellence et de l’innovation</h2>
                                     <p>Née dans des circonstances de lieu et du temps pour les moins contraignantes et quasi inextricables, l’Université Loyola du Congo (ULC) est à la fois un défi et un espoir. Jeune et vieux à la fois, ce projet qui vise
                                         une Université d’excellence en RDC et en Afrique centrale, tient son assurance du passé élogieux de l’enseignement jésuite et de la réputation de la Faculté Saint Pierre Canisius et de l’ex Institut Supérieur Agrovétérinaire
@@ -497,37 +497,39 @@
                 </div>
                 <!-- Form END -->
                 <style>
-                    .containers {
-                        background-color: #F09A3E;
-                        height: 500px !important;
+                    
+                    
+
+                    #our-work{
+                        background: #F09A3E;
+                        box-shadow: 5px 5px 5px 5px gray;
+                        border-radius: 5px;
+                        
                     }
                     
-                    .custom-container {
-                        margin: 15px;
-                        padding: 15px;
-                        background-color: #fff;
-                        height: 600px;
-                    }
-                    
-                    .custom-section {
-                        padding: 30px;
-                        height: auto;
-                        border: solid 2px white;
-                        border-radius: 15px;
-                        background: #fff;
-                        height: 100%;
-                        /* Pour que les colonnes s'étirent sur toute la hauteur */
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        margin: 30px;
-                        margin-top: 50px;
+                    .custom-section{
+                        border-radius: 10px;
+                        border: solid gray 1px;
+                        padding: 7px;
+                        
+                        background-color: white;
+
                     }
                     
                     .custom-section:hover {
                         background-color: #F09A3E;
                         color: white;
                         transition-duration: 1s;
+                        border: solid white 2px;
+                        border-radius: 10px;
+
+                    }
+
+                    .custom-container {
+                        margin: 15px;
+                        padding: 15px;
+                        background-color: #fff;
+                        height: 600px;
                     }
                     
                     .custom {
@@ -543,14 +545,14 @@
                     }
                     
                     .custom_image {
-                        height: 500px;
-                        width: 550px;
+                        
                         /* Pour que les colonnes s'étirent sur toute la hauteur */
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
-                        margin: 10px;
+                        
                         border-radius: 15px;
+                        object-fit: cover;
                     }
                     
                     .read_more {
@@ -559,26 +561,14 @@
                         text-decoration: underline;
                         font-weight: bolder;
                         font-size: 18px;
+                        
                     }
                     
-                    .custom-section1 {
-                        background-color: #F09A3E;
-                        color: white;
-                        padding: 30px;
-                        height: auto;
-                        height: 100%;
-                        /* Pour que les colonnes s'étirent sur toute la hauteur */
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        margin: 30px;
-                        margin-top: 50px;
-                        margin-left: 30px;
-                        font-weight: 700;
-                    }
+                   
                     
                     .custom-section1 p {
                         margin-bottom: 3px solid white;
+                        color: white !important;
                     }
                     
                     .custom-section1 p:hover {
@@ -614,12 +604,17 @@
                         background-color: #F09A3E;
                         color: #fff;
                         transition-duration: 0.4s;
+                        
+                    }
+
+                    custom-section{
+                        border: solid gray 2px;
                     }
                 </style>
 
-                <div class="containers">
+                <div id="our-work" class="container">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-12">
                             <div class="custom-section1">
                                 <p><a href="#">Notre vision<i class="fa fa-arrow-right "></i></a></p>
                                 <p><a href="#">Nos objectifs<i class="fa fa-arrow-right "></i></a></p>
@@ -628,7 +623,7 @@
 
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-12">
                             <div class="custom-section">
                                 <h2>Notre Histoire</h2>
                                 <p>
@@ -636,7 +631,7 @@
                                 <a href="#"><i class="fa fa-arrow-right "></i></a>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-12">
                             <div class="custom-section">
                                 <h2>Notre Mission</h2>
                                 <p><a href="#">La mission de l’ULC, inscrite dans la tradition séculaire de la Compagnie de Jésus, en est une d’enseignement, de formation, de recherche et des services à la société.</a></p>
@@ -646,9 +641,9 @@
                     </div>
                 </div>
 
-                <div class="custom-container">
+                <div class="container">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-12">
                             <div class="custom">
                                 <h2>L'ULC : Inspirations pour l'Avenir</h2>
                                 <p>“L’éducation est l’arme la plus puissante que vous puissiez utiliser pour changer le monde.” – Nelson Mandela. Cette citation emblématique de Nelson Mandela illustre notre engagement à transformer la société grâce à l’éducation
@@ -657,8 +652,8 @@
                                 <a class="read_more" href="#">Nos Programmes & Facultés</a>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <img class="custom_image" src="/static/study-group-african-people.jpg " alt="Image ULC ">
+                        <div class="col-md-6 col-sm-12">
+                            <img class="custom_image" src="/static/assets/images/study-group-african-people.jpg " alt="Image ULC ">
                         </div>
                     </div>
                 </div>
