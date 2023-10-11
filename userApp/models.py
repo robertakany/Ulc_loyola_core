@@ -15,6 +15,7 @@ SEX_TYPES = (
 ROLE = (
     ('professeur', 'professeur'),
     ('etudiant', 'etudiant'),
+    ('autres ', 'autres')
     
 )
 
@@ -22,11 +23,10 @@ ROLE = (
 def user_path(i, filename):
     return f'users/{i.id}_{i.email}/images/{filename}'
 class User(django.contrib.auth.models.AbstractUser):
-    username= models.CharField(max_length=20 , verbose_name="Nom d'utilisateur")
-
+    username= models.CharField(max_length=20, verbose_name="Nom d'utilisateur")
     email = models.EmailField(_('email address'), unique=True)
     phone = models.CharField(max_length=50)
-    avatar = models.ImageField(upload_to=user_path, null=True, blank=True,default='users/university_mobile_logo_ulc-1 (1).png')
+    avatar = models.ImageField(upload_to=user_path, null=True, blank=True,default='static/assets/images/university_mobile_logo_ulc-1.png')
     country = models.CharField(max_length=100)
     date_joined = models.DateTimeField(auto_now_add=True)
     sexe_type = models.CharField(max_length=23, choices=SEX_TYPES, default='Male')
@@ -50,7 +50,7 @@ class User(django.contrib.auth.models.AbstractUser):
         super().save(*args, **kwargs)
         
     def avatar_url(self):
-        return (self.avatar and hasattr(self.avatar, 'url') and self.avatar.url) or 'users/university_mobile_logo_ulc-1 (1).png'
+        return (self.avatar and hasattr(self.avatar, 'url') and self.avatar.url) or 'static/assets/images/university_mobile_logo_ulc-1.png'
     
 @receiver(post_save, sender='students_admin.Student')
 def set_user_is_student(sender, instance, **kwargs):

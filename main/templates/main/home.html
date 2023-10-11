@@ -87,28 +87,26 @@
                                     .user_caption{
                                         
                                         border-radius: 60px;
-                                       
-
                                     }
                                     
                                 </style>
                                 </li>
                                 {% if user.is_authenticated %}
-                                    {% if user.is_teacher %}
+                                    {% if user.is_teacher  and user.is_superuser == False or user.is_student == False %}
                                         {% for teacher in teachers %}
                                         <li><a href="{% url 'teacher_admin' teacher.slug %}">Dashboard</a></li>
                                         <li><a href="#"><span class="ttr-user-avatar">{{user.username}} <img  class="user_caption" alt="user" src="{{user.avatar.url}}" width="32" height="32"></span> <i class="fas fa-circle online-icon"></i></a></li>
                                         <li><a href="{% url 'logout' %}">logout</a></li>
                                         {% endfor %}
                                     {% endif %}    
-                                    {% if user.is_student %}
+                                    {% if user.is_student and user.is_teacher == False or user.is_superuser == False %}
                                         {% for student in students %}
                                         <li><a href="{% url 'student_admin' student.slug %}">Dashboard</a></li>
                                         <li><a href="#"><span class="ttr-user-avatar">{{user.username}}<img  class="user_caption" alt="user" src="{{user.avatar.url}}" width="32" height="32"></span> <i class="fas fa-circle online-icon"></i></a></li>
                                         <li><a href="{% url 'logout' %}">logout</a></li>
                                         {% endfor %}
                                     {% endif %}    
-                                    {% if user.is_superuser and user.is_student or user.is_superuser and user.is_teacher %}
+                                    {% if user.is_superuser and user.is_student or user.is_superuser and user.is_teacher or user.is_superuser %}
                                         <li><a href="{% url 'admin:index' %}">Dashboard</a></li> 
                                         <li><a href="#"><span class="ttr-user-avatar">{{user.username}} <img  class="user_caption" alt="user" src="{{user.avatar.url}}" width="32" height="32"></span> <i class="fas fa-circle online-icon"></i></a></li>
                                         <li><a href="{% url 'logout' %}">logout</a></li>

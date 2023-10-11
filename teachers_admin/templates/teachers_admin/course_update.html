@@ -195,7 +195,48 @@
                             <h4>Ajout du cours</h4>
                         </div>
                         <div class="widget-inner">
-                            <form method="post" enctype="multipart/form-data" class="edit-profile m-b30">
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label for="title">Title:</label>
+        <input type="text" name="title" value="{{ course.title }}" required>
+
+        <label for="description">Description:</label>
+        <textarea name="description">{{ course.description }}</textarea>
+
+        <label for="notes">Notes:</label>
+        <textarea name="notes">{{ course.notes }}</textarea>
+
+        <label for="image">Image:</label>
+        <input type="file" name="image">
+        <p>actuellement {{coure.image}}</p>
+
+        <label for="pdf_files">PDF Files:</label>
+        <input type="file" name="pdf_files">
+
+        <label for="auditoire">Select Auditoire(s):</label>
+        <select name="auditoire" multiple>
+            {% for auditoire in auditoires %}
+                <option value="{{ auditoire.id }}"
+                    {% if auditoire in course.auditoire.all %}
+                        selected
+                    {% endif %}>
+                    {{ auditoire.name }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <a href="{% url 'courses_list' %}">Back to Courses List</a>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+                            <form hidden method="post" enctype="multipart/form-data" class="edit-profile m-b30">
                                 {% csrf_token %}
                                 {{form.errors}}
                                 <div class="row">
