@@ -14,6 +14,7 @@ SEX_TYPES = (
 ROLE = (
 	('professeur', 'professeur'),
 	('etudiant', 'etudiant'),
+	('autres', 'autres'),
 
 )
 
@@ -29,26 +30,38 @@ def student_path(i, filename):
 
 
 class Student(models.Model):
-	username = models.CharField(max_length=20 , verbose_name="Nom d'utilisateur")
-	first_name = models.CharField(max_length=45)
-	last_name = models.CharField(max_length=45)
-	user = models.OneToOneField('userApp.User', related_name="student", on_delete=models.SET_NULL, null=True,blank=True)
+	username = models.CharField(max_length=20 , verbose_name="Nom d'utilisateur", null=True, blank=True)
+	first_name = models.CharField(max_length=45, null=True, blank=True)
+	last_name = models.CharField(max_length=45, null=True, blank=True)
+	user = models.OneToOneField('userApp.User', related_name="student", on_delete=models.CASCADE, null=False,blank=False)
 	year_of_added = models.CharField(max_length=255, null=True, blank=True)
 	faculty = models.CharField(max_length=255, choices=Faculty)
 	auditoire = models.ForeignKey('main.Auditoire', related_name='auditoire_students', on_delete=models.SET_NULL, blank=True,null=True)
-	email = models.EmailField(_('email address'), unique=True)
-	phone = models.CharField(max_length=50)
+	email = models.EmailField(_('email address'), unique=True, null=True, blank=True)
+	phone = models.CharField(max_length=50, null=True, blank=True)
 	avatar = models.ImageField(upload_to=student_path, null=True, blank=True)
-	country = models.CharField(max_length=100)
 	date_joined = models.DateTimeField(auto_now_add=True)
-	sexe_type = models.CharField(max_length=23, choices=SEX_TYPES, default='Male')
+	sexe_type = models.CharField(max_length=23, choices=SEX_TYPES, default='Male', blank=True)
 	is_delete = models.BooleanField(null=True, blank=True, default=False)
 	born_date = models.DateField(null=True, blank=True)
 	address = models.CharField(max_length=70, null=True, blank=True)
+	country = models.CharField(max_length=100)
 	data = models.JSONField(blank=True, null=True)
 	slug = models.SlugField(unique=True, blank=True)
 
 	def save(self, *args, **kwargs):
+		if self.user:
+			self.username = self.user.username
+			self.first_name = self.user.first_name
+			self.last_name = self.user.last_name
+			self.email = self.user.email
+			self.phone = self.user.phone
+			self.avatar = self.user.avatar
+			self.sexe_type = self.user.sexe_type
+			self.country = self.user.country
+			self.address = self.user.address
+			self.born_date = self.user.born_date
+
 		if not self.slug:
 			base_slug = slugify(self.first_name, self.last_name)
 			slug = base_slug
@@ -58,10 +71,13 @@ class Student(models.Model):
 
 				count += 1
 			self.slug = slug
-
-
 		super(Student, self).save(*args, **kwargs)
-@receiver(post_save, sender=Student)
+	
+	def __str__(self):
+		return self.slug
+	
+
+""" @receiver(post_save, sender=Student)
 def create_user_for_student(sender, instance, created, **kwargs):
     if created:
         # Créez un objet User associé au Student
@@ -87,7 +103,7 @@ def create_user_for_student(sender, instance, created, **kwargs):
         # Associez le nouvel utilisateur au Student
         instance.user = user
         instance.save()
-
+ """
 
 
 class StudentCourses(models.Model):

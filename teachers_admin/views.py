@@ -70,6 +70,7 @@ def teacher_admin(request, teacher_slug):
 
 
 def add_course(request):
+    facultys = Faculty
     error = "Il y a une erreur dans ces champs"
     teacher = Teacher.objects.filter(user=request.user).first()
     print(teacher.user.username)
@@ -79,15 +80,15 @@ def add_course(request):
         pdf_files = request.FILES.get('pdf_files')
         title = request.POST.get('title')
         description = request.POST.get('description', '')
-        notes = request.POST.get('notes', '')
         auditoires_selected = request.POST.getlist('auditoire')
+        faculty = request.POST.get('faculty')
         try:
             course = Course.objects.create(
                 teacher=teacher,
                 # auditoire=data.getlist("auditoire"),
                 title=title,
                 image=image,
-                notes=notes,
+                faculty=faculty,
                 pdf_files=pdf_files,
                 description=description
             )
@@ -115,7 +116,7 @@ def courses_list(request):
 
 
 
-@login_required
+""" @login_required
 def edit_user_profile(request):
     user_set_types = SEX_TYPES
     roles = ROLE
@@ -125,45 +126,39 @@ def edit_user_profile(request):
     
     
     if request.method == 'POST':
-        try:    
-            user = request.user
-            # Récupération des données du formulaire
-            first_name = request.POST.get('first_name')
-            last_name = request.POST.get('last_name')
-            country = request.POST.get('country')
-            phone = request.POST.get('phone')
-            avatar = request.FILES.get('avatar')
-            email = request.POST.get('email')
-            born_date = request.POST.get('born_date')
-            role=request.POST.get('role')
-            address = request.POST.get('address')
-            old_password = request.POST.get('old_password')
-            new_password1 = request.POST.get('new_password1')
-            new_password2 = request.POST.get('new_password2')
-        except Exception as e:
-            print('Error',e.message)    
-
-        # Vérification de l'ancien mot de passe
-        if old_password and not user.check_password(old_password):
-            messages.error(request, 'Le mot de passe actuel est incorrect.')
-            return redirect('user_profile_teacher')
+            
+        user = request.user
+        # Récupération des données du formulaire
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        country = request.POST.get('country')
+        phone = request.POST.get('phone')
+        avatar = request.FILES.get('avatar')
+        email = request.POST.get('email')
+        born_date = request.POST.get('born_date')
+        role=request.POST.get('role')
+        address = request.POST.get('address')
 
         # Mise à jour des données de l'utilisateur
         if first_name:
             user.first_name = first_name
             print('ok',user.first_name)
+            
         else:
+            user.first_name = user.first_name
             print('no') 
         if last_name:
-            user.lasst_name = last_name
+            user.last_name = last_name
             print('ok',user.last_name)
         else:
-            print('no')    
+            print('no')
+            user.last_name = user.last_name    
         if country:
             user.country = country
             print('ok',user.country)
         else:
-            print('no country)',user.country)    
+            print('no country)',user.country) 
+            user.country = user.country   
         if phone:
             user.phone = phone
             print('ok',user.phone)
@@ -193,7 +188,34 @@ def edit_user_profile(request):
             user.avatarl = avatar
             print('ok',user.avatar)
         else:
-            user.avatar = '/static/assets/university_mobile_logo_ulc-1 (1).png'                            
+            user.avatar = user.avatar                        
+        user.save()
+        
+        messages.success(
+                request, 'Vos informations ont été mises à jour avec succès.')
+        print(messages)
+        #return redirect('account')
+   
+               
+
+    return render(request, 'teachers_admin/user_profile_teacher.html', locals())
+
+def edit_password(request):
+    teacher = Teacher.objects.get(user=request.user)
+
+    if request.method == 'POST':
+        try:
+            user = request.user
+            old_password = request.POST.get('old_password')
+            new_password1 = request.POST.get('new_password1')
+            new_password2 = request.POST.get('new_password2')
+        except Exception as e:
+            print('Error',e.message)    
+
+        # Vérification de l'ancien mot de passe
+        if old_password and not user.check_password(old_password):
+            messages.error(request, 'Le mot de passe actuel est incorrect.')
+            return redirect('user_profile_teacher') 
         if new_password1 and new_password2:
             if new_password1 != new_password2:
                 messages.error(
@@ -204,39 +226,50 @@ def edit_user_profile(request):
             update_session_auth_hash(request, user)
 
         user.save()
-        
-
         messages.success(
                 request, 'Vos informations ont été mises à jour avec succès.')
         print(messages)
-        #return redirect('account')
-   
-               
 
-    return render(request, 'teachers_admin/user_profile_teacher.html', locals())
+        return render(request, 'userApp/edit_password.html', locals())
+ """
+
+
+
 
 
 def course_update(request, course_pk ):
+    facultys = Faculty
     error = "Il y a une erreur dans ces champs"
     teacher = Teacher.objects.filter(user=request.user).first()
-    course = get_object_or_404(Course, id=course_pk, teacher=teacher)
-    
-    if request.method == 'POST':
-        form = CourseForm(request.POST, request.FILES, instance=course)
-        form.teacher = teacher
-        print(form.teacher)
-        
-        if form.is_valid():
-            form.save()
-            return redirect("courses_list")
-        else:
-            print(form.errors)
+    try:
+        course = get_object_or_404(Course, id=course_pk, teacher=teacher)
+    except Course.DoesNotExist:
+        # Handle the case where the course doesn't exist or doesn't belong to the teacher
+        return redirect("courses_list")  # You can redirect to a suitable URL
 
-    else:
-        form = CourseForm(instance=course)
-        print("error updating")
-    
-    auditoires = Auditoire.objects.all()    
+    if request.method == 'POST':
+        image = request.FILES.get('image')
+        pdf_files = request.FILES.get('pdf_files')
+        title = request.POST.get('title')
+        description = request.POST.get('description', '')
+        notes = request.POST.get('notes', '')
+        auditoires_selected = request.POST.getlist('auditoire')
+        faculty = request.POST.get('faculty')
+
+        # Update the course fields
+        course.title = title
+        course.image = image
+        course.notes = notes
+        course.pdf_files = pdf_files
+        course.description = description
+        course.auditoire.set(auditoires_selected)
+        course.faculty = faculty  # Set the faculty field
+
+        course.save()
+
+        return redirect("courses_list")
+
+    auditoires = Auditoire.objects.all()   
     return render(request, 'teachers_admin/course_update.html', locals())    
         
         

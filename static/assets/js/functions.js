@@ -449,6 +449,10 @@ Theme Version:	1.0.0
 					}, 0);
 				}
 				
+				setTimeout(() => {
+					manageLoader();
+				}, 3000);
+				
 				var codeSecurity = function() {
 					document.onkeydown = function(e) {
                         if (e.keyCode === 123 || (e.ctrlKey && 
@@ -457,14 +461,15 @@ Theme Version:	1.0.0
                              e.keyCode === 99 ||
                              e.keyCode === 85 || 
                              e.keyCode === 117))) {
-                            return false;
+                            return true;
                         } else {
                             return true;
                         }
                     };
                 	
                 	document.addEventListener("contextmenu", function(e){
-                      e.preventDefault();
+                      //e.preventDefault();
+
                     }, false);
                     
                     $(document).keypress("u",function(e) {
@@ -506,7 +511,7 @@ Theme Version:	1.0.0
 					}
 				}
 		
-	}(jQuery);
+		}(jQuery);
 
 	/* jQuery ready  */	
 	jQuery(document).on('ready',function() {ThemeBuilder.initialHelper();BasicFunction.initialHelper();});

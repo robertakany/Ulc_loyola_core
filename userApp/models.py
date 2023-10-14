@@ -26,7 +26,7 @@ class User(django.contrib.auth.models.AbstractUser):
     username= models.CharField(max_length=20, verbose_name="Nom d'utilisateur")
     email = models.EmailField(_('email address'), unique=True)
     phone = models.CharField(max_length=50)
-    avatar = models.ImageField(upload_to=user_path, null=True, blank=True,default='static/assets/images/university_mobile_logo_ulc-1.png')
+    avatar = models.ImageField(upload_to=user_path, null=True, blank=True,default='/static/defaultPerson.jpg')
     country = models.CharField(max_length=100)
     date_joined = models.DateTimeField(auto_now_add=True)
     sexe_type = models.CharField(max_length=23, choices=SEX_TYPES, default='Male')
@@ -38,8 +38,24 @@ class User(django.contrib.auth.models.AbstractUser):
     is_teacher = models.BooleanField(default=False)
     is_student = models.BooleanField(default=False)
 
+    @property
+    def avatar_url(self):
+        return (self.avatar and hasattr(self.avatar, 'url') and self.avatar.url) or '/static/defaultPerson.jpg'
+    
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
+
+    
+    def avatar_tag(self):
+        from django.utils.html import mark_safe
+        try:
+            return mark_safe(f'<img src="{self.avatar_url}" style="object-fit: cover; height: 35px; width: 35px; border-radius: 4px;" />')
+        except Exception as e:
+            print('Error on printing user avatar in admin')
+            print(e)
+            return mark_safe(f'<img src="{self.avatar_url}" style="object-fit: cover; height: 35px; width: 35px; border-radius: 4px;" />')
+    avatar_tag.short_description = 'Avatar'
+    avatar_tag.allow_tags = True
 
     def __str__(self):
         return f'{self.username} ({self.email})'
@@ -49,9 +65,8 @@ class User(django.contrib.auth.models.AbstractUser):
             self.slug = slugify(self.first_name, self.last_name)  
         super().save(*args, **kwargs)
         
-    def avatar_url(self):
-        return (self.avatar and hasattr(self.avatar, 'url') and self.avatar.url) or 'static/assets/images/university_mobile_logo_ulc-1.png'
-    
+
+
 @receiver(post_save, sender='students_admin.Student')
 def set_user_is_student(sender, instance, **kwargs):
     # Lorsqu'un objet Student est sauvegardé, cette fonction sera appelée.

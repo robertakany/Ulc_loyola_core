@@ -32,7 +32,7 @@ class News(models.Model):
             self.slug = slug
 
         if not self.featured_image:
-            self.featured_image = '/static/assets/images/blog/grid/pic2.png'
+            self.featured_image = 'static/assets/images/80_863_49206349206x566_66666666667_1251485546_1466675589diplomes-africains-0.jpg'
 
         super(News, self).save(*args, **kwargs)
 

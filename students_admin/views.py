@@ -20,6 +20,7 @@ from userApp.models import *
 
 
 
+@login_required
 def  student_admin(request,student_slug):
     user = request.user
     student= Student.objects.get(user=user,slug=student_slug)
@@ -37,10 +38,12 @@ def  student_admin(request,student_slug):
     return render(request, 'students_admin/student_admin.html',locals())
 
 
+@login_required
 def course_list(request):
     # 1. Récupérez l'utilisateur connecté et l'objet Student associé.
     user = request.user
     student = Student.objects.filter(user=user).first()
+    print(Student.objects.filter(user=user))
     print(student)
 
     if student:

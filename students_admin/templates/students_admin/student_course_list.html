@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from educhamp.themetrades.com/demo/admin/courses.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Feb 2019 13:10:19 GMT -->
+<!-- Mirrored from educhamp.themetrades.com/demo/admin/teacher-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Feb 2019 13:11:35 GMT -->
 
 <head>
 
@@ -56,382 +56,226 @@
 <body class="ttr-opened-sidebar ttr-pinned-sidebar">
 
     <!-- header start -->
-        <!-- header start -->
- <header class="ttr-header">
-    <div class="ttr-header-wrapper">
-        <!--sidebar menu toggler start -->
-        <div class="ttr-toggle-sidebar ttr-material-button">
-            <i class="ti-close ttr-open-icon"></i>
-            <i class="ti-menu ttr-close-icon"></i>
-        </div>
-        <!--sidebar menu toggler end -->
-        <!--logo start -->
-        <div class="ttr-logo-box">
-            <div>
-                <a href="{% url 'home' %}" class="ttr-logo">
-                    <img class="ttr-logo-mobile" alt="" src="/static/assets/university_mobile_logo_ulc-1 (1).png" width="30" height="30">
-                    <img class="ttr-logo-desktop" alt="" src="/static/assets/university_mobile_logo_ulc-1 (1).png" width="160" height="27">
-                </a>
-            </div>
-        </div>
-        <!--logo end -->
-        <div class="ttr-header-menu">
-            <!-- header left menu start -->
-            <ul class="ttr-header-navigation">
-                <li>
-                    <a href="{% url 'home' %}" class="ttr-material-button ttr-submenu-toggle">Accueil</a>
-                </li>
-                <li hidden>
-                    <a  href="#" class="ttr-material-button ttr-submenu-toggle">QUICK MENU <i class="fa fa-angle-down"></i></a>
-                    <div class="ttr-header-submenu">
-                        <ul>
-                            <li><a href="../courses.html">Our Courses</a></li>
-                            <li><a href="../event.html">New Event</a></li>
-                            <li><a href="../membership.html">Membership</a></li>
-                        </ul>
-                    </div>
-                </li>
-
-            </ul>
-            <!-- header left menu end -->
-        </div>
-        <div class="ttr-header-right ttr-with-seperator">
-            <!-- header right menu start -->
-            <ul class="ttr-header-navigation">
-                <li>
-                    <a href="#" class="ttr-material-button ttr-search-toggle"><i class="fa fa-search"></i></a>
-                </li>
-                <li hidden    >
-                    <a href="#" class="ttr-material-button ttr-submenu-toggle"><i class="fa fa-bell"></i></a>
-                    <div class="ttr-header-submenu noti-menu">
-                        <div class="ttr-notify-header">
-                            <span class="ttr-notify-text-top">9 New</span>
-                            <span class="ttr-notify-text">User Notifications</span>
-                        </div>
-                        <div class="noti-box-list">
-                            <ul>
-                                <li>
-                                    <span class="notification-icon dashbg-gray">
-                                        <i class="fa fa-check"></i>
-                                    </span>
-                                    <span class="notification-text">
-                                        <span>Sneha Jogi</span> sent you a message.
-                                    </span>
-                                    <span class="notification-time">
-                                        <a href="#" class="fa fa-close"></a>
-                                        <span> 02:14</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="notification-icon dashbg-yellow">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </span>
-                                    <span class="notification-text">
-                                        <a href="#">Your order is placed</a> sent you a message.
-                                    </span>
-                                    <span class="notification-time">
-                                        <a href="#" class="fa fa-close"></a>
-                                        <span> 7 Min</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="notification-icon dashbg-red">
-                                        <i class="fa fa-bullhorn"></i>
-                                    </span>
-                                    <span class="notification-text">
-                                        <span>Your item is shipped</span> sent you a message.
-                                    </span>
-                                    <span class="notification-time">
-                                        <a href="#" class="fa fa-close"></a>
-                                        <span> 2 May</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="notification-icon dashbg-green">
-                                        <i class="fa fa-comments-o"></i>
-                                    </span>
-                                    <span class="notification-text">
-                                        <a href="#">Sneha Jogi</a> sent you a message.
-                                    </span>
-                                    <span class="notification-time">
-                                        <a href="#" class="fa fa-close"></a>
-                                        <span> 14 July</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="notification-icon dashbg-primary">
-                                        <i class="fa fa-file-word-o"></i>
-                                    </span>
-                                    <span class="notification-text">
-                                        <span>Sneha Jogi</span> sent you a message.
-                                    </span>
-                                    <span class="notification-time">
-                                        <a href="#" class="fa fa-close"></a>
-                                        <span> 15 Min</span>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-
-                    <a href="#" class="ttr-material-button ttr-submenu-toggle"><span class="ttr-user-avatar"><img alt="user" src="{{student.user.avatar.url}}" width="32" height="32"></span></a>
-                    <div class="ttr-header-submenu">
-                        <ul>
-                            <li><a href="{% url 'user_profile_edit' %}">Mon profil</a></li>
-                            <li hidden><a href="list-view-calendar.html">Activity</a></li>
-                            <li hidden ><a href="mailbox.html">Messages</a></li>
-                            <li><a href="{% url 'logout' %}">Logout</a></li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li hidden class="ttr-hide-on-mobile">
-                    <a href="#" class="ttr-material-button"><i class="ti-layout-grid3-alt"></i></a>
-                    <div class="ttr-header-submenu ttr-extra-menu">
-                        <a href="#">
-                            <i class="fa fa-music"></i>
-                            <span>Musics</span>
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-youtube-play"></i>
-                            <span>Videos</span>
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-envelope"></i>
-                            <span>Emails</span>
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-book"></i>
-                            <span>Reports</span>
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-smile-o"></i>
-                            <span>Persons</span>
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-picture-o"></i>
-                            <span>Pictures</span>
-                        </a>
-                    </div>
-                </li>
-
-            </ul>
-            <!-- header right menu end -->
-        </div>
-        <!--header search panel start -->
-        <div class="ttr-search-bar">
-            <form class="ttr-search-form">
-                <div class="ttr-search-input-wrapper">
-                    <input type="text" name="qq" placeholder="search something..." class="ttr-search-input">
-                    <button type="submit" name="search" class="ttr-search-submit"><i class="ti-arrow-right"></i></button>
-                </div>
-                <span class="ttr-search-close ttr-search-toggle">
-                    <i class="ti-close"></i>
-                </span>
-            </form>
-        </div>
-        <!--header search panel end -->
-    </div>
-</header>
+       <!-- header start -->
+       {% include "./header.html" %}
 <!-- header end -->
     <!-- header end -->
-
     <!-- Left sidebar menu start -->
-    <nav class="ttr-sidebar-navi">
-        <ul>
-            <li hidden>
-                <a href="index.html" class="ttr-material-button">
-                    <span class="ttr-icon"><i class="ti-home"></i></span>
-                    <span class="ttr-label">Tableau de board</span>
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'student_courses_list' %}" class="ttr-material-button">
-                    <span class="ttr-icon"><i class="ti-book"></i></span>
-                    <span class="ttr-label">Mes Cours</span>
-                </a>
-            </li>
-            <li hidden>
-                <a href="#" class="ttr-material-button">
-                    <span class="ttr-icon"><i class="ti-email"></i></span>
-                    <span class="ttr-label">Mailbox</span>
-                    <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-                </a>
+    <div class="ttr-sidebar">
+        <div class="ttr-sidebar-wrapper content-scroll">
+            <!-- side menu logo start -->
+            <div id="left-sidebar-logo" class="ttr-sidebar-logo">
+                <a  href="{% url 'home' %}"><img alt="logo" src="/static/university_mobile_logo_ulc-1 (1).png" width="122" height="27"></a>
+                <!-- <div class="ttr-sidebar-pin-button" title="Pin/Unpin Menu">
+					<i class="material-icons ttr-fixed-icon">gps_fixed</i>
+					<i class="material-icons ttr-not-fixed-icon">gps_not_fixed</i>
+				</div> -->
+                <div class="ttr-sidebar-toggle-button">
+                    <i class="ti-arrow-left"></i>
+                </div>
+            </div>
+            <!-- side menu logo end -->
+            <!-- sidebar menu start -->
+            <nav class="ttr-sidebar-navi">
                 <ul>
-                    <li>
-                        <a href="mailbox.html" class="ttr-material-button"><span class="ttr-label">Mail Box</span></a>
+                    <li hidden>
+                        <a href="index.html" class="ttr-material-button">
+                            <span class="ttr-icon"><i class="ti-home"></i></span>
+                            <span class="ttr-label">Tableau de board</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="mailbox-compose.html" class="ttr-material-button"><span class="ttr-label">Compose</span></a>
+                        <a href="{% url 'student_courses_list' %}" class="ttr-material-button">
+                            <span class="ttr-icon"><i class="ti-book"></i></span>
+                            <span class="ttr-label">Mes Cours</span>
+                        </a>
                     </li>
-                    <li>
-                        <a href="mailbox-read.html" class="ttr-material-button"><span class="ttr-label">Mail Read</span></a>
+                    <li hidden>
+                        <a href="#" class="ttr-material-button">
+                            <span class="ttr-icon"><i class="ti-email"></i></span>
+                            <span class="ttr-label">Mailbox</span>
+                            <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="mailbox.html" class="ttr-material-button"><span class="ttr-label">Mail Box</span></a>
+                            </li>
+                            <li>
+                                <a href="mailbox-compose.html" class="ttr-material-button"><span class="ttr-label">Compose</span></a>
+                            </li>
+                            <li>
+                                <a href="mailbox-read.html" class="ttr-material-button"><span class="ttr-label">Mail Read</span></a>
+                            </li>
+                        </ul>
                     </li>
-                </ul>
-            </li>
-            <li hidden>
-                <a href="#" class="ttr-material-button">
-                    <span class="ttr-icon"><i class="ti-calendar"></i></span>
-                    <span class="ttr-label">Calendar</span>
-                    <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-                </a>
-                <ul>
-                    <li>
-                        <a href="basic-calendar.html" class="ttr-material-button"><span class="ttr-label">Basic Calendar</span></a>
+                    <li hidden>
+                        <a href="#" class="ttr-material-button">
+                            <span class="ttr-icon"><i class="ti-calendar"></i></span>
+                            <span class="ttr-label">Calendar</span>
+                            <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="basic-calendar.html" class="ttr-material-button"><span class="ttr-label">Basic Calendar</span></a>
+                            </li>
+                            <li>
+                                <a href="list-view-calendar.html" class="ttr-material-button"><span class="ttr-label">List View</span></a>
+                            </li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="list-view-calendar.html" class="ttr-material-button"><span class="ttr-label">List View</span></a>
+                    <li hidden>
+                        <a href="bookmark.html" class="ttr-material-button">
+                            <span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
+                            <span class="ttr-label">Bookmarks</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li hidden>
-                <a href="bookmark.html" class="ttr-material-button">
-                    <span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
-                    <span class="ttr-label">Bookmarks</span>
-                </a>
-            </li>
-            <li hidden>
-                <a href="review.html" class="ttr-material-button">
-                    <span class="ttr-icon"><i class="ti-comments"></i></span>
-                    <span class="ttr-label">Review</span>
-                </a>
-            </li>
-            <li hidden>
-                <a href="add-listing.html" class="ttr-material-button">
-                    <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
-                    <span class="ttr-label">Add listing</span>
-                </a>
-            </li>
+                    <li hidden>
+                        <a href="review.html" class="ttr-material-button">
+                            <span class="ttr-icon"><i class="ti-comments"></i></span>
+                            <span class="ttr-label">Review</span>
+                        </a>
+                    </li>
+                    <li hidden>
+                        <a href="add-listing.html" class="ttr-material-button">
+                            <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
+                            <span class="ttr-label">Add listing</span>
+                        </a>
+                    </li>
 
-            <li hidden>
-                <a href="#" class="ttr-material-button">
-                    <span class="ttr-icon"><i class="ti-user"></i></span>
-                    <span class="ttr-label">Mon Profil d'Etudiant</span>
-                    <span class="ttr-arrow-icon"><i hidden class="fa fa-angle-down"></i></span>
-                </a>
-                <ul hidden>
-                    <li>
-                        <a href="user-profile.html" class="ttr-material-button"><span class="ttr-label">User Profile</span></a>
+                    <li hidden>
+                        <a href="#" class="ttr-material-button">
+                            <span class="ttr-icon"><i class="ti-user"></i></span>
+                            <span class="ttr-label">Mon Profil d'Etudiant</span>
+                            <span class="ttr-arrow-icon"><i hidden class="fa fa-angle-down"></i></span>
+                        </a>
+                        <ul hidden>
+                            <li>
+                                <a href="user-profile.html" class="ttr-material-button"><span class="ttr-label">User Profile</span></a>
+                            </li>
+                            <li>
+                                <a href="teacher-profile.html" class="ttr-material-button"><span class="ttr-label">Student Profile</span></a>
+                            </li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="teacher-profile.html" class="ttr-material-button"><span class="ttr-label">Student Profile</span></a>
+                    <li class="ttr-seperate"></li>
+                    <li hidden >
+                        <a href="{% url 'user_profile_edit' %}" class="ttr-material-button">
+                            <span class="ttr-icon"><i class="ti-user"></i></span>
+                            <span class="ttr-label">Mon Profil d'utilisateur</span>
+                            
+                        </a>
+                        <ul hidden>
+                            <li>
+                                <a href="user-profile.html" class="ttr-material-button"><span class="ttr-label">Voir mon Profil</span></a>
+                            </li>
+                            <li>
+                                <a href="teacher-profile.html" class="ttr-material-button"><span class="ttr-label">Modifier Profil</span></a>
+                            </li>
+                        </ul>
                     </li>
-                </ul>
-            </li>
-            <li class="ttr-seperate"></li>
-            <li hidden >
-                <a href="{% url 'user_profile_edit' %}" class="ttr-material-button">
-                    <span class="ttr-icon"><i class="ti-user"></i></span>
-                    <span class="ttr-label">Mon Profil d'utilisateur</span>
-                    
-                </a>
-                <ul hidden>
-                    <li>
-                        <a href="user-profile.html" class="ttr-material-button"><span class="ttr-label">Voir mon Profil</span></a>
-                    </li>
-                    <li>
-                        <a href="teacher-profile.html" class="ttr-material-button"><span class="ttr-label">Modifier Profil</span></a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="{% url 'student_profile_edit' student.slug %}" class="ttr-material-button"><i class="ti-user"></i> <span>Profil d'Etudiant</span></a></li>
-            <li class="ttr-seperate"></li>
+                    <li><a href="{% url 'student_profile_edit' student.slug %}" class="ttr-material-button"><i class="ti-user"></i> <span>Profil d'Etudiant</span></a></li>
+                    <li class="ttr-seperate"></li>
 
-            <li><a href="{% url 'user_profile_edit' %}" class="ttr-material-button"><i class="ti-user"></i> <span>Profil d'utilisateur</span></a></li>
-        </ul>
-        <!-- sidebar menu end -->
-    </nav>
+                    <li><a href="{% url 'user_profile_edit' %}" class="ttr-material-button"><i class="ti-user"></i> <span>Profil d'utilisateur</span></a></li>
+                </ul>
+                <!-- sidebar menu end -->
+            </nav>
+            <!-- sidebar menu end -->
+        </div>
+    </div>
     <!-- Left sidebar menu end -->
 
-    <!--Main container start -->
-    <main class="ttr-wrapper">
-        <div class="container-fluid">
-            <div class="db-breadcrumb">
-                <h4 class="breadcrumb-title">Courses</h4>
-                <ul class="db-breadcrumb-list">
-                    <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-                    <li>Courses</li>
-                </ul>
-            </div>
-            <div class="row">
-                <!-- Your Profile Views Chart -->
-                <div class="col-lg-12 m-b30">
-                    <div class="widget-box">
-                        <div class="wc-title">
-                            <h4>Mes Cours</h4>
-                        </div>
-                        <div class="widget-inner">
-                            {% for student_courses in student_course_lists %}
-                            <div class="card-courses-list admin-courses">
-                                <div class="card-courses-media">
-                                    <img src="{{  student_courses.image_url }}" alt="{{student_courses.title}}" />
-                                </div>
-                                <div class="card-courses-full-dec">
-                                    <div class="card-courses-title">
-                                        <h4>{{student_courses.title}}</h4>
-                                    </div>
-                                    <div class="card-courses-list-bx">
-                                        <ul class="card-courses-view">
-                                            <li class="card-courses-user">
-                                                <div class="card-courses-user-pic">
-                                                    <img src="{{student_courses.teacher.user.avatar_url}}" alt="{{student_courses.teacher.user.last_name}}" />
-                                                </div>
-                                                <div class="card-courses-user-info">
-                                                    <h5>Proffesseur</h5>
-                                                    <h4>{{student_courses.teacher.user.first_name}} {{student_courses.teacher.user.last_name}}</h4>
-                                                </div>
-                                            </li>
-                                            <li class="card-courses-categories">
-                                                <h5>3 Categories du cours</h5>
-                                                <h4>{{student_courses.category}}</h4>
-                                            </li>
-                                            <li class="card-courses-review">
-                                                <h5>3 Nombre de vues</h5>
-                                                <ul class="cours-star">
-                                                    <li class="active"><i class="fa fa-star"></i></li>
-                                                    <li class="active"><i class="fa fa-star"></i></li>
-                                                    <li class="active"><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </li>
-                                            <li hidden class="card-courses-stats">
-                                                <a href="#" class="btn button-sm green radius-xl">voir le cours</a>
-                                            </li>
-                                            <li hidden class="card-courses-stats">
-                                                <a href="#" class="btn button-sm green radius-xl">telecharger le cours </a>
-                                            </li>
-                                            <li hidden class="card-courses-price">
-                                                <del>$190</del>
-                                                <h5 class="text-primary">$120</h5>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="row card-courses-dec">
-                                        <div class="col-md-12">
-                                            <h6 class="m-b10">Course Description</h6>
-                                            <p>{{student_courses.description}} </p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <a href="{{student_courses.pdf_files.url}}" class="btn green radius-xl outline">Voir le cours</a>
-                                            <a href="{{student_courses.pdf_files.url}}" class="btn red outline radius-xl " download>Telecharger</a>
-                                        </div>
-                                    </div>
 
-                                </div>
+    
+
+<main class="ttr-wrapper">
+    <div class="container-fluid">
+        <div class="db-breadcrumb">
+            <h4 class="breadcrumb-title">Courses</h4>
+            <ul class="db-breadcrumb-list">
+                <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+                <li>Courses</li>
+            </ul>
+        </div>
+        <div class="row">
+            <!-- Your Profile Views Chart -->
+            <div class="col-lg-12 m-b30">
+                <div class="widget-box">
+                    <div class="wc-title">
+                        <h4>Mes Cours</h4>
+                    </div>
+                    <div class="widget-inner">
+                        {% for student_courses in student_course_lists %}
+                        <div class="card-courses-list admin-courses">
+                            <div class="card-courses-media">
+                                <img src="{{  student_courses.image_url }}" alt="{{student_courses.title}}" />
                             </div>
-                            {% endfor %}
+                            <div class="card-courses-full-dec">
+                                <div class="card-courses-title">
+                                    <h4>{{student_courses.title}}</h4>
+                                </div>
+                                <div class="card-courses-list-bx">
+                                    <ul class="card-courses-view">
+                                        <li class="card-courses-user">
+                                            <div class="card-courses-user-pic">
+                                                <img src="{{student_courses.teacher.user.avatar_url}}" alt="{{student_courses.teacher.user.last_name}}" />
+                                            </div>
+                                            <div class="card-courses-user-info">
+                                                <h5>Proffesseur</h5>
+                                                <h4>{{student_courses.teacher.user.first_name}} {{student_courses.teacher.user.last_name}}</h4>
+                                            </div>
+                                        </li>
+                                        <li class="card-courses-categories">
+                                            <h5>3 Categories du cours</h5>
+                                            <h4>{{student_courses.category}}</h4>
+                                        </li>
+                                        <li class="card-courses-review">
+                                            <h5>3 Nombre de vues</h5>
+                                            <ul class="cours-star">
+                                                <li class="active"><i class="fa fa-star"></i></li>
+                                                <li class="active"><i class="fa fa-star"></i></li>
+                                                <li class="active"><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                            </ul>
+                                        </li>
+                                        <li hidden class="card-courses-stats">
+                                            <a href="#" class="btn button-sm green radius-xl">voir le cours</a>
+                                        </li>
+                                        <li hidden class="card-courses-stats">
+                                            <a href="#" class="btn button-sm green radius-xl">telecharger le cours </a>
+                                        </li>
+                                        <li hidden class="card-courses-price">
+                                            <del>$190</del>
+                                            <h5 class="text-primary">$120</h5>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row card-courses-dec">
+                                    <div class="col-md-12">
+                                        <h6 class="m-b10">Course Description</h6>
+                                        <p>{{student_courses.description}} </p>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <a href="{{student_courses.pdf_files.url}}" class="btn green radius-xl outline">Voir le cours</a>
+                                        <a href="{{student_courses.pdf_files.url}}" class="btn red outline radius-xl " download>Telecharger</a>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
-                <!-- Your Profile Views Chart END-->
             </div>
+            <!-- Your Profile Views Chart END-->
         </div>
-    </main>
-    <div class="ttr-overlay"></div>
+    </div>
+</main>
+<div class="ttr-overlay"></div>
+
+
+
 
     <!-- External JavaScripts -->
     <script src="/static/admin/assets/js/jquery.min.js"></script>

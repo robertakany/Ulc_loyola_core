@@ -64,6 +64,7 @@ class Alumni(models.Model):
     email = models.EmailField(unique=True)
     diploma = models.CharField(max_length=255)
     diploma_year = models.IntegerField()
+    is_deleted = models.BooleanField(default=False)
 
 
 class TeacherStudentRelation(models.Model):

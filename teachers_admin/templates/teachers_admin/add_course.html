@@ -96,7 +96,7 @@
                     </li>
 
                     <li>
-                        <a href="{% url 'user_profile_edit_teacher_admin' %}" class="ttr-material-button">
+                        <a href="{% url 'user_profile_edit' %}" class="ttr-material-button">
                             <span class="ttr-icon"><i class="ti-user"></i></span>
                             <span class="ttr-label">Mon profile</span>
                         </a>
@@ -228,15 +228,24 @@
                                             <input class="form-control" name="pdf_files" type="file">
                                         </div>
                                     </div>
-                                    <div class="form-group col-12">
-                                        <label class="col-form-label">note(facultatif)</label>
-                                        <div>
-                                            <textarea name="notes" class="form-control"> </textarea>
-                                        </div>
-                                    </div>
+                                    <div class="form-group col-6">
 
+                                        <div class="form-group row">
+                                            <label class="col-sm-12 col-form-label">Faculty</label>
+                                            <div class="col-sm-7">
+                                                <div class="input-group">
+                                                    <select name="faculty" id="faculty">
+                                                        {% for faculty in facultys %}
+                                                <option value="{{faculty.0}}">{{faculty.0}}</option>
+                                                {% endfor %}                         
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                            
                                     <div class="form-group col-12">
-                                        <label class="col-form-label">Classe</label>
+                                        <label class="col-form-label">Niveau</label>
                                         {% for auditoire in auditoires %}
                                         <div>
                                             <input class="form-control" type="checkbox" name="auditoire" value="{{ auditoire.id }}"> {{ auditoire.niveau_name }}<br>
@@ -256,11 +265,7 @@
                                             <textarea name="description" class="form-control"> </textarea>
                                         </div>
                                     </div>
-                                    <div hidden class="col-12 m-t20">
-                                        <div class="ml-auto">
-                                            <h3 class="m-form__section">3. Add Item</h3>
-                                        </div>
-                                    </div>
+                                    
                                     <!--  <div hidden class="col-12">
                                         <table id="item-add" style="width:100%;">
                                             <tr class="list-item">
@@ -296,7 +301,7 @@
                                         </table>
                                     </div> -->
                                     <div class="col-12">
-                                        <button type="button" class="btn-secondry add-item m-r5"><i class="fa fa-fw fa-plus-circle"></i>Add Item</button>
+                                        <button hidden type="button" class="btn-secondry add-item m-r5"><i class="fa fa-fw fa-plus-circle"></i>Add Item</button>
                                         <button type="submit" class="btn">Ajouter</button>
                                     </div>
                                 </div>

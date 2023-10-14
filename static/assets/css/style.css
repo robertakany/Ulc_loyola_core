@@ -23,9 +23,242 @@
 /*=================================
 	1. HEADER
 =================================*/
-*{
-	font-family: montserrat;
+
+@media only screen and (min-width: 1200px) {
+	.nav-social-link{
+		display: none !important; 
+	}
 }
+
+body{
+	overflow-x: hidden !important;
+}
+
+
+
+/* CUSTOM STYLE */
+.text-center{
+	text-align: center;
+}
+
+.gray-background{
+	background: #f7f7f7;
+}
+
+
+.red-background{
+	background-color: rgba(113, 11, 11, 0.996); 
+}
+
+.yellow-background {
+	position: relative;
+	overflow-x: hidden !important;
+	overflow-y: hidden;
+}
+
+.blur-background {
+	background-color: #be752784;
+	backdrop-filter: blur(15px) !important;
+	box-shadow: 0 0 30px 0 #7b4b191d;
+	border: 1px solid #dea261ad;
+}
+
+.yellow-background > * {
+	position: relative;
+	background-color: #00000045;
+	border: 1px solid silver;
+	padding: 50px 20px;
+	border-radius: 18px;
+	overflow-x: hidden;
+	z-index: 1;
+	backdrop-filter: blur(10px) !important;
+	box-shadow: 0 0 30px 0 #7b4b191d;
+}
+
+.yellow-background::before{
+	content: '';
+	position: absolute;
+	left: 50px;
+	border: 50px solid #0000001f;
+	height: 200px;
+	width: 200px;
+	margin: 0;
+	padding: 0;
+	transform: rotateZ(64deg);
+	animation: amineBackground 15s ease-in-out 0s infinite alternate-reverse;
+}
+
+
+.yellow-background::after{
+	content: '';
+	position: absolute;
+	z-index: 0;
+	right: 50px;
+	top: 70%;
+	border: 50px solid #39181829;
+	height: 200px;
+	width: 200px;
+	margin: 0;
+	padding: 0;
+	transform: rotateZ(64deg);
+	animation: amineBackground 18s ease-in 0s infinite alternate;/* 
+	animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+@keyframes amineBackground {
+	from{
+		transform: rotateZ(64deg);
+		margin-top: -10vw;
+		height: 50vw;
+		width: 50vw;
+		border: 50px  solid #51d086;
+		border-radius: 100%;
+	}
+	40%{
+		border: 0 solid #db6e6e;
+		border-radius: 20%;
+	}
+	70%{
+		border:  solid #db6e6e;
+		border-radius: 12%;
+	}
+	to{
+		height: 50px;
+		width: 50px;
+		border: 50px solid #efc33f;
+		transform: rotateZ(324deg);
+		margin-top: 0px;
+		border-radius: 0;
+	}
+}
+
+.section{
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.br-20{
+	border-radius: 20px;
+}
+.br-12{
+	border-radius: 12px;
+}
+
+.br-8{
+	border-radius: 12px;
+}
+
+.pd-20{
+	padding: 20px;
+}
+
+.pd-50{
+	padding: 50px;
+}
+
+.btn-list{
+	text-decoration: none;
+	list-style: none;
+}
+
+.btn-list li{
+	color: rgb(255, 255, 255);
+	padding: 12px;
+	margin: 5px 0 5px;
+	border-radius: 8px;
+	transition: .4s ease-in-out;
+}
+
+.btn-list a{
+	color: rgb(255, 255, 255);
+}
+
+.btn-list li:hover{
+	color: black;
+	background: white;
+}
+
+.btn-list li i{
+	display: inline-block;
+	margin-left: 10px;
+	transition: .6s ease-in-out;
+}
+
+.btn-list li:hover a{
+	margin-left: 20px;
+	color: black;
+}
+.btn-list li:hover i{
+	margin-left: 20px;
+}
+
+.card-1{
+	border: 1px solid white;
+	box-sizing: border-box;
+	transition: .4s ease-in;
+}
+
+.card-1:hover{
+	background: none !important;
+	border: 1px solid rgb(255, 255, 255);
+	box-sizing: border-box;
+	color: rgb(255, 255, 255) !important;
+}
+.card-1:hover h2, .card-1:hover p, .card-1:hover a, .card-1:hover div{
+	color: rgb(255, 255, 255) !important;
+}
+
+.tarif-table table, .tarif-table tr, .tarif-table th{
+	border-radius: 0 !important;
+}
+
+.tarif-table{
+	border-radius: 12px;
+	box-shadow: 0px 0px 5px 0px #e2e1db;
+	overflow: hidden;
+}
+
+.tarif-table > div{
+	margin: 20px 40px;
+}
+
+.tarif-table tfoot td {
+	background-color: transparent;
+}
+
+.tarif-table tfoot tr {
+	border-radius: 8px;
+	background-color:  #f09a3e32 !important;
+}
+
+.tarif-table h3{
+	background: #f09a3e26;
+	padding: 20px;
+	color: #f09a3e;
+	font-size: 30px;
+	border-radius: 0 !important;
+}
+
+.tarif-table.second{
+	border-radius: 12px;
+	box-shadow: -2px 2px 35px 1px #cec1c1af;
+}
+
+.tarif-table.second tfoot tr {
+	border-radius: 8px;
+	background-color:  #93060822 !important;
+}
+.tarif-table.second h3{
+	background: #93060822;
+	padding: 20px;
+	color: #930608;
+	font-size: 30px;
+	border-radius: 0 !important;
+}
+
+/* END */
+
+
 .bg-fix {
     background-attachment: fixed;
 	background-size: cover;
@@ -1032,7 +1265,7 @@
 }
 .header-transparent .is-fixed .menu-bar{
 	position:fixed;
-	background-color:rgba(0,0,0,0.9);
+	background-color:rgba(0, 0, 0, 0.434);
 }
 .header-transparent .top-bar{
 	background-color: rgba(0,0,0,0);
@@ -1906,6 +2139,8 @@ button.back-to-top {
 	-o-transition:all 0.5s;
 	position:relative;
 	background-color:#fff;
+	border-radius: 12px;
+	overflow: hidden;
 }
 .service-bx [class*="feature-"]{
 	box-shadow: 0 0 25px 0 rgba(29,25,0,0.15);
@@ -3211,6 +3446,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#391800', end
 	}
 }
 @media only screen and (max-width: 767px) {
+	/* .yellow-background > * {
+		width: 100% !important;
+		border-radius: 0;
+	} */
 	.courses-carousel .owl-nav{
 		position: unset;
 		top: auto;
@@ -3358,4 +3597,229 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#391800', end
 		font-size: 24px;
 		margin-bottom: 5px;
 	}
+}
+
+.img20{
+	background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 500px;
+	border-radius: 15px;
+	margin-top: 80px;
+	width: 500px;
+	
+}
+.text10{
+	padding-left: 0px; 
+	padding-top: 200px; 
+	padding-bottom: 150px; 
+	color: black;
+}
+.background15{
+	background-color:  rgb(255, 119, 0);  
+	padding: 50px;
+	
+	
+}
+.footer2{
+	color: white;
+	padding-left: 300px;
+}
+.footer3{
+	color: white;
+	padding-left: 150px;
+}
+/*.img20{
+	background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 800px;
+	
+}*/
+.img30{
+	background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/zyro-image-2-2048x1317\ \(1\).jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 600px;
+	height: 600px;
+	border-radius: 10px;
+	margin-left: 200px;
+	margin-top: 50px;
+	
+}
+.img40{
+	background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	border-radius: 15px;
+	height: 650px;
+	width: 650px;
+	border-radius: 10px;
+	margin-left: 200px;
+	margin-top: 80px;
+	margin-bottom: 200px;
+}
+.background150{
+	
+	padding: 50px;
+	
+	
+}
+
+	@media (max-width: 768px) {
+		#monBoutton{
+			bottom: 10px;
+			right: 10px;
+		}
+	}
+	.img200{
+		background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		height: 600px;
+		border-radius: 15px;
+		margin-top: 100px;
+		width: 900px;
+		margin-left: 100px;
+		
+	}
+	.img300{
+		background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		height: 500px;
+		border-radius: 15px;
+		width: 500px;
+		
+		
+		
+		
+	}
+	.img24{
+		background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		width: 700px;
+	}
+	.text50{
+		align-items: center;
+	    padding: 50px;
+		padding-top: 150px;
+	}
+	.form20{
+		padding: 50px;
+	}
+	#prénom{
+		
+		width: 350px;
+		height: 50px;
+		border-radius: 10px;
+		border: none;
+		background: #e2d5d5;
+	}
+	#email{
+		
+		width: 350px;
+		height: 50px;
+		border-radius: 10px;
+		border: none;
+		background: #e2d5d5;
+	}
+	#Téléphone{
+		width: 350px;
+		height: 50px;
+		border-radius: 10px;
+		border: none;
+		background: #e2d5d5;
+	}
+	#text{
+		width: 350px;
+		height: 50px;
+		border-radius: 10px;
+		border: none;
+		background: #e2d5d5;
+	}
+	
+	#button{
+		width: 100px;
+		height: 50px;
+		border-radius: 10px;
+		border: none;
+		background: #252323;
+		color: white;
+		cursor: pointer;
+		align-items: center;
+		margin: 80px;
+	}
+	#date{
+		width: 350px;
+		height: 50px;
+		border-radius: 10px;
+		border: none;
+		background: #e2d5d5;
+	}
+	.img{
+		background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Blog-Munzihirwa-assasinat-2-1536x922.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 300px;
+		width: 300px;
+		border-radius: 10px;
+	}
+	.img100{
+		background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 400px;
+		width: 500px;
+		border-radius: 10px;
+	}
+	.img101{
+		background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Blog-accueil-Annee-academique-2020-2021-v3_Final-1536x853.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 300px;
+		width: 300px;
+		border-radius: 10px;
+	}
+	#textarea{
+		width: 350px;
+		height: 150px;
+		border-radius: 10px;
+		border: none;
+		background: #e2d5d5;
+	}
+	th{
+		border: none;
+		border-radius: 10px;
+		padding: 30px;
+		
+	}
+	#body{
+		margin: 0%;
+		padding: 0%;
+	}
+	#tfoot{
+		background-color: rgba(113, 11, 11, 0.996);
+	}
+	
+
+/*.logo15{
+	background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/university_mobile_logo_ulc.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	align-items: center;
+	width: 100px;
+	
 }

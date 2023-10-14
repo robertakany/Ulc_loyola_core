@@ -23,9 +23,6 @@
 /*=================================
 	1. HEADER
 =================================*/
-*{
-	font-family: montserrat;
-}
 .bg-fix {
     background-attachment: fixed;
 	background-size: cover;
@@ -3358,4 +3355,236 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#391800', end
 		font-size: 24px;
 		margin-bottom: 5px;
 	}
+}
+.background1{
+	background-color: rgba(113, 11, 11, 0.996); 
+	width: 100%;
+	padding: 100px;
+	color: white;
+	
+	
+}
+.img20{
+	background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 500px;
+	border-radius: 15px;
+	margin-top: 80px;
+	width: 500px;
+	
+}
+.text10{
+	padding-left: 0px; 
+	padding-top: 200px; 
+	padding-bottom: 150px; 
+	color: black;
+}
+.background15{
+	background-color:  rgb(255, 119, 0);  
+	padding: 50px;
+	
+	
+}
+.footer2{
+	color: white;
+	padding-left: 300px;
+}
+.footer3{
+	color: white;
+	padding-left: 150px;
+}
+/*.img20{
+	background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 800px;
+	
+}*/
+.img30{
+	background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/zyro-image-2-2048x1317\ \(1\).jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 600px;
+	height: 600px;
+	border-radius: 10px;
+	margin-left: 200px;
+	margin-top: 50px;
+	
+}
+.img40{
+	background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	border-radius: 15px;
+	height: 650px;
+	width: 650px;
+	border-radius: 10px;
+	margin-left: 200px;
+	margin-top: 80px;
+	margin-bottom: 200px;
+}
+.background150{
+	
+	padding: 50px;
+	
+	
+}
+
+	@media (max-width: 768px) {
+		#monBoutton{
+			bottom: 10px;
+			right: 10px;
+		}
+	}
+	.img200{
+		background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		height: 600px;
+		border-radius: 15px;
+		margin-top: 100px;
+		width: 900px;
+		margin-left: 100px;
+		
+	}
+	.img300{
+		background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		height: 500px;
+		border-radius: 15px;
+		width: 500px;
+		
+		
+		
+		
+	}
+	.img24{
+		background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		width: 700px;
+	}
+	.text50{
+		align-items: center;
+	    padding: 50px;
+		padding-top: 150px;
+	}
+	.form20{
+		padding: 50px;
+	}
+	#prénom{
+		
+		width: 350px;
+		height: 50px;
+		border-radius: 10px;
+		border: none;
+		background: #e2d5d5;
+	}
+	#email{
+		
+		width: 350px;
+		height: 50px;
+		border-radius: 10px;
+		border: none;
+		background: #e2d5d5;
+	}
+	#Téléphone{
+		width: 350px;
+		height: 50px;
+		border-radius: 10px;
+		border: none;
+		background: #e2d5d5;
+	}
+	#text{
+		width: 350px;
+		height: 50px;
+		border-radius: 10px;
+		border: none;
+		background: #e2d5d5;
+	}
+	
+	#button{
+		width: 100px;
+		height: 50px;
+		border-radius: 10px;
+		border: none;
+		background: #252323;
+		color: white;
+		cursor: pointer;
+		align-items: center;
+		margin: 80px;
+	}
+	#date{
+		width: 350px;
+		height: 50px;
+		border-radius: 10px;
+		border: none;
+		background: #e2d5d5;
+	}
+	.img{
+		background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Blog-Munzihirwa-assasinat-2-1536x922.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 300px;
+		width: 300px;
+		border-radius: 10px;
+	}
+	.img100{
+		background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Anderson-FACULTY-PHYSICS-_COMP-SCI_0043sm.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 400px;
+		width: 500px;
+		border-radius: 10px;
+	}
+	.img101{
+		background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/Blog-accueil-Annee-academique-2020-2021-v3_Final-1536x853.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 300px;
+		width: 300px;
+		border-radius: 10px;
+	}
+	#textarea{
+		width: 350px;
+		height: 150px;
+		border-radius: 10px;
+		border: none;
+		background: #e2d5d5;
+	}
+	th{
+		border: none;
+		border-radius: 10px;
+		padding: 30px;
+		
+	}
+	#body{
+		margin: 0%;
+		padding: 0%;
+	}
+	#tfoot{
+		background-color: rgba(113, 11, 11, 0.996);
+	}
+	
+
+/*.logo15{
+	background-image: url(/EduChamp-Education-HTML-Template-Admin-Dashboard/admin/assets/images/university_mobile_logo_ulc.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	align-items: center;
+	width: 100px;
+	
 }

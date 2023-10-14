@@ -11,12 +11,28 @@ from .models import News
 
 def news_list(request):
     news = News.objects.filter(is_deleted=False)
-    return render(request, 'blog/news_list.html', {'news': news})
+    recent_news= News.objects.order_by('-created_at')
+    return render(request, 'blog/news_list.html', locals())
 
+def news_content(request,news_id,news_slug):
+    news_content= get_object_or_404(News, slug=news_slug, id=news_id)
+    recent_news = News.objects.all().order_by('-created_at')[:3]
+    comments = Comment.objects.filter(news=news_content)
+    popular_news = News.objects.order_by('-views')[:3]
+    
+    
+   # Vérifier si l'utilisateur a déjà vu cette news dans la session
+    viewed_news = request.session.get('viewed_news', [])
+    if news_id not in viewed_news:
+        # Incrémenter le compteur de vues si l'utilisateur n'a pas encore vu cette news
+        news_content.add_view()
+        viewed_news.append(news_id)
+        request.session['viewed_news'] = viewed_news
+        
+        is_liked = Like.objects.filter(
+        news=news_content, user=request.user).exists()
 
-def news_detail(request, news_slug, news_id):
-    news = get_object_or_404(News, slug=news_slug, pk=news_id)
-    return render(request, 'blog/news_detail.html', {'news': news})
+    return render(request, 'blog/news_content.html', locals())
 
 
 
@@ -73,25 +89,7 @@ def article_delete(request, news_slug, news_id,):
     return render(request, 'blog/news_confirm_delete.html', {'article': article})
 
 
-def news_content(request,news_id):
-    news_content=News.objects.get(id=news_id)
-    recent_news = News.objects.all().order_by('-date')[:3]
-    comments = Comment.objects.filter(news=news_content)
-    popular_news = News.objects.order_by('-views')[:3]
-    
-    
-   # Vérifier si l'utilisateur a déjà vu cette news dans la session
-    viewed_news = request.session.get('viewed_news', [])
-    if news_id not in viewed_news:
-        # Incrémenter le compteur de vues si l'utilisateur n'a pas encore vu cette news
-        news_content.add_view()
-        viewed_news.append(news_id)
-        request.session['viewed_news'] = viewed_news
-        
-        is_liked = Like.objects.filter(
-        news=news_content, user=request.user).exists()
 
-    return render(request, 'blog/news_content.html', locals())
 
 
 # Vue pour ajouter un commentaire à une news
@@ -136,5 +134,12 @@ def add_comment(request,news_pk, *args, **kwargs):
     return JsonResponse({'error': 'Content cannot be empty.'})
 
 
+
+
+""" 
+def news_detail(request, news_slug, news_id):
+    news = get_object_or_404(News, slug=news_slug, id=news_id)
+    return render(request, 'blog/news_detail.html', {'news': news})
+ """
 
 # Create your views here.

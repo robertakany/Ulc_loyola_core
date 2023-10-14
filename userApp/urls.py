@@ -15,7 +15,7 @@ urlpatterns = [
 	path('<str:user_slug>/update_password/', views.password, name='password'),
 	path('upload_profile_photo/', views.upload_profile_photo, name='upload-profile'),
 	path('<str:user_slug>/disconnect/', views.deconnexion, name='logout'),
-	path('edit_profile/', views.edit_profile, name='edit-profile'),
+	path('user_profile/', views.edit_user_profile, name='user_profile_edit'),
 
 	path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
 	path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),

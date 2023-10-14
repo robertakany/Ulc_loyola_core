@@ -10,6 +10,9 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib import messages
 from config.countries import COUNTRIES
+from students_admin.models import Student
+from teachers_admin.models import Teacher
+from datetime import datetime
 
 from django.db.models import Q
 
@@ -85,6 +88,7 @@ def signup(request):
 def edit_profile(request):
 
     COUNTRIES_LIST = COUNTRIES
+    
 
     if request.method == 'POST':
         user = request.user
@@ -151,3 +155,109 @@ def deconnexion(request):
     logout(request)
     return redirect('home')
 # Create your views here.
+
+""" def edit_password(request):
+    teacher = Teacher.objects.get(user=request.user)
+    student = Student.objects.get(user=request.user)
+
+    if request.method == 'POST':
+        try:
+            user = request.user
+            old_password = request.POST.get('old_password')
+            new_password1 = request.POST.get('new_password1')
+            new_password2 = request.POST.get('new_password2')
+        except Exception as e:
+            print('Error',e.message)    
+
+        # Vérification de l'ancien mot de passe
+        if old_password and not user.check_password(old_password):
+            messages.error(request, 'Le mot de passe actuel est incorrect.')
+            return redirect('user_profile_teacher') 
+        if new_password1 and new_password2:
+            if new_password1 != new_password2:
+                messages.error(
+                    request, 'Les nouveaux mots de passe ne correspondent pas.')
+                #return redirect('account')
+            user.set_password(new_password1)
+            # Empêche la déconnexion de l'utilisateur
+            update_session_auth_hash(request, user)
+
+        user.save()
+        messages.success(
+                request, 'Vos informations ont été mises à jour avec succès.')
+        print(messages)
+
+        return render(request, 'userApp/edit_password.html', locals())
+ """
+
+@login_required
+def edit_user_profile(request):
+    user_set_types = SEX_TYPES
+    roles = ROLE
+    COUNTRIES_LIST = COUNTRIES
+    error = "Champs invalides "
+    if request.method == 'POST':
+        if 'verification' in request.POST:
+        # Handle form submission and update the user's profile
+            user = request.user
+            user.username = request.POST['username']
+            user.last_name = request.POST['last_name']
+            user.first_name = request.POST['first_name']
+            user.email = request.POST['email']
+            user.role = request.POST['role']
+            user.country = request.POST.get('country')
+            user.phone = request.POST.get('phone')
+            user.address = request.POST.get('address')
+            born_date = request.POST.get('born_date')
+            if born_date:
+                try:
+                    born_date = datetime.strptime(born_date, '%Y-%m-%d').date()
+                except ValueError:
+                    messages.error(request, 'Format de date de naissance invalide. Utilisez AAAA-MM-JJ.')
+                    print(messages)
+                    return redirect('modifier_profil')
+
+                user.born_date = born_date
+
+            # Handle avatar upload if a new file is selected
+            if 'avatar' in request.FILES:
+                user.avatar = request.FILES.get('avatar')
+
+            user.save()
+            success = True
+            
+                    
+            messages.success(request, 'Profile updated successfully')
+            return redirect('user_profile_edit')  # Redirect to the user's profile page or any other desired page
+        else:
+        
+            try:
+                user = request.user
+                old_password = request.POST.get('old_password')
+                new_password1 = request.POST.get('new_password1')
+                new_password2 = request.POST.get('new_password2')
+            except Exception as e:
+                print('Error',e.message)    
+
+            # Vérification de l'ancien mot de passe
+            if old_password and not user.check_password(old_password):
+                messages.error(request, 'Le mot de passe actuel est incorrect.')
+                return redirect('user_profile_teacher') 
+            if new_password1 and new_password2:
+                if new_password1 != new_password2:
+                    messages.error(
+                        request, 'Les nouveaux mots de passe ne correspondent pas.')
+                    password_error=True
+                    password_error=False
+                    #return redirect('account')
+                user.set_password(new_password1)
+                password_success=True
+                password_error=False
+                # Empêche la déconnexion de l'utilisateur
+                update_session_auth_hash(request, user)
+
+            user.save()
+            messages.success(
+                    request, 'Vos informations ont été mises à jour avec succès.')
+            print(messages)            
+    return render(request, 'user/edit_user_profile.html', locals())

@@ -26,12 +26,15 @@ SECRET_KEY = 'django-insecure-6)4(yae*1i5o&b=)$2pw7@uohpg%th4ma&9)yzxu!+9qr*bwy_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    "admin_interface",
+    "colorfield",
+    "ULC_loyola_core.apps.MyAdminConfig",
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -62,7 +65,7 @@ ROOT_URLCONF = 'ULC_loyola_core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,7 +88,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "loyola_db",
         "USER": "postgres",
-        "PASSWORD": "aphrodite",
+        "PASSWORD": "derferger",
         "HOST": "127.0.0.1",
         "PORT": "5432",
     }
@@ -125,7 +128,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR.joinpath('static/')]
-STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR.joinpath('media/')

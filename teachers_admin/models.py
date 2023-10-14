@@ -15,6 +15,7 @@ SEX_TYPES = (
 ROLE = (
 	('professeur', 'professeur'),
 	('etudiant', 'etudiant'),
+    ('autres', 'autres'),
 
 )
 
@@ -25,13 +26,13 @@ Option = (
 )
 
 class Teacher(models.Model):
-    user = models.OneToOneField('userApp.User', related_name="user_teacher", on_delete=models.SET_NULL , null=True, blank=True)
-    first_name = models.CharField(max_length=45)
-    last_name = models.CharField(max_length=45)
-    username = models.CharField(max_length=20 , verbose_name="Nom d'utilisateur")
-    email = models.EmailField(_('email address'), unique=True)
-    phone = models.CharField(max_length=50)
-    country = models.CharField(max_length=100)
+    user = models.OneToOneField('userApp.User', related_name="user_teacher", on_delete=models.CASCADE , null=False, blank=False)
+    first_name = models.CharField(max_length=45, null=True, blank=True)
+    last_name = models.CharField(max_length=45, null=True, blank=True)
+    username = models.CharField(max_length=20, null=True, blank=True, verbose_name="Nom d'utilisateur")
+    email = models.EmailField(_('email address'), unique=True, null=True, blank=True)
+    phone = models.CharField(max_length=50, null=True, blank=True)
+    country = models.CharField(max_length=100, null=True, blank=True)
     sexe_type = models.CharField(max_length=23, choices=SEX_TYPES, default='Male')
     is_delete = models.BooleanField(null=True, blank=True, default=False)
     born_date = models.DateField(null=True, blank=True)
@@ -46,6 +47,17 @@ class Teacher(models.Model):
         return self.first_name
 
     def save(self, *args, **kwargs):
+        if self.user:
+            self.username = self.user.username
+            self.first_name = self.user.first_name
+            self.last_name = self.user.last_name
+            self.email = self.user.email
+            self.phone = self.user.phone
+            self.country = self.user.country
+            self.address = self.user.address
+            self.sexe_type = self.user.sexe_type
+            self.born_date = self.user.born_date
+
         if not self.slug:
             base_slug = slugify(self.first_name, self.last_name)
             slug = base_slug
@@ -56,7 +68,8 @@ class Teacher(models.Model):
                 count += 1
             self.slug = slug
         super(Teacher, self).save(*args, **kwargs)
-@receiver(post_save, sender=Teacher)
+        
+""" @receiver(post_save, sender=Teacher)
 def create_user_for_teacher(sender, instance, created, **kwargs):
     if created:
         # Créez un objet User associé au Teacher
@@ -80,6 +93,6 @@ def create_user_for_teacher(sender, instance, created, **kwargs):
         user.set_password('UlcLoyola1') 
         # Associez le nouvel utilisateur au Teacher
         instance.user = user
-        instance.save()
+        instance.save() """
 
 # Create your models here.
