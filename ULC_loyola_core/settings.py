@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-6)4(yae*1i5o&b=)$2pw7@uohpg%th4ma&9)yzxu!+9qr*bwy_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['uloyola.cd', 'www.uloyola.cd', "*"]
 
 # Application definition
 
