@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	{% include "head.html" %}
+	
+	<!-- PAGE TITLE HERE ============================================= -->
+	<title>Loyola: Contact</title>
+</head>
+<body id="bg">
+<div class="page-wraper">
+<div id="loading-icon-bx"></div>
+	<!-- Header Top ==== -->
+    <header class="header rs-nav" style="padding: 100px;">
+		<div class="top-bar" style="background-color: darkorange;">
+			<div class="container">
+				<div class="row d-flex justify-content-between">
+					<div class="topbar-left">
+						<ul>
+							<li><a href="faq-1.html"><i class="fa fa-question-circle"></i>Ask a Question</a></li>
+							<li><a href="javascript:;"><i class="fa fa-envelope-o"></i>Support@website.com</a></li>
+						</ul>
+					</div>
+					<div class="topbar-right">
+						<ul>
+							
+							<li><a href="contact.html" target="_blank">Contact</a></li>
+							<li><a href="login.html" target="_blank">Login</a></li>
+							<li><a href="register.html" target="_blank">Register</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="sticky-header navbar-expand-lg">
+            <div class="menu-bar clearfix">
+                <div class="container clearfix">
+					<!-- Header Logo ==== -->
+					<div class="menu-logo">
+						<a href="{% url 'home' %}"><img src="/static/assets/images/university_mobile_logo_ulc.png" alt=""></a>
+					</div>
+					<!-- Mobile Nav Button ==== -->
+                    <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+					<!-- Author Nav ==== -->
+                    <div class="secondary-menu">
+                        <div class="secondary-inner">
+                            <ul>
+								<li><a href="javascript:;" class="btn-link"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="javascript:;" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="javascript:;" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
+								<!-- Search Button ==== -->
+								<li class="search-btn"><button id="quik-search-btn" type="button" class="btn-link"><i class="fa fa-search"></i></button></li>
+							</ul>
+						</div>
+                    </div>
+					<!-- Search Box ==== -->
+                    <div class="nav-search-bar">
+                        <form action="#">
+                            <input name="search" value="" type="text" class="form-control" placeholder="Type to search">
+                            <span><i class="ti-search"></i></span>
+                        </form>
+						<span id="search-remove"><i class="ti-close"></i></span>
+                    </div>
+					<!-- Navigation Menu ==== -->
+                    <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
+						<div class="menu-logo">
+							<img src="/static/assets/images/university_mobile_logo_ulc.png" alt="">
+						</div>
+                        <ul class="nav navbar-nav">	
+							<li ><a href="{% url 'home' %}" target="_blank">Accueil</a>
+								
+							</li>
+							<li class="active"><a href="javascript:;">A propos <i class="fa fa-chevron-down"></i></a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'rectorat' %}">Rectorat</a>
+									</li>
+									<li><a href="{% url 'academic_secretariat' %}" >Secrétariat Académique</a>
+										
+									</li>
+									<li><a href="{% url 'secretariat_administratif' %}" >Secrétariat Administratif</a>
+									
+									</li>
+									<li><a href="{% url 'administractif_du_budget' %}" >Administrateur du Budget</a>
+									</li>
+								</ul>
+							</li>
+							<li class="active"><a href="javascript:;">Facultés <i class="fa fa-chevron-down"></i></a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'philosophy_faculty' %}" >Facultés de Philosophie</a>
+										
+									</li>
+									<li><a href="{% url 'ingenierie_faculty' %}" >Faculté d'Ingeniérie</a></li>
+										<li><a href="{% url 'agronomiques_and_veterinaires' %}" >Agronomiques et Vétérinaires</a></li>
+								</ul>
+							</li>
+							<li><a href="{% url 'all_courses_list' %}">Nos Cours </a>
+								<ul hidden class="sub-menu add-menu">
+									<li class="add-menu-left">
+										<h5 class="menu-adv-title">Our Courses</h5>
+										<ul>
+											<li><a href="#">Courses </a></li>
+											<li><a href="#">Courses Details</a></li>
+											<li><a href="#">Instructor Profile</a></li>
+											<li><a href="#">Upcoming Event</a></li>
+											<li><a href="#">Membership</a></li>
+										</ul>
+									</li>
+									<li class="add-menu-right">
+										<img src="/static/assets/images/adv/adv.jpg" alt=""/>
+									</li>
+								</ul>
+							</li>
+							<li><a href="javascript:;">Etudiants <i class="fa fa-chevron-down"></i></a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'bde' %}" >BDE</a></li>
+									<li><a href="{% url 'activity' %}" >Activité Culturelle</a></li>
+									<li hidden><a href="#">Raison Ardente</a></li>
+									<li><a href="{% url 'alumnis' %}" >Alumnis</a></li>
+									
+								</ul>
+							</li>
+							<li><a href="{% url 'news_list' %}" >Actualités</a></li>
+							<li class="nav-dashboard"><a href="{% url 'the_registration' %}" >S'inscrire </a>
+							</li>
+							
+						</ul>
+						<div class="nav-social-link">
+							<a href="javascript:;"><i class="fa fa-facebook"></i></a>
+							<a href="javascript:;"><i class="fa fa-google-plus"></i></a>
+							<a href="javascript:;"><i class="fa fa-linkedin"></i></a>
+						</div>
+                    </div>
+					<!-- Navigation Menu END ==== -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="page-banner " style="background-image:url(/static/assets/images/IMG_0619.JPG); background-attachment: fixed;">
+            <div class="container">
+				<div class="row">
+					<div class="col-6" style="display: flex; flex-wrap: wrap;">
+						<div style="background-color: rgb(255, 119, 0); padding: 100px; margin-top: 100px; margin-bottom: 100px; border-radius: 10px; color: white;">
+							<h1 style="color: white;">Contact</h1>
+							<br>
+						<p>
+							Le recteur est nommé par le Grand Chancelier,pour un <br>
+							mandat de quatre ans renouvelable une fois.
+						</p>
+						<br>
+						<br>
+						<a href="" style="color: white;" class="btn btn-outline-primary">EN SAVOIR PLUS</a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+               <div class="col-lg-12 col-md-12 col-sm-12">
+                <div style="padding: 50px;">
+                    <form action="" method="post">
+                        <h1>Joindre Notre Equipe</h1>
+                    <p>
+                        Nous sommes impatients de vous entendre et de vous assister dans votre <br>
+                         parcours éducatif ou toute autre demande que vous pourriez avoir. Votre <br>
+                          interaction avec nous est précieuse, et nous nous engageons à vous fournir une <br>
+                           réponse rapide et pertinente.
+                    </p>
+                    <div>
+                        <p>Nom</p>
+                        <input type="text" name="" id="email" placeholder="Ecrivez votre nom">
+                    </div>
+                    
+                    <div>
+                        <p>E-mail</p>
+                        <input type="email" name="" id="email" placeholder="Ecrivez votre mail">
+                    </div>
+                    <div>
+                        <p>Message</p>
+                        <textarea name="" id="textarea" cols="30" rows="10"></textarea>
+                    </div>
+					<div>
+						<input type="button" value="Envoyer">
+					</div>
+                    </form>
+                </div>
+               </div>
+            </div>
+        </div>
+		
+		
+
+        <div>
+                  <div class="background15">
+
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-6 col-md-12 col-sm-12 ">
+								<h1 style="color: white;">Comment s'inscrire ?</h1>
+							</div>
+							<div class="col-lg-6 col-md-12 col-sm-12">
+								<a href="#" style="color: white;  padding-left: 300px; text-decoration: underline; ">Découvrir Les Conditions</a>
+							</div>
+						</div>
+					</div>
+					
+					<div style="padding: 50px;">
+						<div class="container">
+							 <div class="row">
+								<div class="col-lg-4 col-md-12 col-sm-12">
+									
+										
+										<div>
+											<h2 style="color: white;  ">Sélectionnez <br> 
+												votre programme</h2>
+												<br>
+												<p style="color: white;">
+													Choisissez parmi notre largeéventail de <br>
+													programmes académiques, allant de la  <br>
+													philosophie à l'ingénierieet aux sciences <br>
+													agronomiques et vétérinaires.
+												</p>
+										
+										</div>
+									
+								</div>
+								
+								<div class="col-lg-4 col-md-12 col-sm-12">
+									<div>
+										
+											<h2 style="color: white;">Préparez tous <br> vos Dossier</h2>
+											<br>
+											    <p style="color: white;">
+												       Rassemblez tous les documents requis pour votre <br>
+												       candidature, tels que les relevés de notes, les lettres <br>
+												     de recommandationet les pièces d'identité.
+								                </p>
+									
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-12 col-sm-12">
+									<div>
+										
+											<h2 style="color: white;">Soumettez votre <br> candidature</h2>
+											<br>
+											<p style="color: white;">
+														Une fois votre dossier complet, soumettez votre <br>
+														candidature en ligne via notre portaildédié. <br>
+														Préparez-vous à réjoindre notre communauté <br>
+														académique dynamique à l'ULC.
+											</p>	
+										
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+	                 </div>
+		 
+
+</div>
+
+<div class="container-fluid">
+	<div class="row">
+		
+			<div class="background1">
+					   <div class="col-lg-8 col-md-12 col-sm-12">
+						<h1 style="color: white;">Pret à façonner votre <br> avenir ? Rejoignez-nous <br> dès aujourd'hui !</h1>
+					   </div>
+					   <div class="col-lg-4 col-md-12 col-sm-12">
+						<div id="monBoutton">
+							<a href="" class="btn btn-outline-primary" style="padding: 10px; font-size: 15px; border-radius: 10px;">Commencer  </a>
+						</div>
+					   </div>
+					  
+			</div>
+		
+	</div>
+ </div>
+		
+		
+	
+   	
+            <!-- Left & right section END -->
+    <!-- Content END-->
+<!-- Footer ==== -->
+<footer>
+	<div class="footer-top">
+		<div hidden class="">
+			<div class="container">
+				<div class="">
+					<div class="pt-logo mr-auto">
+						<a href="#"><img src="/static/assets/images/logo-white.png" alt=""/></a>
+					</div>
+					<div class="pt-social-link">
+						<ul class="list-inline m-a0">
+							<li><a href="#" class="btn-link"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#" class="btn-link"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
+						</ul>
+					</div>
+					<div class="pt-btn-join">
+						<a href="#" class="btn ">Join Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row" style="padding: 50px;">
+				<div class="col-lg-3 col-md-12 col-sm-12 " >
+					<div style="padding-right: 30px;">
+						
+							<a href="#"><img src="/static/assets/images/university_mobile_logo_ulc.png" alt="logo_ULC"/></a>
+						<p class="text-capitalize m-b20">Mission Catholique de Kimwenza C/Mont <br> Ngafula B.P. 3724 Kinshasa-Gombe
+
+							+243 82 526 1046</p>
+							<a href="+243 82 526 1046">+243 82 526 1046</a>
+						
+					</div>
+				</div>
+				
+					
+						<div class="col-lg-3 col-md-12 col-sm-12" >
+							<div class="widget footer_widget">
+								<h5 class="footer-title">NAVIGATION</h5>
+								<ul>
+									<li><a href="index.html" target="_blank">Accueil</a></li>
+									<li><a href="#">A propos</a></li>
+									<li><a href="actualites_vrai_3.html" target="_blank">Actualités</a></li>
+									<li><a href="contact.html" target="_blank">Contact</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-12 col-sm-12">
+							<div class="widget footer_widget" >
+								<h5 class="footer-title">INFORMATIONS</h5>
+								<ul>
+									<li><a href="s_inscrire.html" target="_blank">S'inscrire</a></li>
+									<li><a href="#">Conditions</a></li>
+									<li><a href="#">Questions</a></li>
+									<li><a href="#">Calendrier Académique</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-12 col-sm-12">
+							<div class="widget footer_widget" >
+								<h5 class="footer-title">FACULTES</h5>
+								<ul>
+									<li><a href="faculte_de_philosophie.html" target="_blank">Faculté De Philosophie</a></li>
+									<li><a href="faculte_d_ingenierie.html" target="_blank">Faculté d’Ingeniérie</a></li>
+									<li><a href="agronomiques_et_veterinaires.html" target="_blank">Agronomiques et Vétérinaires</a></li>
+									<li><a href="alumnis.html" target="_blank">Allumnis</a></li>
+								</ul>
+							</div>
+						</div>
+					
+				
+			
+			</div>
+		</div>
+	</div>
+   
+</footer>
+<button class="back-to-top fa fa-chevron-up" ></button>
+</div>
+<!-- External JavaScripts -->
+<script src="/static/assets/js/jquery.min.js"></script>
+<script src="/static/assets/vendors/bootstrap/js/popper.min.js"></script>
+<script src="/static/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="/static/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="/static/assets/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="/static/assets/vendors/counter/waypoints-min.js"></script>
+<script src="/static/assets/vendors/counter/counterup.min.js"></script>
+<script src="/static/assets/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="/static/assets/vendors/masonry/masonry.js"></script>
+<script src="/static/assets/vendors/masonry/filter.js"></script>
+<script src="/static/assets/vendors/owl-carousel/owl.carousel.js"></script>
+<script src="/static/assets/js/functions.js"></script>
+<script src="/static/assets/js/contact.js"></script>
+<script src='/static/assets/vendors/switcher/switcher.js'></script>
+</body>
+
+</html>
