@@ -170,6 +170,15 @@
 									
 								</ul>
 							</li>
+							<li><a href="javascript:;">Etudiants <i class="fa fa-chevron-down"></i></a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'bde' %}" >BDE</a></li>
+									<li><a href="{% url 'activity' %}" >Activité Culturelle</a></li>
+									<li hidden><a href="#">Raison Ardente</a></li>
+									<li><a href="{% url 'alumnis' %}" >Alumnis</a></li>
+									
+								</ul>
+							</li>
 							<li><a href="{% url 'all_courses_list' %}">Nos Cours </a>
 								<ul hidden class="sub-menu add-menu">
 									<li class="add-menu-left">
@@ -185,15 +194,6 @@
 									<li class="add-menu-right">
 										<img src="/static/assets/images/adv/adv.jpg" alt=""/>
 									</li>
-								</ul>
-							</li>
-							<li><a href="javascript:;">Etudiants <i class="fa fa-chevron-down"></i></a>
-								<ul class="sub-menu">
-									<li><a href="{% url 'bde' %}" >BDE</a></li>
-									<li><a href="{% url 'activity' %}" >Activité Culturelle</a></li>
-									<li hidden><a href="#">Raison Ardente</a></li>
-									<li><a href="{% url 'alumnis' %}" >Alumnis</a></li>
-									
 								</ul>
 							</li>
 							<li><a href="{% url 'news_list' %}" >Actualités</a></li>

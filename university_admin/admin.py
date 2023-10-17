@@ -5,7 +5,7 @@ admin.site.register(Registration)
 admin.site.register(Course)
 admin.site.register(StudentCourses)
 admin.site.register(TeacherStudentRelation)
-admin.site.register(CalendrierAcademique)
+admin.site.register(Alumni)
 
 
 # Register your models here.

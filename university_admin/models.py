@@ -60,11 +60,17 @@ class StudentCourses(models.Model):
 
 
 class Alumni(models.Model):
+    image = models.ImageField(default='/static/admin/assets/images/logo-mobile.png')
     name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
-    diploma = models.CharField(max_length=255)
-    diploma_year = models.IntegerField()
+    description = models.TextField(null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    diploma = models.CharField(max_length=255, null=True, blank=True)
+    diploma_year = models.IntegerField(null=True, blank=True)
     is_deleted = models.BooleanField(default=False)
+    
+    @property
+    def image_url(self):
+        return (self.image and hasattr(self.image, 'url') and self.image.url) or '/static/favicon-144x144-1.png'
 
 
 class TeacherStudentRelation(models.Model):
