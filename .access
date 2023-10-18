@@ -1,5 +1,7 @@
-ssh uloyxtlb@66.29.137.58 
+ssh uloyxtlb@66.29.137.58
 
 cpanel default IP: 66.29.137.58
 
- certbot --nginx -d uloyola.cd -d www.uloyola.cd
+certbot --nginx -d uloyola.cd -d www.uloyola.cd
+
+digitalocean 209.97.189.149
