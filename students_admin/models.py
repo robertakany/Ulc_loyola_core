@@ -77,6 +77,19 @@ class Student(models.Model):
 		return self.slug
 	
 
+
+class Souscription(models.Model):
+    student = models.ForeignKey(Student, related_name="student_registration", on_delete=models.SET_NULL,
+                                null=True, blank=True)
+    first_name = models.CharField(max_length=45)
+    last_name = models.CharField(max_length=45)
+    year_of_added = models.CharField(max_length=255, null=True, blank=True)
+    faculty = models.CharField(max_length=255, choices=Faculty)
+    registration_date = models.DateTimeField(auto_now_add=True)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    date = models.DateTimeField(auto_now_add=True)
+    data = models.JSONField(null=True, blank=True)
+
 """ @receiver(post_save, sender=Student)
 def create_user_for_student(sender, instance, created, **kwargs):
     if created:

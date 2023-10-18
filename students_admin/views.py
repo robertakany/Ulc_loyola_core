@@ -1,22 +1,32 @@
-from students_admin.models import Student
-from main.models import Auditoire
-from university_admin.models import Course
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-from userApp.forms import *
-from userApp.models import User
 from django.contrib.auth.forms import PasswordChangeForm, UserChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib import messages
-from config.countries import COUNTRIES
-from main.utils import *
 
 from django.db.models import Q
+
+from userApp.forms import *
+from config.countries import COUNTRIES
+from main.utils import *
 from userApp.models import *
+from .models import Souscription, Student
+from main.models import Auditoire
+from university_admin.models import Course
+
+
+@login_required
+def  souscription(request):
+    user = request.user
+    student= Student.objects.filter(user=user)
+    if student.exists():
+        student = student[0]
+        souscrip = Souscription.objects.create(student=student)
+    return render(request, 'students_admin/souscription.html',locals())
 
 
 
