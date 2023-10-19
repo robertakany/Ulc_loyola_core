@@ -1,5 +1,5 @@
 Faculty = (
     ('Philosophie', 'philosophie'),
-    ('ingeniérie', 'ingeniérie'),
+    ('Ingeniérie', 'Ingeniérie'),
     ('Agronomiques et Vetérinaires', 'Agronomiques et Vetérinaires')
 )

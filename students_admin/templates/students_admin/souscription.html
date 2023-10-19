@@ -2,50 +2,9 @@
 <html lang="en">
 
 <head>
-
-	<!-- META ============================================= -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
-	<meta name="robots" content="" />
-	
-	<!-- DESCRIPTION -->
-	<meta name="description" content="EduChamp : Education HTML Template" />
-	
-	<!-- OG -->
-	<meta property="og:title" content="EduChamp : Education HTML Template" />
-	<meta property="og:description" content="EduChamp : Education HTML Template" />
-	<meta property="og:image" content="" />
-	<meta name="format-detection" content="telephone=no">
-	
-	<!-- FAVICONS ICON ============================================= -->
-	<link rel="icon" href="/static/assets/images/favicon.ico" type="image/x-icon" />
-	<link rel="shortcut icon" type="image/x-icon" href="/static/assets/images/favicon.png" />
-	
+	{% include "head.html" %}
 	<!-- PAGE TITLE HERE ============================================= -->
-	<title>EduChamp : Education HTML Template </title>
-	
-	<!-- MOBILE SPECIFIC ============================================= -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<!--[if lt IE 9]>
-	<script src="/static/assets/js/html5shiv.min.js"></script>
-	<script src="/static/assets/js/respond.min.js"></script>
-	<![endif]-->
-	
-	<!-- All PLUGINS CSS ============================================= -->
-	<link rel="stylesheet" type="text/css" href="/static/assets/css/assets.css">
-	
-	<!-- TYPOGRAPHY ============================================= -->
-	<link rel="stylesheet" type="text/css" href="/static/assets/css/typography.css">
-	
-	<!-- SHORTCODES ============================================= -->
-	<link rel="stylesheet" type="text/css" href="/static/assets/css/shortcodes/shortcodes.css">
-	
-	<!-- STYLESHEETS ============================================= -->
-	<link rel="stylesheet" type="text/css" href="/static/assets/css/style.css">
-	<link class="skin" rel="stylesheet" type="text/css" href="/static/assets/css/color/color-1.css">
+	<title>Loyola : Inscription </title>
 	
 </head>
 <body id="bg">
@@ -57,21 +16,19 @@
     <!-- Content -->
     <div class="page-content bg-white">
         <!-- inner page banner -->
-        <div class="page-banner " style="background-image:url(/static/assets/images/IMG_0622.JPG); background-attachment: fixed;">
+        <div class="page-banner " style="background: linear-gradient(to right, #00000067, #00000067), url(/static/assets/images/IMG_0622.JPG);  background-size: cover; background-repeat: no-repeat; background-position: center;">
             <div class="container">
 				<div class="row">
-					<div class="col-lg-4 col-md-6 col-sm-12">
-						<div style="background-color: #F09A3E; padding: 50px; margin: 100px 0; margin-bottom: 100px; border-radius: 10px; color: white;">
-							<h1 style="color: white;">S'inscrire</h1>
+					<div class="col-lg-6 col-md-6 col-sm-12">
+						<div style="background-color: #eeb421; padding: 50px; margin: 60px 0; border-radius: 12px; color: rgb(0, 0, 0);">
+							<h1 style="color: rgb(0, 0, 0);">S'inscrire</h1>
 							<br>
-						<p>
-							Choisissez parmi notre large éventail de programmes <br>
-							 académiques, allant de la philosophie à l’ingénierie et <br>
-							  aux sciences agronomiques et vétérinaires.
-						</p>
-						<br>
-						<br>
-						<a href="" style="color: white;" class="">Commencer</a>
+							<p>
+								Choisissez parmi notre large éventail de programmes <br>
+								académiques, allant de la philosophie à l’ingénierie et <br>
+								aux sciences agronomiques et vétérinaires.
+							</p>
+							<a href="#main" class="btn btn-secondary">Commencer</a>
 						</div>
 						
 					</div>
@@ -79,7 +36,7 @@
 			</div>
         </div>
 		
-	<div class="section">
+	<div class="section" id="main">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-6 col-sm-12">

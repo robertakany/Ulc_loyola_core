@@ -23,9 +23,11 @@ from university_admin.models import Course
 def  souscription(request):
     user = request.user
     student= Student.objects.filter(user=user)
-    if student.exists():
-        student = student[0]
-        souscrip = Souscription.objects.create(student=student)
+    if request.method == 'POST':
+        if student.exists():
+            student = student[0]
+            souscrip = Souscription.objects.create(student=student)
+            
     return render(request, 'students_admin/souscription.html',locals())
 
 

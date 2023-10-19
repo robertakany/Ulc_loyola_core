@@ -237,6 +237,10 @@ def all_courses_list(request):
     courses = Course.objects.filter(is_deleted=False)
     news = News.objects.all().order_by('-created_at')[:3]
     user = request.user
+
+    philosopie = courses.filter(faculty='Philosophie')
+    ingenierie = courses.filter(faculty='Ingeniérie')
+    agronomiques_et_veterinaires = courses.filter(faculty='Agronomiques et Vetérinaires')
     
     teachers = None
     students = None

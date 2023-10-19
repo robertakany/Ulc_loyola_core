@@ -116,7 +116,7 @@
 						<!-- Side bar start -->
 						<div class="col-md-5 col-lg-4 col-xl-4 sticky-top">
 							<aside class="side-bar sticky-top">
-								<div class="widget">
+								<div class="widget" hidden>
 									<h6 class="widget-title">Search</h6>
 									<div class="search-bx style-1">
 										<form role="search" method="post">
@@ -130,7 +130,7 @@
 									</div>
 								</div>
 								<div class="widget recent-posts-entry">
-									<h6 class="widget-title">Recentes news</h6>
+									<h6 class="widget-title">Recents</h6>
 									<div class="widget-post-bx">
 										{% for recent_new in recent_news  %}
 										<div class="widget-post clearfix">
@@ -152,7 +152,7 @@
 								<div class="widget widget-newslatter">
 									<h6 class="widget-title">Newsletter</h6>
 									<div class="news-box">
-										<p>Enter your e-mail and subscribe to our newsletter.</p>
+										<p hidden>Enter your e-mail and subscribe to our newsletter.</p>
 										<form class="subscription-form" action="http://educhamp.themetrades.com/demo/assets/script/mailchamp.php" method="post">
 											<div class="ajax-message"></div>
 											<div class="input-group">
@@ -165,7 +165,7 @@
 									</div>
 								</div>
 								<div class="widget widget_gallery gallery-grid-4">
-									<h6 class="widget-title">Our Gallery</h6>
+									<h6 class="widget-title">Images</h6>
 									<ul>
 										{% for new in news %}
 										<li><div><a href="{{new.featured_image.url }}"><img src="{{new.featured_image.url }}" alt="{{new.title}}"></a></div></li>
@@ -211,85 +211,7 @@
             <!-- Left & right section END -->
     <!-- Content END-->
 <!-- Footer ==== -->
-<footer>
-	<div class="footer-top">
-		<div hidden class="">
-			<div class="container">
-				<div class="">
-					<div class="pt-logo mr-auto">
-						<a href="#"><img src="/static/assets/images/logo-white.png" alt=""/></a>
-					</div>
-					<div class="pt-social-link">
-						<ul class="list-inline m-a0">
-							<li><a href="#" class="btn-link"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#" class="btn-link"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="#" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
-						</ul>
-					</div>
-					<div class="pt-btn-join">
-						<a href="#" class="btn ">Join Now</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row" style="padding: 50px;">
-				<div class="col-lg-3 col-md-12 col-sm-12 " >
-					<div style="padding-right: 30px;">
-						
-							<a href="#"><img src="/static/assets/images/university_mobile_logo_ulc.png" alt="logo_ULC"/></a>
-						<p class="text-capitalize m-b20">Mission Catholique de Kimwenza C/Mont <br> Ngafula B.P. 3724 Kinshasa-Gombe
-
-							+243 82 526 1046</p>
-							<a href="+243 82 526 1046">+243 82 526 1046</a>
-						
-					</div>
-				</div>
-				
-					
-						<div class="col-lg-3 col-md-12 col-sm-12" >
-							<div class="widget footer_widget">
-								<h5 class="footer-title">NAVIGATION</h5>
-								<ul>
-									<li><a href="index.html" target="_blank">Accueil</a></li>
-									<li><a href="#">A propos</a></li>
-									<li><a href="actualites_vrai_3.html" target="_blank">Actualités</a></li>
-									<li><a href="contact.html" target="_blank">Contact</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-12 col-sm-12">
-							<div class="widget footer_widget" >
-								<h5 class="footer-title">INFORMATIONS</h5>
-								<ul>
-									<li><a href="s_inscrire.html" target="_blank">S'inscrire</a></li>
-									<li><a href="#">Conditions</a></li>
-									<li><a href="#">Questions</a></li>
-									<li><a href="#">Calendrier Académique</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-12 col-sm-12">
-							<div class="widget footer_widget" >
-								<h5 class="footer-title">FACULTES</h5>
-								<ul>
-									<li><a href="faculte_de_philosophie.html" target="_blank">Faculté De Philosophie</a></li>
-									<li><a href="faculte_d_ingenierie.html" target="_blank">Faculté d’Ingeniérie</a></li>
-									<li><a href="agronomiques_et_veterinaires.html" target="_blank">Agronomiques et Vétérinaires</a></li>
-									<li><a href="alumnis.html" target="_blank">Allumnis</a></li>
-								</ul>
-							</div>
-						</div>
-					
-				
-			
-			</div>
-		</div>
-	</div>
-   
-</footer>
-<button class="back-to-top fa fa-chevron-up" ></button>
+{% include "footer.html" %}
 </div>
 <!-- External JavaScripts -->
 <script src="/static/assets/js/jquery.min.js"></script>

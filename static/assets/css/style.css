@@ -54,6 +54,10 @@ input, textarea{
 	background-color: rgba(113, 11, 11, 0.996); 
 }
 
+.btn-secondary{
+	background-color: #BF1E2E !important; 
+}
+
 .yellow-background {
 	position: relative;
 	overflow-x: hidden !important;
@@ -69,8 +73,8 @@ input, textarea{
 
 .yellow-background > * {
 	position: relative;
-	background-color: #0000007c;
-	border: 1px solid #6b6b6b;
+	background: linear-gradient(to bottom right, #111825b8, #04080fe2);
+	border: 1px solid #0e141f;
 	padding: 50px 20px;
 	border-radius: 12px;
 	overflow-x: hidden;
@@ -197,6 +201,7 @@ input, textarea{
 }
 
 .card-1{
+	border-radius: 8px !important;
 	border: 1px solid white;
 	box-sizing: border-box;
 	transition: .4s ease-in;
@@ -232,13 +237,13 @@ input, textarea{
 
 .tarif-table tfoot tr {
 	border-radius: 8px;
-	background-color:  #f09a3e32 !important;
+	background-color:  #eeb42132 !important;
 }
 
 .tarif-table h3{
-	background: #f09a3e26;
+	background: #eeb42126;
 	padding: 20px;
-	color: #f09a3e;
+	color: #eeb421;
 	font-size: 30px;
 	border-radius: 0 !important;
 }

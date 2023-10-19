@@ -49,6 +49,7 @@ class Course(models.Model):
             self.slug = slug
 
         super(Course, self).save(*args, **kwargs)
+    @property
     def image_url(self):
         return (self.image and hasattr(self.image, 'url') and self.image.url) or '/static/assets/university_mobile_logo_ulc-1 (1).png'
 
