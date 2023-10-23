@@ -23,7 +23,7 @@ def news_content(request,news_id,news_slug):
     
    # Vérifier si l'utilisateur a déjà vu cette news dans la session
     viewed_news = request.session.get('viewed_news', [])
-    if news_id not in viewed_news:
+    if request.user.is_authenticated and news_id not in viewed_news:
         # Incrémenter le compteur de vues si l'utilisateur n'a pas encore vu cette news
         news_content.add_view()
         viewed_news.append(news_id)
