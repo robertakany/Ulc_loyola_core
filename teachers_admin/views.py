@@ -61,9 +61,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 
 
-def teacher_admin(request, teacher_slug):
+def teacher_admin(request, teacher_slug=None):
     user= request.user
-    teacher = Teacher.objects.get(user=user, slug=teacher_slug)
+    teacher = Teacher.objects.get(user=user)
     print(teacher.user )
     courses = Course.objects.filter(teacher=teacher)
     return render(request, "teachers_admin/teacher_admin_home.html", locals())

@@ -43,8 +43,6 @@ class Teacher(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, blank=True)
 
-    def __str__(self):
-        return self.first_name
 
     def save(self, *args, **kwargs):
         if self.user:
@@ -68,6 +66,10 @@ class Teacher(models.Model):
                 count += 1
             self.slug = slug
         super(Teacher, self).save(*args, **kwargs)
+        
+        
+    def __str__(self):
+        return f'Professeur {self.first_name} {self.last_name} {self.username}'
         
 """ @receiver(post_save, sender=Teacher)
 def create_user_for_teacher(sender, instance, created, **kwargs):

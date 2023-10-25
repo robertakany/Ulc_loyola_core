@@ -33,9 +33,9 @@ def  souscription(request):
 
 
 @login_required
-def  student_admin(request,student_slug):
+def  student_admin(request,student_slug=None):
     user = request.user
-    student= Student.objects.get(user=user,slug=student_slug)
+    student= Student.objects.get(user=user)
     if student:
         # 2. Accédez à l'auditoire et à la faculté de l'étudiant.
         auditoire = student.auditoire
@@ -146,12 +146,12 @@ def edit_profile(request):
     return render(request, 'students_admin/user_profile.html', locals())
 
 
-def edite_student_profile(request,student_slug):
+def edite_student_profile(request,student_slug=None):
     COUNTRIES_LIST = COUNTRIES
     faculty_list = Faculty
 
 
-    student= Student.objects.get(slug=student_slug, user=request.user)
+    student= Student.objects.get(user=request.user)
 
     if request.method == 'POST':
         user = request.user

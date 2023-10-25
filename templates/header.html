@@ -22,12 +22,12 @@
                         {% if user.is_authenticated %}
                         {% if user.is_teacher %}
                             {% for teacher in teachers %}
-                            <li><a href="{% url 'teacher_admin' teacher.slug %}">Professeur</a></li>
+                            <li><a href="{% url 'teacher_admin' %}">Professeur</a></li>
                             {% endfor %}
                         {% endif %}    
                         {% if user.is_student %}
                             {% for student in students %}
-                            <li><a href="{% url 'student_admin' student.slug %}">Etudiant</a></li>
+                            <li><a href="{% url 'student_admin' %}">Etudiant</a></li>
                             {% endfor %}
                         {% endif %}    
                         {% if user.is_superuser %}

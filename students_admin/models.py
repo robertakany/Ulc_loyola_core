@@ -30,10 +30,10 @@ def student_path(i, filename):
 
 
 class Student(models.Model):
+	user = models.OneToOneField('userApp.User', related_name="student", on_delete=models.CASCADE, null=False,blank=False)
 	username = models.CharField(max_length=20 , verbose_name="Nom d'utilisateur", null=True, blank=True)
 	first_name = models.CharField(max_length=45, null=True, blank=True)
 	last_name = models.CharField(max_length=45, null=True, blank=True)
-	user = models.OneToOneField('userApp.User', related_name="student", on_delete=models.CASCADE, null=False,blank=False)
 	year_of_added = models.CharField(max_length=255, null=True, blank=True)
 	faculty = models.CharField(max_length=255, choices=Faculty)
 	auditoire = models.ForeignKey('main.Auditoire', related_name='auditoire_students', on_delete=models.SET_NULL, blank=True,null=True)
@@ -73,9 +73,9 @@ class Student(models.Model):
 			self.slug = slug
 		super(Student, self).save(*args, **kwargs)
 	
+
 	def __str__(self):
-		return self.slug
-	
+		return f'Etudiant {self.first_name} {self.last_name} {self.username}'
 
 
 class Souscription(models.Model):
