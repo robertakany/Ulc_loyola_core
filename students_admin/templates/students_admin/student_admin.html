@@ -193,12 +193,15 @@
                                                 </div>
                                                 <div class="card-courses-user-info">
                                                     <h5>Proffesseur</h5>
-                                                    <h4>{{student_courses.teacher.user.first_name}} {{student_courses.teacher.user.last_name}}</h4>
+                                                    <h4>{{student_courses.teacher.username}} {{student_courses.teacher.first_name}} {{student_courses.teacher.last_name}}</h4>
                                                 </div>
                                             </li>
                                             <li class="card-courses-categories">
-                                                <h5>Faculté: {{student_courses.faculty}}</h5>
-                                                <h4>Catégorie: {{student_courses.category}}</h4>
+                                                <h5>Faculté:</h5>
+                                                <h4>{{student_courses.faculty}}</h4>
+                                                <br>
+                                                <h5>Catégorie:</h5>
+                                                <h4>{{student_courses.category}}</h4>
                                             </li>
                                             <li class="card-courses-review">
                                                 <h5>Auditoire(s)</h5>
