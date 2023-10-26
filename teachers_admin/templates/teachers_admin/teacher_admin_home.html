@@ -183,18 +183,9 @@
                 </style>
                         
                 <div   class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-12">
-                    <div  class="widget-card widget-bg3">
-                        <div class="wc-item">
-                            <button id="wc-title" class="wc-title">
-                                <a href="{% url 'add_course' %}">Ajouter un cours</a>
-                            </button>
-                            <span class="wc-des">
-								<i class="ti-book"></i>
-							</span>
-                            
-							
-                        </div>
-                    </div>
+                    <button id="wc-title" class="wc-title">
+                        <a href="{% url 'add_course' %}">Ajouter un cours</a>
+                    </button>
                 </div>
 
             </div>
@@ -349,12 +340,17 @@
                                                     </div>
                                                 </li>
                                                 <li class="card-courses-categories">
-                                                    <h5>3 Categories</h5>
-                                                    <h4>{{course.category}}</h4>
+                                                    <h5>Faculté: {{course.faculty}}</h5>
+                                                    <h4>Catégorie: {{course.category}}</h4>
                                                 </li>
                                                 <li class="card-courses-review">
-                                                    <h5>3 Review</h5>
-                                                    <ul class="cours-star">
+                                                    <h5>Auditoire(s)</h5>
+                                                    <ul>
+                                                        {% for auditoire in course.auditoire.all %}
+                                                          <li>{{auditoire}}</li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <ul class="cours-star" hidden>
                                                         <li class="active"><i class="fa fa-star"></i></li>
                                                         <li class="active"><i class="fa fa-star"></i></li>
                                                         <li class="active"><i class="fa fa-star"></i></li>

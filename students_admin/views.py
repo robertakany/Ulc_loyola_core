@@ -68,7 +68,7 @@ def course_list(request):
         # 3. Filtrez les cours en fonction de l'auditoire et de la faculté de l'étudiant.
         student_course_lists = Course.objects.filter(auditoire=auditoire, faculty=faculty)
 
-        return render(request, 'students_admin/student_course_list.html', locals())
+        return render(request, 'students_admin/student_admin.html',locals())
 
     # Gérez le cas où l'utilisateur n'est pas un étudiant ou n'est pas associé à un étudiant.
     return render(request, 'students_admin/student_course_list.html', {'student_course_lists': []})

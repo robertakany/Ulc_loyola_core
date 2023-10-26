@@ -197,12 +197,17 @@
                                                 </div>
                                             </li>
                                             <li class="card-courses-categories">
-                                                <h5>3 Categories du cours</h5>
-                                                <h4>{{student_courses.category}}</h4>
+                                                <h5>Faculté: {{student_courses.faculty}}</h5>
+                                                <h4>Catégorie: {{student_courses.category}}</h4>
                                             </li>
                                             <li class="card-courses-review">
-                                                <h5>3 Nombre de vues</h5>
-                                                <ul class="cours-star">
+                                                <h5>Auditoire(s)</h5>
+                                                <ul>
+                                                    {% for auditoire in student_courses.auditoire.all %}
+                                                      <li>{{auditoire}}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                                <ul class="cours-star" hidden>
                                                     <li class="active"><i class="fa fa-star"></i></li>
                                                     <li class="active"><i class="fa fa-star"></i></li>
                                                     <li class="active"><i class="fa fa-star"></i></li>
