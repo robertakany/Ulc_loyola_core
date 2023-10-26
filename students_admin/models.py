@@ -45,7 +45,7 @@ class Student(models.Model):
 	is_delete = models.BooleanField(null=True, blank=True, default=False)
 	born_date = models.DateField(null=True, blank=True)
 	address = models.CharField(max_length=70, null=True, blank=True)
-	country = models.CharField(max_length=100)
+	country = models.CharField(max_length=100, null=True, blank=True)
 	data = models.JSONField(blank=True, null=True)
 	slug = models.SlugField(unique=True, blank=True)
 

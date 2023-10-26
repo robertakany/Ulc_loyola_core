@@ -52,6 +52,9 @@ class Course(models.Model):
     @property
     def image_url(self):
         return (self.image and hasattr(self.image, 'url') and self.image.url) or '/static/assets/university_mobile_logo_ulc-1 (1).png'
+    
+    def __str__(self):
+        return f'Cours: {self.title}'
 
 class StudentCourses(models.Model):
     student = models.ForeignKey(Student, related_name="student_courses", on_delete=models.CASCADE)
@@ -72,6 +75,9 @@ class Alumni(models.Model):
     @property
     def image_url(self):
         return (self.image and hasattr(self.image, 'url') and self.image.url) or '/static/favicon-144x144-1.png'
+    
+    def __str__(self):
+        return f'Alumni: {self.name}'
 
 
 class TeacherStudentRelation(models.Model):

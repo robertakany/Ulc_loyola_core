@@ -9,7 +9,7 @@ from main.utils import Faculty
 class Auditoire(models.Model):
     niveau_name = models.CharField(max_length=50, blank=True)
     teachers = models.ManyToManyField('teachers_admin.Teacher', blank=True, related_name='auditoire_teachers')
-    course = models.ManyToManyField('university_admin.Course', related_name='auditoire_courses', blank=True)
+    courses = models.ManyToManyField('university_admin.Course', related_name='auditoire_courses', blank=True)
     faculty = models.CharField(max_length=50, choices=Faculty)
     data = models.JSONField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
@@ -28,6 +28,8 @@ class Auditoire(models.Model):
 
         super(Auditoire, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return f'Auditoire {self.niveau_name}'
  
 class Faculty(models.Model):
     name = models.CharField(max_length=100, choices=Faculty)
