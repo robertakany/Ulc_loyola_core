@@ -17,19 +17,17 @@
     <!-- Content -->
     <div class="page-content bg-white">
         <!-- inner page banner -->
-        <div class="page-banner " style="background: linear-gradient(to right, #00000067, #00000067), url(/static/assets/images/IMG_0619.JPG); background-attachment: fixed;">
+        <div class="page-banner " style="background: linear-gradient(to right, #00000067, #00000067), url(/static/assets/images/IMG_0612.JPG); background-attachment: fixed; background-size: cover; background-repeat: no-repeat;">
             <div class="container">
 				<div class="row">
-					<div class="col-lg-4 col-md-6 col-sm-12" style="display: flex; flex-wrap: wrap;">
+					<div class="col-lg-6 col-md-6 col-sm-12" style="display: flex; flex-wrap: wrap;">
 						<div style="background-color: #eeb421; padding: 50px; margin-top: 100px; margin-bottom: 100px; border-radius: 10px; color: black;">
 							<h1 style="color: black;">Contact</h1>
 							<br>
 						<p>
-							Le recteur est nommé par le Grand Chancelier,pour un <br>
+							Le recteur est nommé par le Grand Chancelier,pour un
 							mandat de quatre ans renouvelable une fois.
 						</p>
-						<br>
-						<br>
 						<a href="#main" style="color: white;" class="btn btn-secondary">EN SAVOIR PLUS</a>
 						</div>
 						
@@ -43,11 +41,11 @@
             <div class="row">
                <div class="col-lg-6 col-md-12 col-sm-12">
                 <div>
-					<h1>Joindre Notre Equipe</h1>
-					<p>
-						Nous sommes impatients de vous entendre et de vous assister dans votre <br>
-						parcours éducatif ou toute autre demande que vous pourriez avoir. Votre <br>
-						interaction avec nous est précieuse, et nous nous engageons à vous fournir une <br>
+					<h1>Joindre l'Université</h1>
+					<p class="text-justify">
+						Nous sommes impatients de vous entendre et de vous assister dans votre 
+						parcours éducatif ou toute autre demande que vous pourriez avoir. Votre 
+						interaction avec nous est précieuse, et nous nous engageons à vous fournir une 
 						réponse rapide et pertinente.
 					</p>
                 </div>
@@ -55,11 +53,15 @@
 			   <div class="col-lg-6 col-md-12 col-sm-12">
 					<form action="" method="post">
 						<div>
-							<input type="text" name="" id="email" placeholder="Ecrivez votre nom">
+							<input type="text" name="name" id="email" placeholder="Ecrivez votre nom">
 						</div>
 						<br>
 						<div>
-							<input type="email" name="" id="email" placeholder="Ecrivez votre mail">
+							<input type="email" name="email" id="email" placeholder="Ecrivez votre mail">
+						</div>
+						<br>
+						<div>
+							<input type="text" name="object" id="email" placeholder="Object">
 						</div>
 						<br>
 						<div>
@@ -76,90 +78,8 @@
 		
 		
 
-		<div class="section gray-background">
-			<div class="">
-	
-				<div class="container">
-					<div class="row d-flex justify-content-between flex-wrap">
-						<div class="">
-							<h1>Comment s'inscrire ?</h1>
-						</div>
-						<div class="">
-						  <br>
-							<a href="#" class="btn">Découvrir Les Conditions</a>
-							<br>
-						</div>
-					</div>
-				</div>
-			  <div style="padding: 20px;">
-				  <div class="container">
-					  <style>
-						  .order-label{
-							  text-decoration: underline; font-size: 100px; font-weight: bold;
-							  margin-right: 20px;
-							  color: #c7c7c7
-						  }
-						  .border-x{
-							  border-left: 1px solid silver ;
-							  border-right: 1px solid silver ;
-							  margin-top: 30px;
-							  margin-bottom: 30px;
-						  }
-	
-						  .order-label.l1 {
-							  color: #c7c7c7
-						  }
-						  .order-label.l2 {
-							  color: #dbc7a5
-						  }
-						  .order-label.l3 {
-							  color: #a6e8bc
-						  }
-					  </style>
-					   <div class="row align-items-center">
-						  <div class="col-lg-4 col-md-12 col-sm-12">
-							  <h2 class="d-flex align-items-center">
-								  <span class="order-label l1">1</span> <span>Sélectionnez votre programme</span>
-							  </h2>
-							  <p>
-								  Choisissez parmi notre largeéventail de <br>
-								  programmes académiques, allant de la  <br>
-								  philosophie à l'ingénierieet aux sciences <br>
-								  agronomiques et vétérinaires.
-							  </p>
-						  </div>
-						  
-						  <div class="col-lg-4 col-md-12 col-sm-12 border-x">
-							  <div>
-								  <h2 class="d-flex align-items-center">
-									  <span class="order-label l2">2</span> <span>Préparez tous vos Dossier</span>
-								  </h2>
-								  <p>
-										  Rassemblez tous les documents requis pour votre <br>
-										  candidature, tels que les relevés de notes, les lettres <br>
-										  de recommandationet les pièces d'identité.
-								  </p>
-							  </div>
-						  </div>
-						  <div class="col-lg-4 col-md-12 col-sm-12">
-							  <div>
-								  <h2 class="d-flex align-items-center">
-									  <span class="order-label l3">3</span> <span>Soumettez votre candidature</span>
-								  </h2>
-								  <p>
-											  Une fois votre dossier complet, soumettez votre <br>
-											  candidature en ligne via notre portaildédié. <br>
-											  Préparez-vous à réjoindre notre communauté <br>
-											  académique dynamique à l'ULC.
-								  </p>	
-							  </div>
-						  </div>
-					  </div>
-					  
-				  </div>
-			  </div>
-			   </div>		 
-		</div>
+		{% include './subscription_guide_section.html' %}
+
 		{% include "footer.html" %}
 </div>
 <!-- External JavaScripts -->

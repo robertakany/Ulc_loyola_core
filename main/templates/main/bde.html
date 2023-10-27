@@ -56,7 +56,7 @@
                             <li>Au niveau de chaque Faculté : par un Délégué et un Délégué Adjoint ;</li>
                             <li>Au niveau des promotions : par un Chef de Promotion et un Chef de Promotion Adjoint.</li>
                         </ul>
-                        <p>
+                        <p class="text-justify">
                             Le Conseil des Étudiants est composé du Président des Étudiants qui le préside, du Vice-Président,
 du Secrétaire, des Délégués et Délégués Adjoints des Facultés Et de l’Étudiant Responsable du Comité
 d’Animation Spirituelle des Étudiants Laïcs (C.A.S.E.L.). C’est un organe de coordination par lequel
@@ -76,7 +76,7 @@ compte aux étudiants de ses démarches et de leur aboutissement.
                     <div class="col-lg-6 col-md-12 col-sm-12">
                         <div style="padding: 20px;">
                             <h1> Le Président des Étudiants</h1>
-                            <p>
+                            <p class="text-justify">
                              Le Président des Étudiants est responsable devant les autorités académiques de toute question en
      rapport avec la vie communautaire des étudiants au niveau de l’Institution. Il est chargé de
      promouvoir au niveau des étudiants la réalisation des objectifs de l’ULC. Il convoque et préside, au
@@ -94,7 +94,8 @@ compte aux étudiants de ses démarches et de leur aboutissement.
                     <div class="col-lg-6 col-md-12 col-sm-12">
                         <div style="padding: 20px;">
                             <h1>Le Chef de Promotion</h1>
-                            <p>Pour chaque promotion, il est élu un Chef de Promotion (C.P.) et un Chef de Promotion Adjoint
+                            <p class="text-justify">
+								Pour chaque promotion, il est élu un Chef de Promotion (C.P.) et un Chef de Promotion Adjoint
                                 (C.P.A.). <br>
                                 – Le Chef de Promotion est chargé de promouvoir tout ce qui est susceptible d’améliorer le système
                                 d’enseignement et de concourir à la réalisation des objectifs de l’ULC. Il veille, avec l’appariteur, les
@@ -125,90 +126,7 @@ spécialement pour ce qui regarde les horaires des cours et des examens.
 			</div>
 		</div>
 
-		<div class="section gray-background">
-			<div class="">
-	
-				<div class="container">
-					<div class="row d-flex justify-content-between flex-wrap">
-						<div class="">
-							<h1>Comment s'inscrire ?</h1>
-						</div>
-						<div class="">
-						  <br>
-							<a href="#" class="btn">Découvrir Les Conditions</a>
-							<br>
-						</div>
-					</div>
-				</div>
-			  <div style="padding: 20px;">
-				  <div class="container">
-					  <style>
-						  .order-label{
-							  text-decoration: underline; font-size: 100px; font-weight: bold;
-							  margin-right: 20px;
-							  color: #c7c7c7
-						  }
-						  .border-x{
-							  border-left: 1px solid silver ;
-							  border-right: 1px solid silver ;
-							  margin-top: 30px;
-							  margin-bottom: 30px;
-						  }
-	
-						  .order-label.l1 {
-							  color: #c7c7c7
-						  }
-						  .order-label.l2 {
-							  color: #dbc7a5
-						  }
-						  .order-label.l3 {
-							  color: #a6e8bc
-						  }
-					  </style>
-					   <div class="row align-items-center">
-						  <div class="col-lg-4 col-md-12 col-sm-12">
-							  <h2 class="d-flex align-items-center">
-								  <span class="order-label l1">1</span> <span>Sélectionnez votre programme</span>
-							  </h2>
-							  <p>
-								  Choisissez parmi notre largeéventail de <br>
-								  programmes académiques, allant de la  <br>
-								  philosophie à l'ingénierieet aux sciences <br>
-								  agronomiques et vétérinaires.
-							  </p>
-						  </div>
-						  
-						  <div class="col-lg-4 col-md-12 col-sm-12 border-x">
-							  <div>
-								  <h2 class="d-flex align-items-center">
-									  <span class="order-label l2">2</span> <span>Préparez tous vos Dossier</span>
-								  </h2>
-								  <p>
-										  Rassemblez tous les documents requis pour votre <br>
-										  candidature, tels que les relevés de notes, les lettres <br>
-										  de recommandationet les pièces d'identité.
-								  </p>
-							  </div>
-						  </div>
-						  <div class="col-lg-4 col-md-12 col-sm-12">
-							  <div>
-								  <h2 class="d-flex align-items-center">
-									  <span class="order-label l3">3</span> <span>Soumettez votre candidature</span>
-								  </h2>
-								  <p>
-											  Une fois votre dossier complet, soumettez votre <br>
-											  candidature en ligne via notre portaildédié. <br>
-											  Préparez-vous à réjoindre notre communauté <br>
-											  académique dynamique à l'ULC.
-								  </p>	
-							  </div>
-						  </div>
-					  </div>
-					  
-				  </div>
-			  </div>
-			   </div>		 
-		</div>
+		{% include './subscription_guide_section.html' %}
 		{% include "footer.html" %}
 </div>
 <!-- External JavaScripts -->

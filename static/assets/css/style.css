@@ -45,6 +45,10 @@ input, textarea{
 	text-align: center;
 }
 
+.text-justify{
+	text-align: justify;
+}
+
 .gray-background{
 	background: #f7f7f7;
 }
@@ -2007,7 +2011,7 @@ footer .widget_services ul li:hover {
 	-ms-transform: translateX(10px);
 }
 .footer-top {
-    background: #303030;
+    background: #0e0508 !important;
     background-size: cover;
     background-position: center;
     padding: 0 0 20px;

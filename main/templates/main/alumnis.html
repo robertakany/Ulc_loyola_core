@@ -53,7 +53,7 @@ différentes formes.
 						<br>
 						<div>
 							<h1>Alumnis</h1>
-						<p>
+						<p class="text-justify">
                             Les alumni de l’Université Loyola du Congo sont les diplômés dont la mission principale est d’aider l’Université à poursuivre sa tâche éducative en lui apportant leurs expertises et leurs compétences sous différentes formes. Ils ont vocation à prolonger les liens de fraternité, et à développer la communication et la solidarité au sein de la communauté des diplômés. Ils ont également la mission de promouvoir la visibilité, le support essentiel à l’employabilité de tous les diplômés et élément clé de la pérennité de l’Université.
                             Ils constituent alors un formidable moyen de maintenir le lien entre le passé et le futur, de favoriser l’entraide et la solidarité entre diplômés, de perpétuer les valeurs de l’Université telles que: l’excellence et l’éthique professionnelle, l’engagement, le partage, la solidarité et le vivre ensemble.
 						</p>
@@ -111,90 +111,8 @@ différentes formes.
             <!-- contact area END -->
         </div>
 
-		<div class="section gray-background">
-			<div class="">
-	
-			  <div class="container">
-				  <div class="row d-flex justify-content-between flex-wrap">
-					  <div class="">
-						  <h1>Comment s'inscrire ?</h1>
-					  </div>
-					  <div class="">
-						<br>
-						  <a href="#" class="btn">Découvrir Les Conditions</a>
-						  <br>
-					  </div>
-				  </div>
-			  </div>
-			  <div style="padding: 20px;">
-				  <div class="container">
-					  <style>
-						  .order-label{
-							  text-decoration: underline; font-size: 100px; font-weight: bold;
-							  margin-right: 20px;
-							  color: #c7c7c7
-						  }
-						  .border-x{
-							  border-left: 1px solid silver ;
-							  border-right: 1px solid silver ;
-							  margin-top: 30px;
-							  margin-bottom: 30px;
-						  }
-	
-						  .order-label.l1 {
-							  color: #c7c7c7
-						  }
-						  .order-label.l2 {
-							  color: #dbc7a5
-						  }
-						  .order-label.l3 {
-							  color: #a6e8bc
-						  }
-					  </style>
-					   <div class="row align-items-center">
-						  <div class="col-lg-4 col-md-12 col-sm-12">
-							  <h2 class="d-flex align-items-center">
-								  <span class="order-label l1">1</span> <span>Sélectionnez votre programme</span>
-							  </h2>
-							  <p>
-								  Choisissez parmi notre largeéventail de <br>
-								  programmes académiques, allant de la  <br>
-								  philosophie à l'ingénierieet aux sciences <br>
-								  agronomiques et vétérinaires.
-							  </p>
-						  </div>
-						  
-						  <div class="col-lg-4 col-md-12 col-sm-12 border-x">
-							  <div>
-								  <h2 class="d-flex align-items-center">
-									  <span class="order-label l2">2</span> <span>Préparez tous vos Dossier</span>
-								  </h2>
-								  <p>
-										  Rassemblez tous les documents requis pour votre <br>
-										  candidature, tels que les relevés de notes, les lettres <br>
-										  de recommandationet les pièces d'identité.
-								  </p>
-							  </div>
-						  </div>
-						  <div class="col-lg-4 col-md-12 col-sm-12">
-							  <div>
-								  <h2 class="d-flex align-items-center">
-									  <span class="order-label l3">3</span> <span>Soumettez votre candidature</span>
-								  </h2>
-								  <p>
-											  Une fois votre dossier complet, soumettez votre <br>
-											  candidature en ligne via notre portaildédié. <br>
-											  Préparez-vous à réjoindre notre communauté <br>
-											  académique dynamique à l'ULC.
-								  </p>	
-							  </div>
-						  </div>
-					  </div>
-					  
-				  </div>
-			  </div>
-			   </div>		 
-		</div>
+		{% include './subscription_guide_section.html' %}
+
 		{% include "footer.html" %}
 </div>
 <!-- External JavaScripts -->

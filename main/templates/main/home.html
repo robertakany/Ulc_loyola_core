@@ -92,10 +92,10 @@
 									<li><a href="{% url 'admin:index' %}">Admin</a></li> 
 								{% endif %}
 								<li><a href="{% url 'user_profile_edit' %}"><span class="ttr-user-avatar">{{user.username}} <img  class="user_caption" alt="user" src="{{user.avatar.url}}" style="height: 35px; width: 35px; border-radius: 50%; object-fit: cover;"></span></a></li>
-								<li><a href="{% url 'logout' %}">logout</a></li>
+								<li><a href="{% url 'logout' %}">Se deconnecter</a></li>
 							{% else %}    
-								<li><a href="{% url 'login' %}">Login</a></li>
-								<li><a href="{% url 'register' %}">Register</a></li>
+								<li><a href="{% url 'login' %}">Se Connecter</a></li>
+								<!-- <li><a href="{% url 'register' %}">Register</a></li> -->
 								
 							{% endif %}
 
@@ -421,8 +421,8 @@
 								
 									<div id="collapse1" class="panel-collapse collapse in">
 										<div class="panel-body" style=" border-left: 5px solid #b62727; padding-left: 10px; font-size: 12px;">
-											<p>L’ULC est une université de référence qui, par l’enseignement et la recherche, forme des étudiants pour construire une société juste et fraternelle, en harmonie avec les exigences du service de la foi, de la paix et de la réconciliation. L’ULC incarne cette vision par</p>
-											<div>
+											<p class="text-justify">L’ULC est une université de référence qui, par l’enseignement et la recherche, forme des étudiants pour construire une société juste et fraternelle, en harmonie avec les exigences du service de la foi, de la paix et de la réconciliation. L’ULC incarne cette vision par</p>
+											<div class="text-justify">
 												<div>l’enracinement de sa formation dans les valeurs chrétiennes et ignaciennes;</div>
 												<div>l’excellence de son enseignement, de sa formation et de sa recherche;</div>
 												<div>la bonne gouvernance de ses organes;</div>
@@ -436,7 +436,7 @@
 									
 									<div id="collapse2" class="panel-collapse collapse in">
 										<div class="panel-body" style=" border-left: 5px solid #b62727; padding-left: 10px; font-size: 12px;">
-											<p>La mission de l’ULC, inscrite dans la tradition séculaire de la Compagnie de Jésus, en est une d’enseignement, de formation, de recherche et des services à la société. L’ULC donne, en RD Congo, à travers ses facultés, accès au savoir-être, au savoir scientifique et au savoir-faire technique. Elle assure une formation humaine intégrale des apprenants en stimulant leur sens critique et les prépare à participer activement au développement solidaire et durable de la société congolaise.
+											<p class="text-justify">La mission de l’ULC, inscrite dans la tradition séculaire de la Compagnie de Jésus, en est une d’enseignement, de formation, de recherche et des services à la société. L’ULC donne, en RD Congo, à travers ses facultés, accès au savoir-être, au savoir scientifique et au savoir-faire technique. Elle assure une formation humaine intégrale des apprenants en stimulant leur sens critique et les prépare à participer activement au développement solidaire et durable de la société congolaise.
 												<br> Au coeur de sa mission, d’une part, l’ULC assure un enseignement et une formation de qualité non seulement sur le plan scientifique et technique, mais aussi éthique et religieux. D’autre part, l’ULC organise la recherche scientifique fondamentale et appliquée, orientée vers la solution des problèmes spécifiques du pays et de l’Eglise, compte tenu de l’évolution de la science et de la technologie dans le monde.</p>
 										</div>
 									</div>
@@ -446,7 +446,7 @@
 									
 									<div id="collapse3" class="panel-collapse collapse in">
 										<div class="panel-body" style=" border-left: 5px solid #b62727; padding-left: 10px; font-size: 12px;">
-											<p>Former des hommes et des femmes capables d’allier compétence, valeurs éthiques et sens du bien commun;
+											<p class="text-justify">Former des hommes et des femmes capables d’allier compétence, valeurs éthiques et sens du bien commun;
 												<br>
 												Promouvoir les valeurs humaines, notamment l’intégrité morale, le sens de responsabilité et le respect de la dignité humaine ;
 												<br>
@@ -463,7 +463,7 @@
 									<a>NOTRE POSITIONNEMENT<i class="fa fa-arrow-right "></i></a>
 									<div id="collapse4" class="panel-collapse collapse in">
 										<div class="panel-body" style=" border-left: 5px solid #b62727; padding-left: 10px; font-size: 12px;">
-											<p>Il s’agit de former des hommes et des femmes pour les autres, ouverts et critiques, entreprenants, créateurs de la richesse et des emplois dans la société, capables de conjuguer compétence, valeurs morales et ignatiennes et sens du bien commun pour l’édification d’un monde plus juste et plus fraternel. Notre positionnement tient à notre intégration de la vision, des valeurs et objectifs du plan stratégique de l’Association Internationale des Universités jésuites (IAJU) dans la stratégie de l’ULC. L’ULC est membre de l’IAJU.
+											<p class="text-justify">Il s’agit de former des hommes et des femmes pour les autres, ouverts et critiques, entreprenants, créateurs de la richesse et des emplois dans la société, capables de conjuguer compétence, valeurs morales et ignatiennes et sens du bien commun pour l’édification d’un monde plus juste et plus fraternel. Notre positionnement tient à notre intégration de la vision, des valeurs et objectifs du plan stratégique de l’Association Internationale des Universités jésuites (IAJU) dans la stratégie de l’ULC. L’ULC est membre de l’IAJU.
 												<br>En plus de l’incarnation de la gouvernance dans les tous les organes de l’ULC, de l’appropriation des valeurs d’excellence et de l’option préférentielle pour les pauvres, notre positionnement se renforce à travers le partenariat et la coopération en développant des capacités institutionnelles les autres universités, instituts et facultés.</p>
 										</div>
 									</div>
@@ -472,7 +472,7 @@
 									<a>NOS VALEURS<i class="fa fa-arrow-right "></i></a>
 									<div id="collapse5" class="panel-collapse collapse in">
 										<div class="panel-body" style=" border-left: 5px solid #b62727; padding-left: 10px; font-size: 12px;">
-											<p>Une Université Catholique pour le 3ème Millénaire: Notre ambition est que les étudiants sortent de l’ULC avec des vertus humaines qui les fassent agir tout au long de leur vie, à la fois dans leur vie personnelle, citoyenne et dans les métiers qu’ils occuperont, en pleine liberté, en pleine conscience et en pleine humanité.
+											<p class="text-justify">Une Université Catholique pour le 3ème Millénaire: Notre ambition est que les étudiants sortent de l’ULC avec des vertus humaines qui les fassent agir tout au long de leur vie, à la fois dans leur vie personnelle, citoyenne et dans les métiers qu’ils occuperont, en pleine liberté, en pleine conscience et en pleine humanité.
 												<i>
 													L’enseignement supérieur catholique se propose de former des hommes et des femmes capables d’une pensée critique, dotés d’une professionnalité élevée, mais aussi riches en humanité et disposés à mettre leurs compétences au service du bien commun.
 												</i>
@@ -488,7 +488,7 @@
 						<div class="col-md-12 col-lg-6 col-sm-12">
 							<div class="custom-section bg-white br-8 pd-50 card-1">
 								<h2>Notre Histoire</h2>
-								<p>
+								<p class="text-justify">
 									Née dans des circonstances de lieu et du temps pour les moins contraignantes et quasi inextricables, l’Université Loyola du Congo (ULC) est à la fois un défi et un espoir. Jeune et vieux à la fois, ce projet qui vise une Université d’excellence en RDC et en Afrique centrale, tient son assurance du passé élogieux de l’enseignement jésuite et de la réputation de la Faculté Saint Pierre Canisius et de l’ex Institut Supérieur Agrovétérinaire (ISAV).
 								</p>
 								<a href="{% url 'about' %}">En savoir plus <i class="fa fa-arrow-right "></i></a>
@@ -513,7 +513,7 @@
                         <div class="col-lg-6 col-md-12 col-sm-12">
                             <div>
                                 <h2 class="m-b10">L'ULC : Inspirations pour l'Avenir</h2>
-                            	<p>“L’éducation est l’arme la plus puissante que vous puissiez utiliser pour changer le monde.” – Nelson Mandela. Cette citation emblématique de Nelson Mandela illustre notre engagement à transformer la société grâce à l’éducation
+                            	<p class="text-justify">“L’éducation est l’arme la plus puissante que vous puissiez utiliser pour changer le monde.” – Nelson Mandela. Cette citation emblématique de Nelson Mandela illustre notre engagement à transformer la société grâce à l’éducation
                                 et à l’innovation. À ULC, nous croyons en l’impact positif que nos diplômés auront sur le monde.</p>
                                 <a class="read_more" hidden href="#">Nos Programmes & Facultés</a>
                             	<a hidden href="#" class="btn">Read More</a>
@@ -542,13 +542,13 @@
 						<div class="col-md-12 col-lg-4 col-sm-12">
 							<!-- Contenu de la deuxième colonne -->
 							<div class="second-row-section" style="padding-top: 50px;">
-								<p>À L’ULC, nous sommes fiers de proposer une gamme diversifiée de programmes de formation de haute qualité. Nous croyons fermement que l’éducation est la clé du développement personnel et sociétal.</p>
+								<p class="text-justify">À L’ULC, nous sommes fiers de proposer une gamme diversifiée de programmes de formation de haute qualité. Nous croyons fermement que l’éducation est la clé du développement personnel et sociétal.</p>
 							</div>
 						</div>
 						<div class="col-md-12 col-lg-4 col-sm-12">
 							<!-- Contenu de la troisième colonne -->
 							<div class="second-row-section" style="padding-top: 50px;">
-								<p>Et c’est pourquoi nous nous engageons à offrir des opportunités d’apprentissage exceptionnelles dans un large éventail de domaines. Explorez nos facultés et découvrez les possibilités stimulantes qui vous attendent :</p>
+								<p class="text-justify">Et c’est pourquoi nous nous engageons à offrir des opportunités d’apprentissage exceptionnelles dans un large éventail de domaines. Explorez nos facultés et découvrez les possibilités stimulantes qui vous attendent :</p>
 							</div>
 						</div>
 					
@@ -652,12 +652,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12">
 						<br><br>
 						<h1>Pourquoi Choisir <br> L'université Loyola ?</h1>
-						<p>
+						<p class="text-justify">
 							Ancrée sur la colline de Kimwenza. ULC offre un milieu d’études et de recherche exceptionnel avec des installations de pointe et une multitude de services à portée de main. Par leur qualité et leur diversité, les programmes
 							de l’ULC : répondent à vos besoins de savoir, de savoir-faire et de savoir-être ; développent vos connaissances et vos compétences ; vous préparent à relever les défis du marché du travail et du monde qui vous entoure.
 							Choisir ULC, c’est choisir la voie de la réussite: le taux de placement de nos diplômées et diplômés est supérieur à 90 %. Certains d’entre eux ont même un poste avant la fin de leurs études!.
 						</p>
-						<a class="btn br-12 read_more" href="{% url 'the_registration' %}">S'inscrire maintenant</a>
+						<a class="btn read_more" href="{% url 'the_registration' %}">S'inscrire maintenant</a>
 							
 						<br><br>
 					</div>
@@ -693,7 +693,7 @@
 						<div class="col-md-12 col-lg-4 col-sm-12" style="padding-top: 50px;"  >
 							<h3>Sélectionnez <br> Votre Programme</h3>
 							
-							<p>Choisissez parmi notre large éventail de programmes académiques, allant de la philosophie à l’ingénierie et aux sciences agronomiques et vétérinaires</p>
+							<p class="text-justify">Choisissez parmi notre large éventail de programmes académiques, allant de la philosophie à l’ingénierie et aux sciences agronomiques et vétérinaires</p>
 						</div>
 	
 						<div class="col-md-12 col-lg-4 col-sm-12" style="padding-top: 50px;">
@@ -706,7 +706,7 @@
 							<h3>
 								Soumettez Votre <br> Candidature</h3>
 								
-							<p>Une fois votre dossier complet, soumettez votre candidature en ligne via notre portail dédié. <br> Préparez-vous à rejoindre notre communauté académique dynamique à l’ULC</p>
+							<p class="text-justify">Une fois votre dossier complet, soumettez votre candidature en ligne via notre portail dédié. <br> Préparez-vous à rejoindre notre communauté académique dynamique à l’ULC</p>
 						</div>
 					</div>
 				</div>
@@ -725,7 +725,7 @@
 						
 							<!-- Contenu de la deuxième colonne -->
 							<div class="Other-programs">
-								<p>
+								<p class="text-justify">
 									À l’Université Loyola du Congo, nous croyons en l’apprentissage tout au long de la vie. Découvrez nos programmes extra-universitaires conçus pour enrichir vos compétences, stimuler votre créativité et renforcer votre engagement envers la société.</p>
 							</div>
 							<!-- Contenu de la troisième colonne -->
@@ -751,7 +751,7 @@
 					<div class="col-lg-6 col-md-12 col-sm-12">
 						<br><br>
 						<h2>Une diversités d'activités <br> prêtes à Vous accueillir</h2>
-						<p>
+						<p class="text-justify">
 							Explorez notre gamme d’activités étudiantes dynamiques conçues pour 
 							 enrichir votre expérience universitaire et vous permettre de développer
 							  des compétences précieuses en dehors du programme académique.

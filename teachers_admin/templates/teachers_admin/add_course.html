@@ -20,7 +20,7 @@
         <div class="ttr-sidebar-wrapper content-scroll">
             <!-- side menu logo start -->
             <div class="ttr-sidebar-logo">
-                <a href="{% url 'home' %}"><img alt="" src="/static/admin/assets/images/logo.png" width="122" height="27"></a>
+                <a href="{% url 'home' %}"><img alt="" src="/static/assets/images/university_logo_ulc.png" width="122" height="27"></a>
                 <!-- <div class="ttr-sidebar-pin-button" title="Pin/Unpin Menu">
 					<i class="material-icons ttr-fixed-icon">gps_fixed</i>
 					<i class="material-icons ttr-not-fixed-icon">gps_not_fixed</i>
@@ -185,27 +185,23 @@
                                             <input class="form-control" name="pdf_files" type="file">
                                         </div>
                                     </div>
-                                    <div class="form-group col-6">
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-12 col-form-label">Faculty</label>
-                                            <div class="col-sm-7">
-                                                <div class="input-group">
-                                                    <select name="faculty" id="faculty">
-                                                        {% for faculty in facultys %}
+                                    <div class="form-group col-lg-6 col-sm-12">
+                                        <label class="col-form-label" for="faculty">Faculty</label>
+                                        <div class="input-group fullwidth">
+                                            <select class="form-control fullwidth" name="faculty" id="faculty">
+                                                {% for faculty in facultys %}
                                                 <option value="{{faculty.0}}">{{faculty.0}}</option>
                                                 {% endfor %}                         
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            </select>
                                         </div>
-
+                                    </div>
                             
-                                    <div class="form-group col-12">
+                                    <div class="form-group  col-lg-6 col-sm-12">
                                         <label class="col-form-label">Niveau</label>
                                         {% for auditoire in auditoires %}
-                                        <div>
-                                            <input class="form-control" type="checkbox" name="auditoire" value="{{ auditoire.id }}"> {{ auditoire.niveau_name }}<br>
+                                        <div class="d-flex align-items-center m-2">
+                                            <label class="" for="auditoire-{{ auditoire.id }}">{{ auditoire.niveau_name }}</label>
+                                            <input class="form-control" id="auditoire-{{ auditoire.id }}" type="checkbox" name="auditoire" value="{{ auditoire.id }}">
                                         </div>
                                         {% endfor %}
                                     </div>
