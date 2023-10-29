@@ -20,10 +20,36 @@ class Registration(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     data = models.JSONField(null=True, blank=True)
 
+""" 
+class NiveauAcademique(models.Model):
+    niveau_name = models.CharField(max_length=50, blank=True)
+    teachers = models.ManyToManyField('teachers_admin.Teacher', blank=True, related_name='auditoire_teachers')
+    courses = models.ManyToManyField('university_admin.Course', related_name='auditoire_courses', blank=True)
+    faculty = models.CharField(max_length=50, choices=Faculty)
+    data = models.JSONField(null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(self.niveau_name)
+            slug = base_slug
+            count = 1
+            while Auditoire.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{count}"
+
+                count += 1
+            self.slug = slug
+
+        super(Auditoire, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return f'Auditoire {self.niveau_name}'
+  """
 
 class Course(models.Model):
     teacher = models.ForeignKey('teachers_admin.Teacher', on_delete=models.SET_NULL, blank=True, null=True)
-    auditoire = models.ManyToManyField('main.Auditoire',related_name="course_auditoire")
+    auditoire = models.ManyToManyField('main.Auditoire', related_name="course_auditoire")
     faculty = models.CharField(max_length=255, choices=Faculty)
     title = models.CharField(max_length=255)
     image = models.ImageField(default='/static/admin/assets/images/logo-mobile.png')
