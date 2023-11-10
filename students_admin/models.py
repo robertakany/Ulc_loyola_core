@@ -36,7 +36,7 @@ class Student(models.Model):
 	last_name = models.CharField(max_length=45, null=True, blank=True)
 	year_of_added = models.CharField(max_length=255, null=True, blank=True)
 	faculty = models.CharField(max_length=255, choices=Faculty)
-	auditoire = models.ForeignKey('main.Auditoire', related_name='auditoire_students', on_delete=models.SET_NULL, blank=True,null=True)
+	auditoire = models.ForeignKey('main.Niveau_d_etude', related_name='auditoire_students', on_delete=models.SET_NULL, blank=True,null=True)
 	email = models.EmailField(_('email address'), unique=True, null=True, blank=True)
 	phone = models.CharField(max_length=50, null=True, blank=True)
 	avatar = models.ImageField(upload_to=student_path, null=True, blank=True)

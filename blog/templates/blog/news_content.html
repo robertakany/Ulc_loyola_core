@@ -6,6 +6,30 @@
 
     <!-- PAGE TITLE HERE ============================================= -->
     <title>Loyola Blog: {{news_content.title}}</title>
+
+    
+    <style>
+        swiper-container {
+            width: 100%;
+            height: 500px;
+        }
+    
+        swiper-slide {
+          text-align: center;
+          font-size: 18px;
+          background: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+    
+        swiper-slide img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: fill;
+        }
+    </style>
 </head>
 
 <body id="bg">
@@ -45,8 +69,13 @@
                             <div class="col-lg-8 col-xl-8">
                                 <!-- blog start -->
                                 <div class="recent-news blog-lg">
-                                    <div class="action-box blog-lg">
-                                        <img src="{{ news_content.featured_image.url }}" alt="{{news_content.title}}">
+                                    <div class="action-box blog-lg">{% comment %} 
+                                        <img src="{{ news_content.image.url }}" alt="{{news_content.title}}"> {% endcomment %}
+                                        <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar" navigation="true">
+                                            {% for img in images %}
+                                                <swiper-slide><img class="img-news" src="{{img}}" alt="{{ new.title }}"></swiper-slide>
+                                            {% endfor %}
+                                        </swiper-container>
                                     </div>
                                     <div class="info-bx">
                                         <ul class="media-post">
@@ -210,7 +239,7 @@
                                         <div class="widget-post-bx">
                                             {% for recent_new in recent_news  %}
                                             <div class="widget-post clearfix">
-                                                <div class="ttr-post-media"> <img src="{{recent_new.featured_image.url}}" width="200" height="143" alt="{{recent_new.title}}"> </div>
+                                                <div class="ttr-post-media"> <img src="{{recent_new.image.url}}" width="200" height="143" alt="{{recent_new.title}}"> </div>
                                                 <div class="ttr-post-info">
                                                     <div class="ttr-post-header">
                                                         <h6 class="post-title"><a href="blog-details.html">{{recent_new.title}}</a></h6>
@@ -244,7 +273,7 @@
                                         <h6 class="widget-title">Images</h6>
                                         <ul>
                                             {% for new in news %}
-                                            <li><div><a href="{{new.featured_image.url }}"><img src="{{new.featured_image.url }}" alt="{{new.title}}"></a></div></li>
+                                            <li><div><a href="{{new.image.url }}"><img src="{{new.image.url }}" alt="{{new.title}}"></a></div></li>
                                             {% endfor %}
                                         </ul>
                                     </div>
@@ -299,6 +328,8 @@
     <script src="/static/assets/js/functions.js"></script>
     <script src="/static/assets/js/contact.js"></script>
     <script src='assets/vendors/switcher/switcher.js'></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 </body>
 
 </html>

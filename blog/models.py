@@ -4,18 +4,29 @@ from userApp.models import *
 from django.utils.text import slugify
 
 
-class News(models.Model):
-    title = models.CharField(max_length=200)
+#def 'news_images/'(i, filename):
+    #return f'news/{i.id}_{i.author.email}/images/{filename}'
+
+class New(models.Model):
+    title = models.CharField(max_length=500)
     content = models.TextField()
-    featured_image = models.ImageField(
-        upload_to='news_images/', null=True, blank=True)
-    category = models.CharField(max_length=100, null=True, blank=True)
+    category = models.CharField(max_length=500, null=True, blank=True)
     views = models.PositiveIntegerField(default=0)
     author = models.ForeignKey(User, related_name="user_author", on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True , verbose_name='date')
     is_deleted = models.BooleanField(default=False)
     data = models.JSONField(null=True,blank=True)
-    slug = models.SlugField(unique=True, blank=True)
+    image = models.ImageField(
+        upload_to='news_images/', null=True, blank=True)
+    
+    image1 = models.ImageField(null=True, blank=True, upload_to='news_images/')
+    image2 = models.ImageField(null=True, blank=True, upload_to='news_images/')
+    image3 = models.ImageField(null=True, blank=True, upload_to='news_images/')
+    image4 = models.ImageField(null=True, blank=True, upload_to='news_images/')
+    image5 = models.ImageField(null=True, blank=True, upload_to='news_images/')
+    image6 = models.ImageField(null=True, blank=True, upload_to='news_images/')
+    slug = models.SlugField(unique=True, blank=True,max_length=255)
+   
 
     def __str__(self):
         return self.title
@@ -25,16 +36,15 @@ class News(models.Model):
             base_slug = slugify(self.title)
             slug = base_slug
             count = 1
-            while News.objects.filter(slug=slug).exists():
+            print(slug)
+            while New.objects.filter(slug=slug).exists():
                 slug = f"{base_slug}-{count}"
 
                 count += 1
             self.slug = slug
 
-        if not self.featured_image:
-            self.featured_image = 'static/assets/images/80_863_49206349206x566_66666666667_1251485546_1466675589diplomes-africains-0.jpg'
-
-        super(News, self).save(*args, **kwargs)
+                       
+        super(New, self).save(*args, **kwargs)
 
     def add_view(self):
         self.views += 1
@@ -55,7 +65,7 @@ User = get_user_model()
 
 class Comment(models.Model):
     news = models.ForeignKey(
-        News, on_delete=models.CASCADE, related_name='comments'
+        New, on_delete=models.CASCADE, related_name='comments'
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(max_length=200)
@@ -69,7 +79,7 @@ class Comment(models.Model):
 
 class Like(models.Model):
     news = models.ForeignKey(
-        News, on_delete=models.CASCADE, related_name='likes'
+        New, on_delete=models.CASCADE, related_name='likes'
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)

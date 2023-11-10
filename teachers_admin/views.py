@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 
-from main.models import Auditoire
+from main.models import Niveau_d_etude
 from teachers_admin.models import Teacher
 from university_admin.models import Course
 
 from students_admin.models import Student
-from main.models import Auditoire
+from main.models import Niveau_d_etude
 from university_admin.models import Course
 from django.shortcuts import render, redirect
 from django.views.generic import View
@@ -101,7 +101,7 @@ def add_course(request):
             print('error in course', e)
             return error
     else:
-        auditoires = Auditoire.objects.all()
+        auditoires = Niveau_d_etude.objects.all()
     return render(request, "teachers_admin/add_course.html", locals())
 
  
@@ -269,7 +269,7 @@ def course_update(request, course_pk ):
 
         return redirect("courses_list")
 
-    auditoires = Auditoire.objects.all()   
+    auditoires = Niveau_d_etude.objects.all()   
     return render(request, 'teachers_admin/course_update.html', locals())    
         
         

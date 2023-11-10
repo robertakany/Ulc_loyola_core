@@ -1,9 +1,9 @@
 
 # forms.py
 from django import forms
-from .models import Auditoire
+from .models import Niveau_d_etude
 
-class AuditoireForm(forms.ModelForm):
+class Niveau_d_etudeForm(forms.ModelForm):
     class Meta:
-        model = Auditoire
+        model = Niveau_d_etude
         fields = ['niveau_name', 'teachers', 'course']

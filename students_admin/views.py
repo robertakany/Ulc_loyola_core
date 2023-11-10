@@ -15,7 +15,7 @@ from config.countries import COUNTRIES
 from main.utils import *
 from userApp.models import *
 from .models import Souscription, Student
-from main.models import Auditoire
+from main.models import Niveau_d_etude
 from university_admin.models import Course
 
 
@@ -205,7 +205,7 @@ def edite_student_profile(request,student_slug=None):
 """ def course_list(request):
     user = request.user
     student=Student.objects.filter(user=user)
-    auditoires = Auditoire.objects.filter(faculty=student.faculty)
+    auditoires = Niveau_d_etude.objects.filter(faculty=student.faculty)
     student_course_lists=Course.objects.filter(faculty=student.faculty)
 
     return render(request, 'student_course_list.html', locals())

@@ -1,9 +1,9 @@
 from django import forms
 
-from blog.models import News
+from blog.models import New
 
 
-class NewsForm(forms.ModelForm):
+class NewForm(forms.ModelForm):
     class Meta:
-        model = News
+        model = New
         exclude = ['data', 'is_deleted', 'author', 'views']

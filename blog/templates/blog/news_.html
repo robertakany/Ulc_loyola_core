@@ -55,7 +55,6 @@
                                 {% for new in news %}
                                 <div class="recent-news blog-lg m-b40">
                                     <div class="action-box blog-lg">
-                                        <img class="img-news" src="{{ new.featured_image.url }}" alt="{{ new.title }}">
                                     </div>
                                     <div class="info-bx">
                                         <ul class="media-post">
@@ -363,6 +362,8 @@
         <!-- scroll top button -->
         <button class="back-to-top fa fa-chevron-up"></button>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
     <!-- External JavaScripts -->
     <script src="/static/assets/js/jquery.min.js"></script>
     <script src="/static/assets/vendors/bootstrap/js/popper.min.js"></script>

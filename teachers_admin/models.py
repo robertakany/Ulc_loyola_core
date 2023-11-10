@@ -38,7 +38,6 @@ class Teacher(models.Model):
     born_date = models.DateField(null=True, blank=True)
     address = models.CharField(max_length=70, null=True, blank=True)
     courses = models.CharField(max_length=50, null=True, blank=True)
-    #year_of_added = models.CharField(max_length=255, null=True, blank=True)
     data = models.JSONField(blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, blank=True)

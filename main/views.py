@@ -4,7 +4,7 @@ from students_admin.models import Student
 from teachers_admin.models import Teacher
 from userApp import User
 from university_admin.models import Course,Alumni
-from blog.models import News
+from blog.models import New
 
 
 """ def home(request):
@@ -22,7 +22,7 @@ from blog.models import News
 
 def home(request):
 
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None
@@ -40,7 +40,7 @@ def home(request):
 
 
 def contact(request):
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None
@@ -57,7 +57,7 @@ def contact(request):
     return render(request, 'main/contact.html' , locals())
 
 def rectorat(request):
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None
@@ -73,7 +73,7 @@ def rectorat(request):
     return render(request, 'main/rectorat.html', locals())
 
 def activity(request):
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None
@@ -89,7 +89,7 @@ def activity(request):
     return render(request, 'main/activity.html', locals())
 
 def bde(request):
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None
@@ -105,7 +105,7 @@ def bde(request):
     return render(request, 'main/bde.html', locals())
 
 def academic_secretariat(request):
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None
@@ -121,7 +121,7 @@ def academic_secretariat(request):
     return render(request, 'main/academic_secretariat.html', locals())
 
 def administratif_secretariat(request):
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None
@@ -137,7 +137,7 @@ def administratif_secretariat(request):
     return render(request, 'main/administratif_secret.html', locals())
 
 def administratif_du_budget(request):
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None
@@ -153,7 +153,7 @@ def administratif_du_budget(request):
     return render(request, 'main/administratif_du_budget.html', locals())
 
 def agronomiques_et_veterinaires(request):
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None
@@ -169,7 +169,7 @@ def agronomiques_et_veterinaires(request):
     return render(request, 'main/agronomiques_et_veterinaires.html', locals())
 
 def philosopie(request):
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None
@@ -185,7 +185,7 @@ def philosopie(request):
     return render(request, 'main/philosophie.html', locals())
 
 def ingenierie(request):
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None
@@ -201,7 +201,7 @@ def ingenierie(request):
     return render(request, 'main/ingenierie.html', locals())
 
 def the_registration(request):
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None
@@ -217,7 +217,7 @@ def the_registration(request):
     return render(request, 'main/the_registration.html', locals())
 
 def about(request):
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None
@@ -235,7 +235,7 @@ def about(request):
 
 def all_courses_list(request):
     courses = Course.objects.filter(is_deleted=False)
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
 
     philosopie = courses.filter(faculty='Philosophie')
@@ -259,7 +259,7 @@ def all_courses_list(request):
 
 def alumnis(request):
     alumnis = Alumni.objects.filter(is_deleted=False)
-    news = News.objects.all().order_by('-created_at')[:3]
+    news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
     teachers = None

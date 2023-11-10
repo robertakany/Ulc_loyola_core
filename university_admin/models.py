@@ -35,21 +35,21 @@ class NiveauAcademique(models.Model):
             base_slug = slugify(self.niveau_name)
             slug = base_slug
             count = 1
-            while Auditoire.objects.filter(slug=slug).exists():
+            while Niveau_d_etude.objects.filter(slug=slug).exists():
                 slug = f"{base_slug}-{count}"
 
                 count += 1
             self.slug = slug
 
-        super(Auditoire, self).save(*args, **kwargs)
+        super(Niveau_d_etude, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f'Auditoire {self.niveau_name}'
+        return f'Niveau_d_etude {self.niveau_name}'
   """
 
 class Course(models.Model):
     teacher = models.ForeignKey('teachers_admin.Teacher', on_delete=models.SET_NULL, blank=True, null=True)
-    auditoire = models.ManyToManyField('main.Auditoire', related_name="course_auditoire")
+    auditoire = models.ManyToManyField('main.Niveau_d_etude', related_name="course_auditoire")
     faculty = models.CharField(max_length=255, choices=Faculty)
     title = models.CharField(max_length=255)
     image = models.ImageField(default='/static/admin/assets/images/logo-mobile.png')
@@ -85,7 +85,7 @@ class Course(models.Model):
 class StudentCourses(models.Model):
     student = models.ForeignKey(Student, related_name="student_courses", on_delete=models.CASCADE)
     courses = models.ForeignKey(Course, on_delete=models.CASCADE)
-    auditoire = models.ForeignKey('main.Auditoire', on_delete=models.CASCADE)
+    auditoire = models.ForeignKey('main.Niveau_d_etude', on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
 
 
@@ -122,7 +122,7 @@ class CalendrierAcademique(models.Model):
     # Ajoutez d'autres champs en fonction de votre calendrier académique
 
 
-class NewsletterEmail(models.Model):
+class NewletterEmail(models.Model):
     email = models.EmailField(unique=True)
 
 # Create your models here.
