@@ -8,7 +8,7 @@ from main.utils import Faculty
 
 
 
-class Registration(models.Model):
+""" class Registration(models.Model):
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
     user = models.OneToOneField('userApp.User', related_name="student_registration", on_delete=models.SET_NULL,
@@ -18,7 +18,7 @@ class Registration(models.Model):
     registration_date = models.DateTimeField(auto_now_add=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     date = models.DateTimeField(auto_now_add=True)
-    data = models.JSONField(null=True, blank=True)
+    data = models.JSONField(null=True, blank=True) """
 
 """ 
 class NiveauAcademique(models.Model):

@@ -88,11 +88,11 @@ class Student(models.Model):
 
 
 class Souscription(models.Model):
-    #student = models.ForeignKey(Student, related_name="student_registration", on_delete=models.SET_NULL,
-                                #null=True, blank=True)
+    
     first_name = models.CharField(max_length=45, verbose_name='Prenom')
     last_name = models.CharField(max_length=45,verbose_name='Nom de la famille')
     email = models.EmailField(max_length=233, unique=True)
+    sexe_type=models.CharField(max_length=334)
     number = models.CharField(max_length=255, null=True , blank=True)
     adress = models.CharField(max_length=324 ,blank=True, null=True)
     common = models.CharField(max_length=324 ,blank=True, null=True)
@@ -100,11 +100,14 @@ class Souscription(models.Model):
     level_of_study = models.CharField(max_length=255, choices=Level_of_study)
     bithday = models.CharField(max_length=345 )
     Place_of_birth=models.CharField(max_length=200, blank=True, null=True)
-    #year_of_added = models.CharField(max_length=255, null=True, blank=True)
     faculty = models.CharField(max_length=255, choices=Faculty)
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    #amount = models.DecimalField(max_digits=10, decimal_places=2)
     date = models.DateTimeField(auto_now_add=True)
     data = models.JSONField(null=True, blank=True)
+    tuteur_name= models.CharField(max_length=234, null=True , blank=True)
+    tuteur_number =models.CharField(max_length=234, null=True , blank=True)
+    tuteur_email = models.EmailField(max_length=234, null=True,blank=True)
+
 
 """ @receiver(post_save, sender=Student)
 def create_user_for_student(sender, instance, created, **kwargs):
@@ -135,9 +138,9 @@ def create_user_for_student(sender, instance, created, **kwargs):
  """
 
 
-class StudentCourses(models.Model):
+""" class StudentCourses(models.Model):
 	student = models.ForeignKey(Student, verbose_name="studentOfCourse", on_delete=models.CASCADE)
-	courses = models.ForeignKey("university_admin.Course", related_name="courses", on_delete=models.CASCADE)
-	date = models.DateTimeField(auto_now_add=True)
+	#courses = models.ForeignKey("university_admin.Course", related_name="courses", on_delete=models.CASCADE)
+	date = models.DateTimeField(auto_now_add=True) """
 
 # Create your models here.

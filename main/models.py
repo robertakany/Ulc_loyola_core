@@ -13,7 +13,7 @@ class Niveau_d_etude(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, blank=True)
 
-    def save(self, *args, **kwargs):
+    """  def save(self, *args, **kwargs):
         if not self.slug:
             base_slug = slugify(self.niveau_name)
             slug = base_slug
@@ -27,7 +27,7 @@ class Niveau_d_etude(models.Model):
         super(Niveau_d_etude, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f'Niveau_d_etude {self.niveau_name}'
+        return f'Niveau_d_etude {self.niveau_name}' """
  
 class Faculty(models.Model):
     name = models.CharField(max_length=100, choices=Faculty)

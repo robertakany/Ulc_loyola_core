@@ -15,25 +15,29 @@ from userApp.forms import *
 from config.countries import COUNTRIES
 from main.utils import *
 from userApp.models import *
-from .models import Souscription, Student
+from .models import Level_of_study, Souscription, Student
 from main.models import Niveau_d_etude
 from university_admin.models import Course
 
 
-@login_required
+#@login_required
 def  souscription(request):
-    user = request.user
-    student= Student.objects.filter(user=user)
+    user_set_types = SEX_TYPES
+    facultys= Faculty
+    level_of_studys = Level_of_study
+    COUNTRIES_LIST = COUNTRIES
     if request.method == 'POST':
-        if student.exists():
-            student = student[0]
-            form = SouscriptionForm(request.POST)
-            if form.is_valid():
-                souscrip = Souscription.objects.create(student=student)
-                messages.success(request, f'Votre souscription a bien été enregistrée.')
-                return redirect('students_admin:souscription')
+    
+        form = SouscriptionForm(request.POST)
+        if form.is_valid():
+            
+            souscrip = form.save()
+            messages.success(request, f'Votre souscription a bien été enregistrée.')
+            return redirect('student_souscription')
         else:
-            messages.error(request, f'Une erreur .')
+            print('dhclbduiuciduuufiueh')
+            messages.error(request, f'Une erreur s\'ess produite .')
+            print(form.errors)
     return render(request, 'students_admin/souscription.html',locals())
 
 

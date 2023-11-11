@@ -1,9 +1,10 @@
-from django import forms
+from django.forms import ModelForm
 
 from students_admin.models import Souscription
 
 
-class SouscriptionForm(forms.ModelForm):
-    model=Souscription
-    exclude = ['data',]
+class SouscriptionForm(ModelForm):
+    class Meta:
+        model=Souscription
+        exclude = ['data','amount']
     
