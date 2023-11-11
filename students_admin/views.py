@@ -9,6 +9,7 @@ from django.contrib.auth.forms import UserChangeForm
 from django.contrib import messages
 
 from django.db.models import Q
+from students_admin.forms import SouscriptionForm
 
 from userApp.forms import *
 from config.countries import COUNTRIES
@@ -26,8 +27,13 @@ def  souscription(request):
     if request.method == 'POST':
         if student.exists():
             student = student[0]
-            souscrip = Souscription.objects.create(student=student)
-            
+            form = SouscriptionForm(request.POST)
+            if form.is_valid():
+                souscrip = Souscription.objects.create(student=student)
+                messages.success(request, f'Votre souscription a bien été enregistrée.')
+                return redirect('students_admin:souscription')
+        else:
+            messages.error(request, f'Une erreur .')
     return render(request, 'students_admin/souscription.html',locals())
 
 
