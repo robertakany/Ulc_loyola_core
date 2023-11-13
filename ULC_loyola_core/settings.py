@@ -46,12 +46,16 @@ INSTALLED_APPS = [
     'students_admin',
     'teachers_admin',
     'university_admin',
+    'tailwind',
+    'theme',
+    'django_browser_reload'
 
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -136,6 +140,14 @@ MEDIA_ROOT = BASE_DIR.joinpath('media/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+# settings.py
+TAILWIND_APP_NAME = 'theme'
+# settings.py
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'userApp.User'
