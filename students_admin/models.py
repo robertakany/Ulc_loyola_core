@@ -90,6 +90,8 @@ class Student(models.Model):
 class Souscription(models.Model):
     
     first_name = models.CharField(max_length=45, verbose_name='Prenom')
+    post_name = models.CharField(max_length=45 ,verbose_name='Post-nom')
+    city= models.CharField(max_length=45, verbose_name='Ville')
     last_name = models.CharField(max_length=45,verbose_name='Nom de la famille')
     email = models.EmailField(max_length=233, unique=True)
     sexe_type=models.CharField(max_length=334)
