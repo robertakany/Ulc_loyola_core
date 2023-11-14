@@ -2,10 +2,11 @@ from django.db import models
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
-from main.utils import Faculty
+from main.utils import Faculty 
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from userApp.models import *
+import os
 
 SEX_TYPES = (
 	('M', 'M'),
