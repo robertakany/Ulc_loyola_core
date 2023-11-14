@@ -1,0 +1,171 @@
+<!-- Header Top ==== -->
+<header class="header rs-nav header-transparent" >
+    <div class="top-bar" style="background-color: #eeb421;">
+        <div class="container" >
+            <div class="row d-flex justify-content-between">
+                <div class="topbar-left">
+                    <ul hidden >
+                        <li><a href="faq-1.html"><i class="fa fa-question-circle"></i>Ask a Question</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-envelope-o"></i>Support@website.com</a></li>
+                    </ul>
+                </div>
+                <div class="topbar-right">
+                    <ul>
+                        <li><a href="{% url  'contact' %}" >Contact</a></li>
+                        <li hidden>
+                            
+                            <select  class="header-lang-bx">
+                                <option data-icon="flag flag-uk">English UK</option>
+                                <option data-icon="flag flag-us">English US</option>
+                            </select>
+                        </li>
+                        {% if user.is_authenticated %}
+                                {% if user.is_teacher  and user.is_superuser == False or user.is_student == False %}
+                                    {% for teacher in teachers %}
+                                    <li><a href="{% url 'teacher_admin' %}">Admin</a></li>
+                                    <li><a href="{% url 'user_profile_edit' %}"><span class="ttr-user-avatar">{{user.username}} <img  class="user_caption" alt="user" src="{{user.avatar.url}}" width="32" height="32"></span></a></li>
+                                    <li><a href="{% url 'logout' %}">logout</a></li>
+                                    {% endfor %}
+                                {% endif %}    
+                                {% if user.is_student and user.is_teacher == False or user.is_superuser == False %}
+                                    {% for student in students %}
+                                    <li><a href="{% url 'student_admin' %}">Admin</a></li>
+                                    <li><a href="{% url 'user_profile_edit' %}"><span class="ttr-user-avatar">{{user.username}}<img  class="user_caption" alt="user" src="{{user.avatar.url}}" width="32" height="32"></span></a></li>
+                                    <li><a href="{% url 'logout' %}">logout</a></li>
+                                    {% endfor %}
+                                {% endif %}    
+                                {% if user.is_superuser and user.is_student or user.is_superuser and user.is_teacher or user.is_superuser %}
+                                    <li><a href="{% url 'admin:index' %}">Admin</a></li> 
+                                    <li><a href="{% url 'user_profile_edit' %}"><span class="ttr-user-avatar">{{user.username}} <img  class="user_caption" alt="user" src="{{user.avatar.url}}" width="32" height="32"></span></a></li>
+                                    <li><a href="{% url 'logout' %}">logout</a></li>
+                                {% endif %}
+                            {% else %}    
+                                <li><a href="{% url 'login' %}">Login</a></li>
+                                <li><a href="{% url 'register' %}">Register</a></li>
+                                
+                            {% endif %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sticky-header navbar-expand-lg">
+        <div class="menu-bar clearfix">
+            <div class="container clearfix">
+                <!-- Header Logo ==== -->
+                <div class="menu-logo">
+                    <a href="#"><img src="/static/assets/images/university_mobile_logo_ulc.png" alt=""></a>
+                </div>
+                <!-- Mobile Nav Button ==== -->
+                <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <!-- Author Nav ==== -->
+                <div class="secondary-menu">
+                    <div class="secondary-inner">
+                        <ul>
+                            <li><a href="javascript:;" class="btn-link"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="javascript:;" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="javascript:;" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
+                            <!-- Search Button ==== -->
+                            <li class="search-btn"><button id="quik-search-btn" type="button" class="btn-link"><i class="fa fa-search"></i></button></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Search Box ==== -->
+                <div class="nav-search-bar">
+                    <form action="#">
+                        <input name="search" value="" type="text" class="form-control" placeholder="Type to search">
+                        <span><i class="ti-search"></i></span>
+                    </form>
+                    <span id="search-remove"><i class="ti-close"></i></span>
+                </div>
+                <!-- Navigation Menu ==== -->
+                <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown" >
+                    <div class="menu-logo">
+                        <a href="{% url 'home' %}l"><img src="admin/assets/images/favicon-16x16.png" alt=""></a>
+                    </div>
+                    <ul class="nav navbar-nav">	
+                        <li><a href="{% url 'home' %}" >Accueil</a>
+                
+                        </li>
+                        <li><a href="javascript:;">A propos <i class="fa fa-chevron-down"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'rectorat' %}">Rectorat</a>
+                                </li>
+                                <li><a href="{% url 'academic_secretariat' %}" >Secrétariat Académique</a>
+                                    
+                                </li>
+                                <li><a href="{% url 'secretariat_administratif' %}" >Secrétariat Administratif</a>
+                                    <ul hidden class="sub-menu">
+                                        <li><a href="faq-1.html">FAQ's 1</a></li>
+                                        <li><a href="faq-2.html">FAQ's 2</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'administractif_du_budget' %}" >Administrateur du Budget</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li><a href="javascript:;">Facultés  <i class="fa fa-chevron-down"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'philosophy_faculty' %}" >Facultés de Philosophie</a>
+                                    
+                                </li>
+                                <li><a href="{% url 'ingenierie_faculty' %}" >Faculté d'Ingeniérie</a>
+                                    <ul hidden class="sub-menu">
+                                        <li><a href="event.html">Event</a></li>
+                                        <li><a hidden href="events-details.html">Events Details</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'agronomiques_and_veterinaires' %}" >Agronomiques et Vétérinaires</a>
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'all_courses_list' %}">Nos Cours </a>
+                            <ul hidden class="sub-menu add-menu">
+                                <li class="add-menu-left">
+                                    <h5 class="menu-adv-title">Our Courses</h5>
+                                    <ul>
+                                        <li><a href="#">Courses </a></li>
+                                        <li><a href="#">Courses Details</a></li>
+                                        <li><a href="#">Instructor Profile</a></li>
+                                        <li><a href="#">Upcoming Event</a></li>
+                                        <li><a href="#">Membership</a></li>
+                                    </ul>
+                                </li>
+                                <li class="add-menu-right">
+                                    <img src="/static/assets/images/adv/adv.jpg" alt=""/>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:;">Etudiants <i class="fa fa-chevron-down"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'bde' %}" >BDE</a></li>
+                                <li><a href="{% url 'activity' %}" >Activité Culturelle</a></li>
+                                <li hidden><a href="#">Raison Ardente</a></li>
+                                <li><a href="{% url 'alumnis' %}" >Alumnis</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'news_list' %}" >Actualités</a>
+                            
+                        </li>
+                        <li class="nav-dashboard"><a href="{% url 'the_registration' %}" >S'inscrire </a>
+                            
+                        </li>
+                    </ul>
+                    <div class="nav-social-link">
+                        <a href="javascript:;"><i class="fa fa-facebook"></i></a>
+                        <a href="javascript:;"><i class="fa fa-google-plus"></i></a>
+                        <a href="javascript:;"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <!-- Navigation Menu END ==== -->
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Top END ==== -->

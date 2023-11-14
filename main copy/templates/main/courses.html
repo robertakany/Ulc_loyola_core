@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+	{% include "head.html" %}
+	
+	<!-- PAGE TITLE HERE ============================================= -->
+	<title>Loyola: Cours</title>
+</head>
+<body id="bg">
+<div class="page-wraper">
+<div id="loading-icon-bx"></div>
+	<!-- Header Top ==== -->
+	{% include "header.html" %}
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+
+		<section>
+			<div class="page-banner ovbl-dark" style="background-image:url(/static/assets/images/collation.jpg);">
+				<div class="container">
+					<div class="page-banner-entry">
+						<h1 class="text-white">Nos Cours</h1>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section gray-background">
+			<div class="container">
+				<h2>Philosophe</h2>
+				<div class="row ">
+					<div class="courses-carousel owl-carousel owl-btn-1 col-12 p-lr0 ">
+						{% for cours in philosopie %}
+						<div class="item">
+							<div class="cours-bx ">
+								<div class="action-box ">
+									<img src="{{cours.image_url}}" alt="{{cours.title}}" style="height: 150px; object-fit: cover;">
+									<a hidden href="# " class="btn ">Read More</a>
+								</div>
+								<div class="info-bx text-center ">
+									<h5><a href="# ">{{cours.title}}</a></h5>
+									<p style="line-height: 110%; text-align: justify; margin-bottom: 0;">{{cours.description|truncatechars:235}}</p>
+								</div>
+								<div class="cours-more-info pd20">
+									<div class="d-flex justify-content-between align-items-center" style="padding: 10px 20px;">
+										<div><i class="fa fa-user-circle "></i></div>
+										<div style="margin-left: 12px;">
+											<small>Professeur</small>
+											<div><strong>{{ cours.teacher.first_name }} {{ cours.teacher.last_name }} {{ cours.teacher.username }}</strong></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+						<!-- <div class="item ">
+							<div class="cours-bx ">
+								<div class="action-box ">
+									<img src="/static/assets/images/courses/pic2.jpg " alt=" ">
+									<a href="# " class="btn ">Read More</a>
+								</div>
+								<div class="info-bx text-center ">
+									<h5><a href="# ">Introduction EduChamp – LMS plugin</a></h5>
+									<span>Programming</span>
+								</div>
+								<div class="cours-more-info ">
+									<div class="review ">
+										<span>3 Review</span>
+										<ul class="cours-star ">
+											<li class="active "><i class="fa fa-star "></i></li>
+											<li class="active "><i class="fa fa-star "></i></li>
+											<li class="active "><i class="fa fa-star "></i></li>
+											<li><i class="fa fa-star "></i></li>
+											<li><i class="fa fa-star "></i></li>
+										</ul>
+									</div>
+									<div class="price ">
+										<del>$190</del>
+										<h5>$120</h5>
+									</div>
+								</div>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="section container">
+			<div class="row ">
+				<h2>Ingeniérie</h2>
+				<div class="courses-carousel owl-carousel owl-btn-1 col-12 p-lr0 ">
+					{% for cours in ingenierie %}
+					<div class="item">
+						<div class="cours-bx ">
+							<div class="action-box ">
+								<img src="{{cours.image_url}}" alt="{{cours.title}}" style="height: 150px; object-fit: cover;">
+								<a hidden href="# " class="btn ">Read More</a>
+							</div>
+							<div class="info-bx text-center ">
+								<h5><a href="# ">{{cours.title}}</a></h5>
+								<p style="line-height: 110%; text-align: justify; margin-bottom: 0;">{{cours.description|truncatechars:235}}</p>
+							</div>
+							<div class="cours-more-info pd20">
+								<div class="d-flex justify-content-between align-items-center" style="padding: 10px 20px;">
+									<div><i class="fa fa-user-circle "></i></div>
+									<div style="margin-left: 12px;">
+										<small>Professeur</small>
+										<div><strong>{{ cours.teacher.first_name }} {{ cours.teacher.last_name }} {{ cours.teacher.username }}</strong></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</section>
+		
+		<section class="section gray-background">
+			<div class="container">
+				<h2>Agronomiques et Vetérinaires</h2>
+				<div class="row ">
+					<div class="courses-carousel owl-carousel owl-btn-1 col-12 p-lr0 ">
+						{% for cours in agronomiques_et_veterinaires %}
+						<div class="item">
+							<div class="cours-bx ">
+								<div class="action-box ">
+									<img src="{{cours.image_url}}" alt="{{cours.title}}" style="height: 150px; object-fit: cover;">
+									<a hidden href="# " class="btn ">Read More</a>
+								</div>
+								<div class="info-bx text-center ">
+									<h5><a href="# ">{{cours.title}}</a></h5>
+									<p style="line-height: 110%; text-align: justify; margin-bottom: 0;">{{cours.description|truncatechars:235}}</p>
+								</div>
+								<div class="cours-more-info pd20">
+									<div class="d-flex justify-content-between align-items-center" style="padding: 10px 20px;">
+										<div><i class="fa fa-user-circle "></i></div>
+										<div style="margin-left: 12px;">
+											<small>Professeur</small>
+											<div><strong>{{ cours.teacher.first_name }} {{ cours.teacher.last_name }} {{ cours.teacher.username }}</strong></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</section>
+
+    </div>
+	
+	{% include "footer.html" %}
+<!-- External JavaScripts -->
+<script src="/static/assets/js/jquery.min.js"></script>
+<script src="/static/assets/vendors/bootstrap/js/popper.min.js"></script>
+<script src="/static/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="/static/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="/static/assets/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="/static/assets/vendors/counter/waypoints-min.js"></script>
+<script src="/static/assets/vendors/counter/counterup.min.js"></script>
+<script src="/static/assets/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="/static/assets/vendors/masonry/masonry.js"></script>
+<script src="/static/assets/vendors/masonry/filter.js"></script>
+<script src="/static/assets/vendors/owl-carousel/owl.carousel.js"></script>
+<script src="/static/assets/js/functions.js"></script>
+<script src="/static/assets/js/contact.js"></script>
+<script src='/static/assets/vendors/switcher/switcher.js'></script>
+</body>
+
+</html>
