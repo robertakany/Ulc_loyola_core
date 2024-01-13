@@ -13,7 +13,10 @@ class Niveau_d_etude(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, blank=True)
 
-    """  def save(self, *args, **kwargs):
+    def __str__(self):
+        return f'{self.niveau_name} ({self.faculty})'
+
+    """ def save(self, *args, **kwargs):
         if not self.slug:
             base_slug = slugify(self.niveau_name)
             slug = base_slug

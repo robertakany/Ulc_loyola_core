@@ -4,7 +4,7 @@ from university_admin.models import *
 
 admin.site.register(Course)
 admin.site.register(StudentCourses)
-admin.site.register(TeacherStudentRelation)
+#admin.site.register(TeacherStudentRelation)
 admin.site.register(Alumni)
 
 
