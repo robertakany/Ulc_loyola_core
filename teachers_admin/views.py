@@ -115,6 +115,41 @@ def courses_list(request):
     return render(request, "teachers_admin/courses.html", locals())
 
 
+def course_update(request, course_pk ):
+    facultys = Faculty
+    error = "Il y a une erreur dans ces champs"
+    teacher = Teacher.objects.filter(user=request.user).first()
+    try:
+        course = get_object_or_404(Course, id=course_pk, teacher=teacher)
+    except Course.DoesNotExist:
+        # Handle the case where the course doesn't exist or doesn't belong to the teacher
+        return redirect("courses_list")  # You can redirect to a suitable URL
+
+    if request.method == 'POST':
+        image = request.FILES.get('image')
+        pdf_files = request.FILES.get('pdf_files')
+        title = request.POST.get('title')
+        description = request.POST.get('description', '')
+        notes = request.POST.get('notes', '')
+        auditoires_selected = request.POST.getlist('auditoire')
+        faculty = request.POST.get('faculty')
+
+        # Update the course fields
+        course.title = title
+        course.image = image
+        course.notes = notes
+        course.pdf_files = pdf_files
+        course.description = description
+        course.auditoire.set(auditoires_selected)
+        course.faculty = faculty  # Set the faculty field
+
+        course.save()
+
+        return redirect("courses_list")
+
+    auditoires = Niveau_d_etude.objects.all()   
+    return render(request, 'teachers_admin/course_update.html', locals())    
+
 
 """ @login_required
 def edit_user_profile(request):
@@ -237,40 +272,7 @@ def edit_password(request):
 
 
 
-def course_update(request, course_pk ):
-    facultys = Faculty
-    error = "Il y a une erreur dans ces champs"
-    teacher = Teacher.objects.filter(user=request.user).first()
-    try:
-        course = get_object_or_404(Course, id=course_pk, teacher=teacher)
-    except Course.DoesNotExist:
-        # Handle the case where the course doesn't exist or doesn't belong to the teacher
-        return redirect("courses_list")  # You can redirect to a suitable URL
 
-    if request.method == 'POST':
-        image = request.FILES.get('image')
-        pdf_files = request.FILES.get('pdf_files')
-        title = request.POST.get('title')
-        description = request.POST.get('description', '')
-        notes = request.POST.get('notes', '')
-        auditoires_selected = request.POST.getlist('auditoire')
-        faculty = request.POST.get('faculty')
-
-        # Update the course fields
-        course.title = title
-        course.image = image
-        course.notes = notes
-        course.pdf_files = pdf_files
-        course.description = description
-        course.auditoire.set(auditoires_selected)
-        course.faculty = faculty  # Set the faculty field
-
-        course.save()
-
-        return redirect("courses_list")
-
-    auditoires = Niveau_d_etude.objects.all()   
-    return render(request, 'teachers_admin/course_update.html', locals())    
         
         
 # Create your views here.
