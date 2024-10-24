@@ -41,6 +41,10 @@ class Teacher(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, blank=True)
     is_delete = models.BooleanField(null=True, blank=True, default=False)
+    class Meta:
+        verbose_name = "Professeur"  
+        verbose_name_plural = "Professeur"
+        
 
 
     def save(self, *args, **kwargs):
