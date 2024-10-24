@@ -6,15 +6,20 @@ from main.utils import Faculty
 
 class Niveau_d_etude(models.Model):
     niveau_name = models.CharField(max_length=50, blank=True)
-    teachers = models.ManyToManyField('teachers_admin.Teacher', blank=True, related_name='auditoire_teachers')
-    courses = models.ManyToManyField('university_admin.Course', related_name='auditoire_courses', blank=True)
-    faculty = models.CharField(max_length=50, choices=Faculty)
+    teachers = models.ManyToManyField('teachers_admin.Teacher', verbose_name='Proffesseurs', blank=True, related_name='auditoire_teachers')
+    courses = models.ManyToManyField('university_admin.Course',verbose_name='cours', related_name='auditoire_courses', blank=True)
+    faculty = models.CharField(max_length=50, choices=Faculty,verbose_name='Faculté')
     data = models.JSONField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, blank=True)
 
     def __str__(self):
         return f'{self.niveau_name} ({self.faculty})'
+    
+    class Meta:
+        verbose_name = "Niveau d'etudes"  
+        verbose_name_plural = "Niveau d'etudes"
+        
 
     """ def save(self, *args, **kwargs):
         if not self.slug:

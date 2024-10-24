@@ -27,20 +27,20 @@ Option = (
 
 class Teacher(models.Model):
     user = models.OneToOneField('userApp.User', related_name="user_teacher", on_delete=models.CASCADE , null=False, blank=False)
-    first_name = models.CharField(max_length=45, null=True, blank=True)
-    last_name = models.CharField(max_length=45, null=True, blank=True)
+    first_name = models.CharField(max_length=45, null=True, blank=True, verbose_name='Prenom')
+    last_name = models.CharField(max_length=45, null=True, blank=True,verbose_name='Nom')
     username = models.CharField(max_length=20, null=True, blank=True, verbose_name="Nom d'utilisateur")
     email = models.EmailField(_('email address'), unique=True, null=True, blank=True)
     phone = models.CharField(max_length=50, null=True, blank=True)
     country = models.CharField(max_length=100, null=True, blank=True)
-    sexe_type = models.CharField(max_length=23, choices=SEX_TYPES, default='Male')
-    is_delete = models.BooleanField(null=True, blank=True, default=False)
-    born_date = models.DateField(null=True, blank=True)
+    sexe_type = models.CharField(max_length=23, choices=SEX_TYPES, default='Male',verbose_name='Sexe')
+    born_date = models.DateField(null=True, blank=True,verbose_name="Date d'anniversaire")
     address = models.CharField(max_length=70, null=True, blank=True)
-    courses = models.CharField(max_length=50, null=True, blank=True)
+    courses = models.CharField(max_length=50, null=True, blank=True,verbose_name='Cours')
     data = models.JSONField(blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, blank=True)
+    is_delete = models.BooleanField(null=True, blank=True, default=False)
 
 
     def save(self, *args, **kwargs):
@@ -70,30 +70,5 @@ class Teacher(models.Model):
     def __str__(self):
         return f'Professeur {self.first_name} {self.last_name} {self.username}'
         
-""" @receiver(post_save, sender=Teacher)
-def create_user_for_teacher(sender, instance, created, **kwargs):
-    if created:
-        # Créez un objet User associé au Teacher
-        user = User.objects.create(
-            first_name=instance.first_name,
-            last_name=instance.last_name,
-            username=instance.username,
-            email=instance.email,
-            phone=instance.phone,
-            country=instance.country,
-            sexe_type=instance.sexe_type,
-            is_delete=instance.is_delete,
-            born_date=instance.born_date,
-            address=instance.address,
-            slug=instance.slug,
-            role='professeur',  # Vous pouvez définir le rôle ici,
-            is_teacher=True,  # Assurez-vous que le champ is_teacher est défini à True
-            #
-        )
-        # Définissez le mot de passe par défaut pour l'utilisateur
-        user.set_password('UlcLoyola1') 
-        # Associez le nouvel utilisateur au Teacher
-        instance.user = user
-        instance.save() """
 
 # Create your models here.
