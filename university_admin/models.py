@@ -57,7 +57,7 @@ class StudentCourses(models.Model):
 
     class Meta:
         verbose_name = "Cours d'etudiant"  
-        verbose_name_plural = "Cours d'etudiants"
+        verbose_name_plural = "Cours d'etudiants" 
         
 
 
