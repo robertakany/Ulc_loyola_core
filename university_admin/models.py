@@ -55,6 +55,11 @@ class StudentCourses(models.Model):
     auditoire = models.ForeignKey('main.Niveau_d_etude', on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = "Cours d'etudiant"  
+        verbose_name_plural = "Cours d'etudiants"
+        
+
 
 class Alumni(models.Model):
     image = models.ImageField(default='/static/admin/assets/images/logo-mobile.png')

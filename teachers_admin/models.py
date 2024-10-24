@@ -43,7 +43,7 @@ class Teacher(models.Model):
     is_delete = models.BooleanField(null=True, blank=True, default=False)
     class Meta:
         verbose_name = "Professeur"  
-        verbose_name_plural = "Professeur"
+        verbose_name_plural = "Professeurs"
         
 
 
