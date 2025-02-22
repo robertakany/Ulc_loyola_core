@@ -46,7 +46,7 @@
                   <div class="recent-news blog-lg m-b40">
                     <div class="action-box blog-lg">
                       <img
-                        src="{{new.image.url }}"
+                        src="{{new.image_url }}"
                         alt="{{new.title}}"
                       />
                     </div>
@@ -130,7 +130,7 @@
                         <div class="widget-post clearfix">
                           <div class="ttr-post-media">
                             <img
-                              src="{{recent_new.image.url}}"
+                              src="{{recent_new.image_url}}"
                               width="200"
                               height="143"
                               alt="{{recent_new.title}}"
@@ -200,9 +200,9 @@
                         {% for new in news %}
                         <li>
                           <div>
-                            <a href="{{new.image.url }}"
+                            <a href="{{new.image_url }}"
                               ><img
-                                src="{{new.image.url }}"
+                                src="{{new.image_url }}"
                                 alt="{{new.title}}"
                             /></a>
                           </div>

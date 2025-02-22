@@ -11,7 +11,7 @@ from .models import New
 
 def news_list(request):
     news = New.objects.filter(is_deleted=False)
-    recent_news= New.objects.order_by('-created_at')
+    recent_news= New.objects.order_by('-created_at').filter(is_deleted=False)
     return render(request, 'blog/news_list.html', locals())
 
 def news_content(request,news_id,news_slug):

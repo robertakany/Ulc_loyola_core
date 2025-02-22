@@ -26,7 +26,6 @@ class New(models.Model):
     image5 = models.ImageField(null=True, blank=True, upload_to='news_images/')
     image6 = models.ImageField(null=True, blank=True, upload_to='news_images/')
     slug = models.SlugField(unique=True, blank=True,max_length=255)
-   
 
     def __str__(self):
         return self.title
@@ -58,6 +57,35 @@ class New(models.Model):
 
     def get_views_count(self):
         return self.views
+    
+    
+    @property
+    def image_url(self):
+        return (self.image and hasattr(self.image, 'url') and self.image.url) or '/static/university_mobile_logo_ulc-1 (1).png'
+
+    @property
+    def image1_url(self):
+        return (self.image1 and hasattr(self.image1, 'url') and self.image1.url) or '/static/university_mobile_logo_ulc-1 (1).png'
+
+    @property
+    def image2_url(self):
+        return (self.image2 and hasattr(self.image2, 'url') and self.image2.url) or '/static/university_mobile_logo_ulc-1 (1).png'
+
+    @property
+    def image3_url(self):
+        return (self.image3 and hasattr(self.image3, 'url') and self.image3.url) or '/static/university_mobile_logo_ulc-1 (1).png'
+
+    @property
+    def image4_url(self):
+        return (self.image4 and hasattr(self.image4, 'url') and self.image4.url) or '/static/university_mobile_logo_ulc-1 (1).png'
+
+    @property
+    def image5_url(self):
+        return (self.image5 and hasattr(self.image5, 'url') and self.image5.url) or '/static/university_mobile_logo_ulc-1 (1).png'
+
+    @property
+    def image6_url(self):
+        return (self.image6 and hasattr(self.image6, 'url') and self.image6.url) or '/static/university_mobile_logo_ulc-1 (1).png'
 
 
 User = get_user_model()
