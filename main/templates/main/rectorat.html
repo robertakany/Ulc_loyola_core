@@ -17,58 +17,63 @@
 
     <!-- header END -->
     <!-- Content -->
-    <div class="page-content bg-white">
-        <!-- inner page banner -->
-        <div class="page-banner " style="background: linear-gradient(to right, #00000067, #00000076), url(/static/assets/images/IMG_0611.JPG); background-attachment: fixed; background-size: cover; background-position: center;">
-            <div class="container">
+	<div class="page-content bg-white">
+		<!-- inner page banner -->
+		<div class="page-banner" style="background: linear-gradient(to right, #00000067, #00000076), url(/static/assets/images/IMG_0611.JPG); background-attachment: fixed; background-size: cover; background-position: center;">
+			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-sm-12 text-white" style="margin: 100px 0;">
 						<br>
-						<div  class="container pd-20 br-12 blur-background">
+						<div class="container pd-20 br-12 blur-background">
 							<h1>Rectorat</h1>
 							<br>
-						<p>
-							Le recteur est nommé par le Grand Chancelier,pour un <br>
-							mandat de quatre ans renouvelable une fois.
-						</p>
-						<a href="#main" style="color: white;" class="btn">EN SAVOIR PLUS</a>
+							<p>
+								Le recteur est nommé par le Grand Chancelier, pour un mandat de quatre ans renouvelable une fois.
+							</p>
+							<a href="#main" style="color: white;" class="btn">EN SAVOIR PLUS</a>
 						</div>
 					</div>
 				</div>
 			</div>
-        </div>
+		</div>
 		
 		<div class="section" id="main">
 			<div class="container">
 				<div class="row align-items-center d-flex">
-					<div class="col-lg-6 col-md-12 col-sm-12 ">
-						<div >
-						
-							<img class="br-12"  src="/static/assets/images/IMG_0612.JPG"  style="max-height: 500px; width: 100%; object-fit: cover; object-position: top;" alt=""/>
-							
-						</div>
+					<!-- Photo du Recteur -->
+					<div class="col-lg-4 col-md-12 col-sm-12 text-center">
+						<img class="br-12 img-fluid" src="/static/assets/images/update/rectorat.jpeg" style="max-height: 400px; width: 100%; object-fit: cover; border-radius: 10px;" alt="Rév. Père Ferdinand Muhigirwa"/>
+						<h3 class="mt-3">Rév. Père Ferdinand Muhigirwa, SJ, Ph.D</h3>
+						<p class="text-muted">Président et Recteur de l'ULC</p>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12" style="padding: 50px; margin: 0px;">
-						<h1>ULC: Le Recteur</h1>
+					
+					<!-- Biographie du Recteur -->
+					<div class="col-lg-8 col-md-12 col-sm-12" style="padding: 30px;">
+						<h2>Biographie</h2>
 						<p class="text-justify">
-							Le recteur est d'office membre du conseil d'Administration de 
-							 l'Université et du conseil de l'Etablissement. Le Recteursupervise et 
-							 coordonne l'ensemble des activités de l'Université. 
-							 Rencontrez notre visionnaire Recteur, le chef d'orchestre inspiré qui 
-							 guide l'Université Loyola du Congo (ULC) vers l'excellence 
-							 académique et l'innovation. Découvrez sa passion pour l'éducation 
-							 son engagement envers la communautéet son role clédans la 
-							 réalisation de la mission de l'ULC.
+							Né le 17 février 1956, Rév. Père Ferdinand Muhigirwa Rusembuka S.J, Ph.D, est Père Jésuite, Professeur Ordinaire,
+							Docteur en philosophie de l’Université Grégorienne de Rome (Italie, 1997). Il détient également un Master ecclésiastique (STL) à Regis College
+							et un Master civil (ThM) en théologie systématique de l’Université de Toronto (Canada, 1992).
 						</p>
-							<a class="read_more" href="#">Rôles du Recteur</a>
-						<a hidden href="#" class="btn">Read More</a>
+						<p class="text-justify">
+							Depuis le 31 juillet 2018, il est Président et Recteur de l’Université Loyola du Congo (ULC). Il est également membre du Conseil d’Administration de
+							East African Science et Technology Commission (EASTECO), de l’Institut Catholique d’Arts et Métiers (ICAM), et de la Commission Episcopale pour
+							les Ressources Naturelles (CERN) de la Conférence Episcopale Nationale du Congo (CENCO).
+						</p>
+						<p class="text-justify">
+							Expert en gouvernance minière de la RDC, il est conférencier au Sommet des Chefs d’État de la CIRGL, au Parlement Européen et au Sénat Américain.
+							Il est également Coach exécutif et Expert en Développement du Leadership de l’Academy of Executive Coaching (AoEC).
+						</p>
 					</div>
-
 				</div>
 			</div>
 		</div>
+	
+	
 
 		{% include './subscription_guide_section.html' %}
+
+	</div>
 
 		{% include "footer.html" %}
 

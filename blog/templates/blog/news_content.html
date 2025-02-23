@@ -67,156 +67,68 @@
                             <!-- Left part start -->
 
                             <div class="col-lg-8 col-xl-8">
-                                <!-- blog start -->
-                                <div class="recent-news blog-lg">
-                                    <div class="action-box blog-lg">{% comment %} 
-                                        <img src="{{ news_content.image.url }}" alt="{{news_content.title}}"> {% endcomment %}
-                                        <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar" navigation="true">
-                                            {% for img in images %}
-                                                <swiper-slide><img class="img-news" src="{{img}}" alt="{{ new.title }}"></swiper-slide>
-                                            {% endfor %}
-                                        </swiper-container>
-                                    </div>
+                                <div class="recent-news blog-lg p-4 shadow-lg rounded bg-white">
+                                    <!-- Galerie d'images avec Swiper -->
+                                    {% if images %}
+                                        <div class="action-box blog-lg mb-4 rounded overflow-hidden">
+                                            <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar" navigation="true">
+                                                {% for img in images %}
+                                                    <swiper-slide>
+                                                        <img class="img-fluid rounded" src="{{ img }}" alt="{{ news_content.title }}">
+                                                    </swiper-slide>
+                                                {% endfor %}
+                                            </swiper-container>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <!-- Vidéo si disponible -->
+                                    {% if news_content.video or video_embed_url %}
+                                        <div class="video-container mb-4 rounded overflow-hidden shadow-sm">
+                                            {% if news_content.video %}
+                                                <video controls class="w-100 rounded">
+                                                    <source src="{{ news_content.video.url }}" type="video/mp4">
+                                                    Votre navigateur ne supporte pas la lecture de vidéos.
+                                                </video>
+                                            {% elif video_embed_url %}
+                                                <iframe class="w-100 rounded" height="400" src="{{ video_embed_url }}" frameborder="0" allowfullscreen></iframe>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <!-- Informations de l'article -->
                                     <div class="info-bx">
-                                        <ul class="media-post">
-                                            <li><a href="#"><i class="fa fa-calendar"></i>{{news_content.created_at}}</a></li>
-                                            <li hidden><a href="#"><i class="fa fa-comments-o"></i>10 Comment</a></li>
-                                        </ul>
-                                        <h5 class="post-title"><a href="#">{{news_content.title}}</a></h5>
-                                        <p>{{news_content.content}}</p>
-                                        <div class="ttr-divider bg-gray"><i class="icon-dot c-square"></i></div>
-                                        <div hidden class="widget_tag_cloud">
-                                            <h6>TAGS</h6>
-                                            <div hidden class="tagcloud">
-                                                <a href="#">Design</a>
-                                                <a href="#">User interface</a>
-                                                <a href="#">SEO</a>
-                                                <a href="#">WordPress</a>
-                                                <a href="#">Development</a>
-                                                <a href="#">Joomla</a>
-                                                <a href="#">Design</a> 
-                                                <a href="#">User interface</a>
-                                                <a href="#">SEO</a>
-                                                <a href="#">WordPress</a>
-                                                <a href="#">Development</a>
-                                                <a href="#">Joomla</a>
-                                                <a href="#">Design</a>
-                                                <a href="#">User interface</a>
-                                                <a href="#">SEO</a>
-                                                <a href="#">WordPress</a>
-                                                <a href="#">Development</a>
-                                                <a href="#">Joomla</a>
-                                            </div>
-                                        </div>
-                                        <div class="ttr-divider bg-gray"><i class="icon-dot c-square"></i></div>
-                                        <h6 hidden>SHARE  </h6>
-                                        <ul class="list-inline contact-social-bx">
-                                            <li><a href="#" class="btn outline radius-xl"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#" class="btn outline radius-xl"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#" class="btn outline radius-xl"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a href="#" class="btn outline radius-xl"><i class="fa fa-google-plus"></i></a></li>
-                                        </ul>
-                                        <div class="ttr-divider bg-gray"><i class="icon-dot c-square"></i></div>
+                                        <h2 class="post-title text-dark fw-bold">{{ news_content.title }}</h2>
+                                        {% if news_content.sub_title %}
+                                            <h4 class="text-muted fst-italic">{{ news_content.sub_title }}</h4>
+                                        {% endif %}
+                                        <p class="text-secondary mt-3">{{ news_content.content }}</p>
                                     </div>
                                 </div>
-                                <div hidden class="clear" id="comment-list">
-                                    <div class="comments-area" id="comments">
-                                        <h2 class="comments-title">8 Comments</h2>
-                                        <div class="clearfix m-b20">
-                                            <!-- comment list END -->
-                                            <ol class="comment-list">
-                                                <li class="comment">
-                                                    <div class="comment-body">
-                                                        <div class="comment-author vcard"> <img class="avatar photo" src="/static/assets/images/testimonials/pic1.jpg" alt=""> <cite class="fn">John Doe</cite> <span class="says">says:</span> </div>
-                                                        <div class="comment-meta"> <a href="#">December 02, 2019 at 10:45 am</a> </div>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae neqnsectetur adipiscing elit. Nam viae neqnsectetur adipiscing elit. Nam vitae neque vitae sapien malesuada aliquet. </p>
-                                                        <div class="reply"> <a href="#" class="comment-reply-link">Reply</a> </div>
-                                                    </div>
-                                                    <ol class="children">
-                                                        <li class="comment odd parent">
-                                                            <div class="comment-body">
-                                                                <div class="comment-author vcard"> <img class="avatar photo" src="/static/assets/images/testimonials/pic2.jpg" alt=""> <cite class="fn">John Doe</cite> <span class="says">says:</span> </div>
-                                                                <div class="comment-meta"> <a href="#">December 02, 2019 at 10:45 am</a> </div>
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae neque vitae sapien malesuada aliquet. In viverra dictum justo in vehicula. Fusce et massa eu ante ornare molestie. Sed vestibulum
-                                                                    sem felis, ac elementum ligula blandit ac.</p>
-                                                                <div class="reply"> <a href="#" class="comment-reply-link">Reply</a> </div>
-                                                            </div>
-                                                            <ol class="children">
-                                                                <li class="comment odd parent">
-                                                                    <div class="comment-body">
-                                                                        <div class="comment-author vcard"> <img class="avatar photo" src="/static/assets/images/testimonials/pic3.jpg" alt=""> <cite class="fn">John Doe</cite> <span class="says">says:</span> </div>
-                                                                        <div class="comment-meta"> <a href="#">December 02, 2019 at 10:45 am</a> </div>
-                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae neque vitae sapien malesuada aliquet. In viverra dictum justo in vehicula. Fusce et massa eu ante ornare molestie.
-                                                                            Sed vestibulum sem felis, ac elementum ligula blandit ac.</p>
-                                                                        <div class="reply"> <a href="#" class="comment-reply-link">Reply</a> </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ol>
-                                                            <!-- list END -->
-                                                        </li>
-                                                    </ol>
-                                                    <!-- list END -->
-                                                </li>
-                                                <li class="comment">
-                                                    <div class="comment-body">
-                                                        <div class="comment-author vcard"> <img class="avatar photo" src="/static/assets/images/testimonials/pic1.jpg" alt=""> <cite class="fn">John Doe</cite> <span class="says">says:</span> </div>
-                                                        <div class="comment-meta"> <a href="#">December 02, 2019 at 10:45 am</a> </div>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae neque vitae sapien malesuada aliquet. In viverra dictum justo in vehicula. Fusce et massa eu ante ornare molestie. Sed vestibulum
-                                                            sem felis, ac elementum ligula blandit ac.</p>
-                                                        <div class="reply"> <a href="#" class="comment-reply-link">Reply</a> </div>
-                                                    </div>
-                                                </li>
-                                                <li class="comment">
-                                                    <div class="comment-body">
-                                                        <div class="comment-author vcard"> <img class="avatar photo" src="/static/assets/images/testimonials/pic2.jpg" alt=""> <cite class="fn">John Doe</cite> <span class="says">says:</span> </div>
-                                                        <div class="comment-meta"> <a href="#">December 02, 2019 at 10:45 am</a> </div>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae neque vitae sapien malesuada aliquet. In viverra dictum justo in vehicula. Fusce et massa eu ante ornare molestie. Sed vestibulum
-                                                            sem felis, ac elementum ligula blandit ac.</p>
-                                                        <div class="reply"> <a href="#" class="comment-reply-link">Reply</a> </div>
-                                                    </div>
-                                                </li>
-                                                <li class="comment">
-                                                    <div class="comment-body">
-                                                        <div class="comment-author vcard"> <img class="avatar photo" src="/static/assets/images/testimonials/pic3.jpg" alt=""> <cite class="fn">John Doe</cite> <span class="says">says:</span> </div>
-                                                        <div class="comment-meta"> <a href="#">December 02, 2019 at 10:45 am</a> </div>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae neque vitae sapien malesuada aliquet. In viverra dictum justo in vehicula. Fusce et massa eu ante ornare molestie. Sed vestibulum
-                                                            sem felis, ac elementum ligula blandit ac.</p>
-                                                        <div class="reply"> <a href="#" class="comment-reply-link">Reply</a> </div>
-                                                    </div>
-                                                </li>
-                                            </ol>
-                                            <!-- comment list END -->
-                                            <!-- Form -->
-                                            <div class="comment-respond" id="respond">
-                                                <h4 class="comment-reply-title" id="reply-title">Leave a Reply <small> <a style="display:none;" href="#" id="cancel-comment-reply-link" rel="nofollow">Cancel reply</a> </small> </h4>
-                                                <form class="comment-form" id="commentform" method="post">
-                                                    <p class="comment-form-author">
-                                                        <label for="author">Name <span class="required">*</span></label>
-                                                        <input type="text" value="" name="Author" placeholder="Author" id="author">
-                                                    </p>
-                                                    <p class="comment-form-email">
-                                                        <label for="email">Email <span class="required">*</span></label>
-                                                        <input type="text" value="" placeholder="Email" name="email" id="email">
-                                                    </p>
-                                                    <p class="comment-form-url">
-                                                        <label for="url">Website</label>
-                                                        <input type="text" value="" placeholder="Website" name="url" id="url">
-                                                    </p>
-                                                    <p class="comment-form-comment">
-                                                        <label for="comment">Comment</label>
-                                                        <textarea rows="8" name="comment" placeholder="Comment" id="comment"></textarea>
-                                                    </p>
-                                                    <p class="form-submit">
-                                                        <input type="submit" value="Submit Comment" class="submit" id="submit" name="submit">
-                                                    </p>
-                                                </form>
-                                            </div>
-                                            <!-- Form -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- blog END -->
                             </div>
+                            
+                            <style>
+                                .recent-news {
+                                    background: #fff;
+                                    border-radius: 12px;
+                                    padding: 20px;
+                                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                                }
+                                .video-container, .action-box {
+                                    border-radius: 12px;
+                                    overflow: hidden;
+                                }
+                                .post-title {
+                                    font-size: 1.8rem;
+                                    color: #333;
+                                }
+                                .img-fluid {
+                                    width: 100%;
+                                    height: auto;
+                                    object-fit: cover;
+                                }
+                            </style>
+                            
+                            
                             <!-- Left part END -->
                             <!-- Side bar start -->
                             <div class="col-lg-4 col-xl-4">
@@ -242,7 +154,7 @@
                                                 <div class="ttr-post-media"> <img src="{{recent_new.image.url}}" width="200" height="143" alt="{{recent_new.title}}"> </div>
                                                 <div class="ttr-post-info">
                                                     <div class="ttr-post-header">
-                                                        <h6 class="post-title"><a href="blog-details.html">{{recent_new.title}}</a></h6>
+                                                        <h6 class="post-title"><a href="{% url 'news_content' recent_new.slug recent_new.id %}">{{recent_new.title}}</a></h6>
                                                     </div>
                                                     <ul class="media-post">
                                                         <li><a href="#"><i class="fa fa-calendar"></i>{{recent_new.created_at}}</a></li>

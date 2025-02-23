@@ -23,6 +23,7 @@ def news_content(request,news_id,news_slug):
     images = [news_content.image, news_content.image1, news_content.image2, news_content.image3, news_content.image4, news_content.image5, news_content.image6]
     images = [img.url for img in images if img and img.url]
     
+    video_embed_url = news_content.get_video_embed_url()
     
    # Vérifier si l'utilisateur a déjà vu cette news dans la session
     viewed_news = request.session.get('viewed_news', [])
