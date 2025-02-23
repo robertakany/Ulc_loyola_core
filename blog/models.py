@@ -29,12 +29,7 @@ class New(models.Model):
     video = models.FileField(upload_to='news_videos/', null=True, blank=True, verbose_name="Vidéo")
     video_url = models.URLField(null=True, blank=True, help_text="Lien YouTube ou Vimeo", verbose_name="URL de la vidéo")
 
-    slug = models.SlugField(unique=True, blank=True, max_length=255, editable=False)  # Non modifiable dans l'admin
-
-    def save(self, *args, **kwargs):
-        if not self.slug:  # Générer le slug automatiquement à partir du titre
-            self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
+    slug = models.SlugField(unique=True, blank=True, max_length=255)  # Non modifiable dans l'admin
 
     def __str__(self):
         return self.title  # Afficher le titre dans l'admin
@@ -53,8 +48,71 @@ class New(models.Model):
         return None
 
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(self.title)
+            slug = base_slug
+            count = 1
+            print(slug)
+            while New.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{count}"
+
+                count += 1
+            self.slug = slug
+
+                       
+        super(New, self).save(*args, **kwargs)
+
+    def add_view(self):
+        self.views += 1
+        self.save()
+
+    def get_likes_count(self):
+        return self.likes.count()
+
+    def get_comments_count(self):
+        return self.comments.count()
+
+    def get_views_count(self):
+        return self.views
+    
+    
+    @property
+    def image_url(self):
+        return (self.image and hasattr(self.image, 'url') and self.image.url) or '/static/university_mobile_logo_ulc-1 (1).png'
+
+    @property
+    def image1_url(self):
+        return (self.image1 and hasattr(self.image1, 'url') and self.image1.url) or '/static/university_mobile_logo_ulc-1 (1).png'
+
+    @property
+    def image2_url(self):
+        return (self.image2 and hasattr(self.image2, 'url') and self.image2.url) or '/static/university_mobile_logo_ulc-1 (1).png'
+
+    @property
+    def image3_url(self):
+        return (self.image3 and hasattr(self.image3, 'url') and self.image3.url) or '/static/university_mobile_logo_ulc-1 (1).png'
+
+    @property
+    def image4_url(self):
+        return (self.image4 and hasattr(self.image4, 'url') and self.image4.url) or '/static/university_mobile_logo_ulc-1 (1).png'
+
+    @property
+    def image5_url(self):
+        return (self.image5 and hasattr(self.image5, 'url') and self.image5.url) or '/static/university_mobile_logo_ulc-1 (1).png'
+
+    @property
+    def image6_url(self):
+        return (self.image6 and hasattr(self.image6, 'url') and self.image6.url) or '/static/university_mobile_logo_ulc-1 (1).png'
+
 
 User = get_user_model()
+
+
+
+
+
+
 
 
 class Comment(models.Model):

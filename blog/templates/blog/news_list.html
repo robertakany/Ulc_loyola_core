@@ -46,7 +46,13 @@
                   <div class="recent-news blog-lg m-b40">
                     <div class="action-box blog-lg">
                       <img
+                      {% if new.image_url %}
                         src="{{new.image_url }}"
+                        {% elif new.image_url1 %}
+                        src="{{new.image_url1 }}"
+                        {% else %}
+                        src="/static/university_mobile_logo_ulc-1 (1).png"
+                        {% endif %}
                         alt="{{new.title}}"
                       />
                     </div>
