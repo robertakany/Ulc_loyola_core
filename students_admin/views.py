@@ -21,25 +21,67 @@ from university_admin.models import Course
 
 
 #@login_required
-def  souscription(request):
+def souscription(request):
     user_set_types = SEX_TYPES
-    facultys= Faculty
+    facultys = Faculty
     level_of_studys = Level_of_study
     COUNTRIES_LIST = COUNTRIES
-    if request.method == 'POST':
-    
-        form = SouscriptionForm(request.POST)
-        if form.is_valid():
-            
-            souscrip = form.save()
-            messages.success(request, f'Votre souscription a bien été enregistrée.')
-            return redirect('student_souscription')
-        else:
-            print('dhclbduiuciduuufiueh')
-            messages.error(request, f'Une erreur s\'ess produite .')
-            print(form.errors)
-    return render(request, 'students_admin/souscription.html',locals())
 
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        post_name = request.POST.get('post_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        sexe_type = request.POST.get('sexe_type')
+        number = request.POST.get('number')
+        city = request.POST.get('city')
+        adress = request.POST.get('adress')
+        common = request.POST.get('common')
+        country = request.POST.get('country')
+        level_of_study = request.POST.get('level_of_study')
+        bithday = request.POST.get('bithday')
+        Place_of_birth = request.POST.get('Place_of_birth')
+        faculty = request.POST.get('faculty')
+        avatar = request.FILES.get('avatar')
+        document_file = request.FILES.get('document_file')
+        tuteur_name = request.POST.get('tuteur_name')
+        tuteur_number = request.POST.get('tuteur_number')
+        tuteur_email = request.POST.get('tuteur_email')
+
+        # Vérification des champs obligatoires
+        if not first_name or not last_name or not email or not sexe_type or not faculty or not level_of_study:
+            messages.error(request, "Veuillez remplir tous les champs obligatoires.")
+            return redirect('student_souscription')
+
+        # Création de l'instance
+        try:
+            souscrip = Souscription.objects.create(
+                first_name=first_name,
+                post_name=post_name,
+                last_name=last_name,
+                email=email,
+                sexe_type=sexe_type,
+                number=number,
+                city=city,
+                adress=adress,
+                common=common,
+                country=country,
+                level_of_study=level_of_study,
+                bithday=bithday,
+                Place_of_birth=Place_of_birth,
+                faculty=faculty,
+                avatar=avatar,
+                document_file=document_file,
+                tuteur_name=tuteur_name,
+                tuteur_number=tuteur_number,
+                tuteur_email=tuteur_email
+            )
+            messages.success(request, "Votre souscription a bien été enregistrée.")
+            return redirect('student_souscription')
+        except Exception as e:
+            messages.error(request, f"Une erreur s'est produite : {str(e)}")
+
+    return render(request, 'students_admin/souscription.html', locals())
 
 
 @login_required

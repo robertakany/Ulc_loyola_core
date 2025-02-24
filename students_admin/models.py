@@ -21,8 +21,11 @@ ROLE = (
 
 Option = (
 	('Philosophe','philosophie'),
-	('ingeniérie','ingeniérie'),
-	('Agronomiques et Vetérinaires', 'Agronomiques et Vetérinaires')
+	('Faculté des Sciences et Technologies','Faculté des Sciences et Technologies'),
+	('Agronomiques et Vetérinaires', 'Agronomiques et Vetérinaires'),
+	('Sciences Sociales et gestion','Sciences Sociales et gestion'),
+ 	('Administration des Affaires - Business school','Administration des Affaires - Business school'),
+ 
 )
 
 Level_of_study= (
@@ -110,6 +113,8 @@ class Souscription(models.Model):
     Place_of_birth=models.CharField(max_length=200, blank=True, null=True)
     faculty = models.CharField(max_length=255, choices=Faculty)
     #amount = models.DecimalField(max_digits=10, decimal_places=2)
+    avatar = models.ImageField(null=True, blank=True)
+    document_file = models.FileField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     data = models.JSONField(null=True, blank=True)
     tuteur_name= models.CharField(max_length=234, null=True , blank=True)
