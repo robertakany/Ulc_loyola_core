@@ -165,7 +165,7 @@
 									<li><a href="{% url 'philosophy_faculty' %}" >Facultés de Philosophie</a>
 										
 									</li>
-									<li><a href="{% url 'ingenierie_faculty' %}" >Faculté d'Ingeniérie</a></li>
+									<li><a href="{% url 'science_and_technology' %}" >Faculté d'Ingeniérie</a></li>
 										<li><a href="{% url 'agronomiques_and_veterinaires' %}" >Agronomiques et Vétérinaires</a></li>
 									
 								</ul>
@@ -587,7 +587,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="item ">
+					{% comment %} <div hidden class="item ">
 						<div class="recent-news ">
 							<div class="action-box ">
 								<img style=" width:100%; height: 240px; object-fit:cover;" src="/static/assets/images/IMG_2247.JPG" alt=" ">
@@ -597,17 +597,17 @@
 									<li>Facultés</li>
 
 								</ul>
-								<h5 class="post-title "><a href="{% url 'ingenierie_faculty' %}">Faculté d’Ingeniérie ULC – ICAM</a></h5>
+								<h5 class="post-title "><a href="{% url 'science_and_technology' %}">Faculté d’Ingeniérie ULC – ICAM</a></h5>
 								<p>Ce programme est caractérisé par sa polyvalence, un fort investissement dans les sciences industrielles, le soin apporté à conjuguer les bases théoriques et expérimentales, enfin l’attention aux méthodes et outils globaux
 									qui permettent de comprendre l’entreprise et son environnement..</p>
 									<br>
 								<div class="post-extra ">
-									<a href="{% url 'ingenierie_faculty' %}" class="btn-link ">Voir plus</a>
+									<a href="{% url 'science_and_technology' %}" class="btn-link ">Voir plus</a>
 
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> {% endcomment %}
 					<div class="item ">
 						<div class="recent-news ">
 							<div class="action-box ">
@@ -640,11 +640,12 @@
 
 									<li>Facultés</li>
 								</ul>
-								<h5 class="post-title "><a href="#">Faculté Sciences et Technologies </a></h5>
-								<p>À l’ère du numérique, la Faculté des Sciences et Technologies forme des esprits innovants prêts à relever les défis scientifiques et technologiques. Alliant théorie et pratique, elle prépare les étudiants à façonner l’avenir.</p>
+								<h5 class="post-title "><a href="{% url 'science_and_technology' %}">Faculté Sciences et Technologies </a></h5>
+								<p>Ce programme est caractérisé par sa polyvalence, un fort investissement dans les sciences industrielles, le soin apporté à conjuguer les bases théoriques et expérimentales, enfin l’attention aux méthodes et outils globaux
+									qui permettent de comprendre l’entreprise et son environnement...</p>
 									<br>
 								<div class="post-extra ">
-									<a href="#" class="btn-link ">Voir plus</a>
+									<a href="{% url 'science_and_technology' %}" class="btn-link ">Voir plus</a>
 
 								</div>
 							</div>

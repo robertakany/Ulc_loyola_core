@@ -184,7 +184,7 @@ def philosopie(request):
         students = Student.objects.filter(user=user)
     return render(request, 'main/philosophie.html', locals())
 
-def ingenierie(request):
+def science_and_technology(request):
     news = New.objects.all().order_by('-created_at')[:3]
     user = request.user
     
@@ -198,7 +198,43 @@ def ingenierie(request):
         
         teachers = Teacher.objects.filter(user=user)
         students = Student.objects.filter(user=user)
-    return render(request, 'main/ingenierie.html', locals())
+    return render(request, 'main/science_and_technology.html', locals())
+
+
+def business_administration(request):
+    news = New.objects.all().order_by('-created_at')[:3]
+    user = request.user
+    
+    teachers = None
+    students = None
+
+    if user.is_authenticated:
+        print(user.role)
+        print(user.username)
+        # Recherchez l'utilisateur actuellement connecté en utilisant son ID
+        
+        teachers = Teacher.objects.filter(user=user)
+        students = Student.objects.filter(user=user)
+    return render(request, 'main/business_administration.html', locals())
+
+
+def social_sciences_and_management(request):
+    news = New.objects.all().order_by('-created_at')[:3]
+    user = request.user
+    
+    teachers = None
+    students = None
+
+    if user.is_authenticated:
+        print(user.role)
+        print(user.username)
+        # Recherchez l'utilisateur actuellement connecté en utilisant son ID
+        
+        teachers = Teacher.objects.filter(user=user)
+        students = Student.objects.filter(user=user)
+    return render(request, 'main/social_sciences_and_management.html', locals())
+    
+    
 
 def the_registration(request):
     news = New.objects.all().order_by('-created_at')[:3]
