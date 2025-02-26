@@ -509,6 +509,44 @@
 					</div>
 				</div>
 			</div>
+
+
+				<!-- Recent News -->
+		<div class="section">
+			<div class="container ">
+				<div class="row ">
+					<div class="col-md-12 heading-bx left ">
+						<h2 class="title-head ">Nos Dernières nouvelles</h2>
+						<p hidden>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+					</div>
+				</div>
+				<div class="recent-news-carousel owl-carousel owl-btn-1 col-12 p-lr0 ">
+					{% for new in news  %}
+					<div class="item ">
+						<div class="recent-news ">
+							<div class="action-box ">
+								<img src="{{new.image_url}} " alt="{{new.title}} ">
+							</div>
+							<div class="info-bx ">
+								<ul class="media-post ">
+									<li><a href="# "><i class="fa fa-calendar "></i>{{ new.created_at }}</a></li>
+									<li><a href="# "><i class="fa fa-user "></i>{{new.user.username}}</a></li>
+								</ul>
+								<h5 class="post-title "><a href="{% url 'news_content' new.slug new.id  %} ">{{new.title}}</a></h5>
+								<p>{{new.content|truncatechars:170}}</p>
+								<div class="post-extra ">
+									<a href="{% url 'news_content' new.slug new.id  %}" class="btn-link ">Voir plus..</a>
+									<a hidden href="# " class="comments-bx "><i class="fa fa-comments-o "></i>20 Comment</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					
+				</div>
+			</div>
+		</div>
+		<!-- Recent News End -->
 			
 			<div class="section">
                 <div class="container">
@@ -1103,42 +1141,7 @@
 
 		
 
-		<!-- Recent News -->
-		<div class="section">
-			<div class="container ">
-				<div class="row ">
-					<div class="col-md-12 heading-bx left ">
-						<h2 class="title-head ">Nos Dernières nouvelles</h2>
-						<p hidden>It is a long established fact that a reader will be distracted by the readable content of a page</p>
-					</div>
-				</div>
-				<div class="recent-news-carousel owl-carousel owl-btn-1 col-12 p-lr0 ">
-					{% for new in news  %}
-					<div class="item ">
-						<div class="recent-news ">
-							<div class="action-box ">
-								<img src="{{new.image_url}} " alt="{{new.title}} ">
-							</div>
-							<div class="info-bx ">
-								<ul class="media-post ">
-									<li><a href="# "><i class="fa fa-calendar "></i>{{ new.created_at }}</a></li>
-									<li><a href="# "><i class="fa fa-user "></i>{{new.user.username}}</a></li>
-								</ul>
-								<h5 class="post-title "><a href="{% url 'news_content' new.slug new.id  %} ">{{new.title}}</a></h5>
-								<p>{{new.content|truncatechars:170}}</p>
-								<div class="post-extra ">
-									<a href="{% url 'news_content' new.slug new.id  %}" class="btn-link ">Voir plus..</a>
-									<a hidden href="# " class="comments-bx "><i class="fa fa-comments-o "></i>20 Comment</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					{% endfor %}
-					
-				</div>
-			</div>
-		</div>
-		<!-- Recent News End -->
+	
 
 	</div>
 	
