@@ -126,7 +126,7 @@ def payment_confirmation(request, souscription_id):
 
     return render(request, 'students_admin/payment_confirmation.html', {'souscrip': souscrip})
 
-
+ 
 
 
 
