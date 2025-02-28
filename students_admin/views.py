@@ -18,6 +18,14 @@ from userApp.models import *
 from .models import Level_of_study, Souscription, Student
 from main.models import Niveau_d_etude
 from university_admin.models import Course
+from django.urls import reverse
+from django.contrib import messages
+from django.conf import settings
+from urllib.parse import urlencode
+from .models import Souscription
+import hashlib
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 
 
 #@login_required
@@ -27,6 +35,7 @@ def souscription(request):
     level_of_studys = Level_of_study
     COUNTRIES_LIST = COUNTRIES
 
+    print('yes -----------------------------')
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
         post_name = request.POST.get('post_name')
@@ -51,37 +60,81 @@ def souscription(request):
         # Vérification des champs obligatoires
         if not first_name or not last_name or not email or not sexe_type or not faculty or not level_of_study:
             messages.error(request, "Veuillez remplir tous les champs obligatoires.")
+            print("Veuillez remplir tous les champs obligatoires.")
             return redirect('student_souscription')
 
         # Création de l'instance
-        try:
+        try:           
             souscrip = Souscription.objects.create(
-                first_name=first_name,
-                post_name=post_name,
-                last_name=last_name,
-                email=email,
-                sexe_type=sexe_type,
-                number=number,
-                city=city,
-                adress=adress,
-                common=common,
-                country=country,
-                level_of_study=level_of_study,
-                bithday=bithday,
-                Place_of_birth=Place_of_birth,
-                faculty=faculty,
-                avatar=avatar,
-                document_file=document_file,
-                tuteur_name=tuteur_name,
-                tuteur_number=tuteur_number,
-                tuteur_email=tuteur_email
-            )
-            messages.success(request, "Votre souscription a bien été enregistrée.")
-            return redirect('student_souscription')
+                    first_name=first_name,
+                    post_name=post_name,
+                    last_name=last_name,
+                    email=email,
+                    sexe_type=sexe_type,
+                    number=number,
+                    city=city,
+                    adress=adress,
+                    common=common,
+                    country=country,
+                    level_of_study=level_of_study,
+                    bithday=bithday,
+                    Place_of_birth=Place_of_birth,
+                    faculty=faculty,
+                    avatar=avatar,
+                    document_file=document_file,
+                    tuteur_name=tuteur_name,
+                    tuteur_number=tuteur_number,
+                    tuteur_email=tuteur_email
+                )
+
+            print(f"Souscription enregistrée avec ID: {souscrip.id}")  # Debugging
+                
+            payment_data = {
+                    'amount': 20,  # Frais d'inscription
+                    'currency': 'USD',
+                    'description': "Frais d'inscription universitaire",
+                    'redirect_url': request.build_absolute_uri(reverse('payment_confirmation', args=[souscrip.id])),
+                    'callback_url': request.build_absolute_uri(reverse('payment_callback', args=[souscrip.id])),
+                    'signature': generate_signature(20, 'USD', str(souscrip.id)),
+                }
+            payment_url = f"https://pay.laxtech.pro/account/{settings.LAXPAY_API_KEY}/checkout/?{urlencode(payment_data)}#MOBILE_MONEY"
+            print(f"Redirection vers: {payment_url}")  # Debugging
+            return redirect(payment_url)
         except Exception as e:
+            print(f"Erreur: {str(e)}")  # Debugging
             messages.error(request, f"Une erreur s'est produite : {str(e)}")
 
     return render(request, 'students_admin/souscription.html', locals())
+
+
+
+
+
+
+
+def payment_confirmation(request, souscription_id):
+    souscrip = get_object_or_404(Souscription, id=souscription_id)
+
+    # # Vérification du paiement (simplifié, à sécuriser avec LaxPay)
+    # payment_status = request.GET.get('status', '')
+    # if payment_status == 'completed':
+    #     souscrip.is_paid = True
+    #     souscrip.save()
+    #     messages.success(request, "Votre paiement a été effectué avec succès.")
+    # else:
+    #     messages.error(request, "Le paiement a échoué ou a été annulé.")
+
+    return render(request, 'students_admin/payment_confirmation.html', {'souscrip': souscrip})
+
+
+
+
+
+
+def generate_signature(amount, currency, subscription_id):
+    secret_key = settings.LAXPAY_API_KEY  # Remplace par ta clé secrète
+    data = f"{amount}{currency}{subscription_id}{secret_key}"
+    return hashlib.sha256(data.encode()).hexdigest()
 
 
 @login_required

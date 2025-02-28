@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'userApp',
     'blog',
     'main',
@@ -116,6 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -170,3 +172,7 @@ ADMINS = [
     ('roy', 'robertakany2@gmail.com'),
     #('henock', 'henockmkb@gmail.com'),
 ]
+
+
+LAXPAY_API_KEY = "9fd12d1d-613f-4fa0-aa01-7dace659cf04"
+

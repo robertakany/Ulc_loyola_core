@@ -112,7 +112,6 @@ class Souscription(models.Model):
     bithday = models.CharField(max_length=345 )
     Place_of_birth=models.CharField(max_length=200, blank=True, null=True)
     faculty = models.CharField(max_length=255, choices=Faculty)
-    #amount = models.DecimalField(max_digits=10, decimal_places=2)
     avatar = models.ImageField(null=True, blank=True)
     document_file = models.FileField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
@@ -120,4 +119,5 @@ class Souscription(models.Model):
     tuteur_name= models.CharField(max_length=234, null=True , blank=True)
     tuteur_number =models.CharField(max_length=234, null=True , blank=True)
     tuteur_email = models.EmailField(max_length=234, null=True,blank=True)
+    is_paid = models.BooleanField(default=False,verbose_name="Les frais sont payés?")  # Ajout pour suivre le paiement
 
