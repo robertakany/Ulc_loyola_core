@@ -96,6 +96,7 @@ def souscription(request):
                     'redirect_url': request.build_absolute_uri(reverse('payment_confirmation', args=[souscrip.id])),
                     'callback_url': request.build_absolute_uri(reverse('payment_callback', args=[souscrip.id])),
                     'signature': generate_signature(20, 'USD', str(souscrip.id)),
+                    
                 }
             payment_url = f"https://pay.laxtech.pro/account/{settings.LAXPAY_API_KEY}/checkout/?{urlencode(payment_data)}#MOBILE_MONEY"
             print(f"Redirection vers: {payment_url}")  # Debugging
@@ -105,6 +106,8 @@ def souscription(request):
             messages.error(request, f"Une erreur s'est produite : {str(e)}")
 
     return render(request, 'students_admin/souscription.html', locals())
+
+
 
 
 

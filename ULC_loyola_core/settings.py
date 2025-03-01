@@ -174,5 +174,5 @@ ADMINS = [
 ]
 
 
-LAXPAY_API_KEY = "9fd12d1d-613f-4fa0-aa01-7dace659cf04"
+LAXPAY_API_KEY = "51fdc343-b9c4-48f9-be5e-6caf28f995a4"
 
