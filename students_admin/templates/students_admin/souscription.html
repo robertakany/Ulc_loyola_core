@@ -103,45 +103,45 @@
 						<div class="form20">
 								<div>
 									<label>Nom</label><br>
-									<input type="text" name="last_name"  class="forms-group" id="last_name" placeholder="Entrez votre nom">
+									<input type="text" name="last_name"  class="forms-group" id="last_name" placeholder="Entrez votre nom" required>
 								</div>
 							<br>
 							<div>
 									<label>Post-nom</label><br>
-									<input type="text" name="post_name"  class="forms-group" id="post_name" placeholder="Entrez votre nom">
+									<input type="text" name="post_name"  class="forms-group" id="post_name" placeholder="Entrez votre Post-nom" required>
 								</div>
 								<br>
 								<div>
 									<label>Prénom</label><br>
-									<input type="text" name="first_name" class="forms-group"  id="first_name" placeholder="Entrez votre prénom">
+									<input type="text" name="first_name" class="forms-group"  id="first_name" placeholder="Entrez votre prénom" required>
 								</div>
 								<br>
 								<div>
 									<label>Adresse Mail</label><br>
-									<input type="email" name="email" id="email" placeholder="Entrez votre mail">
+									<input type="email" name="email" id="email" placeholder="Entrez votre mail" required>
 								</div>
 								<br>
 								<div>
 									<label>Téléphone</label><br>
-									<input type="text" name="number"  id="Téléphone" placeholder="Entrez votre numéro">
+									<input type="text" name="number"  id="Téléphone" placeholder="Entrez votre numéro" required>
 								</div>
 								
 								<br>
 								<div>
 									<label>Date de Naissance</label><br>
-									<input type="date" name="bithday" id="date" placeholder="Entrez votre Date de Naissance">
+									<input type="date" name="bithday" id="date" placeholder="Entrez votre Date de Naissance" required>
 								</div>
 								<br>
 								<div>
 									<label>Lieu de Naissance</label><br>
-									<input type="text" name="Place_of_birth" class="forms-group"  placeholder="Entrez votre Lieu de Naissance">
+									<input type="text" name="Place_of_birth" class="forms-group"  placeholder="Entrez votre Lieu de Naissance" required>
 								</div>
 								<div>
 									<label>Photo</label><br>
 									<input style="border-radius: 6px;
 										border: none;
 										background: #ebebeb;
-										border: 1px solid #d1d1d1;" type="file" class="form-control" name="avatar" id="avatar">
+										border: 1px solid #d1d1d1;" type="file" class="form-control" name="avatar" id="avatar" required>
 								</div>
 						</div>
 					</div>
@@ -160,22 +160,22 @@
 								<br>
 								<div>
 									<label>Adresse</label><br>
-									<input type="text" name="adress" id="text" placeholder="Votre Adresse">
+									<input type="text" name="adress" id="text" placeholder="Votre Adresse" required>
 								</div>
 								<br>
 								<div>
 									<label>Commune</label><br>
-									<input type="text" name="common" id="text" placeholder="Votre Commune">
+									<input type="text" name="common" id="text" placeholder="Votre Commune" required>
 								</div>
 								<br>
 							<div>
 								<label>Ville</label><br>
-								<input type="text" name="city" id="text" placeholder="Votre Ville">
+								<input type="text" name="city" id="text" placeholder="Votre Ville" required>
 							</div>
 							<br>
 								<div>
 									<label>Pays</label><br>
-									<select  name="country" id="text">
+									<select  name="country" id="text" required>
 										{% for country in COUNTRIES_LIST %}
 										<option value="{{country.code}}" {% if country.code == '243' %}selected{% endif %}>{{country.name}} ({{country.code}})</option>
 										{% endfor %}
@@ -184,7 +184,7 @@
 								<br>
 								<div>
 									<label>Niveau d'étude</label><br>
-									<select  name="level_of_study" id="text">
+									<select  name="level_of_study" id="text" required>
 										{% for level_of_study in level_of_studys %}
 										<option value="{{level_of_study.0}}">{{level_of_study.0}}</option>
 										{% endfor %}  
@@ -193,7 +193,7 @@
 								<br>
 								<div>
 									<label>Faculté</label><br>
-									<select  name="faculty" id="text">
+									<select  name="faculty" id="text" required>
 										{% for faculty in facultys %}
 										<option value="{{faculty.0}}">{{faculty.0}}</option>
 										{% endfor %}  
@@ -204,7 +204,7 @@
 									<input style="border-radius: 6px;
 									border: none;
 									background: #ebebeb;
-									border: 1px solid #d1d1d1;" type="file" class="form-control" name="document_file" id="document_file">
+									border: 1px solid #d1d1d1;" type="file" class="form-control" name="document_file" id="document_file" required>
 								</div>
 
 
@@ -218,12 +218,12 @@
 						<div class="form20">
 								<div>
 									<label>Nom complet</label><br>
-									<input type="text" class="forms-group" name="tuteur_name" id="prénom" placeholder="Entrez votre nom">
+									<input type="text" class="forms-group" name="tuteur_name" id="prénom" placeholder="Entrez le nom du tuteur" required>
 								</div>
 								<br>
 								<div>
 									<label>Tel:</label><br>
-									<input type="text" class="forms-group" name="tuteur_number" id="prénom" placeholder="Entrez votre prénom">
+									<input type="text" class="forms-group" name="tuteur_number" id="prénom" placeholder="Entrez le prénom du tuteur" required>
 								</div>
 						</div>
 					</div>
@@ -231,7 +231,7 @@
 						<div class="form20">
 								<div>
 									<label>E-mail</label><br>
-									<input type="email" class="forms-group" name="tuteur_email" id="email" placeholder="Entrez votre mail">
+									<input type="email" class="forms-group" name="tuteur_email" id="email" placeholder="Entrez l'adresse mail du tuteur" required>
 								</div>
 						</div>
 					</div>

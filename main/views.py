@@ -275,8 +275,11 @@ def all_courses_list(request):
     user = request.user
 
     philosopie = courses.filter(faculty='Philosophie')
-    ingenierie = courses.filter(faculty='Ingeniérie')
+    ingenierie = courses.filter(faculty='Faculté des Sciences et Technologies')
     agronomiques_et_veterinaires = courses.filter(faculty='Agronomiques et Vetérinaires')
+    Business_administration =  courses.filter(faculty='Administration des Affaires - Business school')
+    social_sciences_and_management = courses.filter(faculty='Sciences Sociales et gestion')
+    
     
     teachers = None
     students = None
