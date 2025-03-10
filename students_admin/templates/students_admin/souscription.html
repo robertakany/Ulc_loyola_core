@@ -62,11 +62,14 @@
 							<h1 style="color: rgb(0, 0, 0);">S'inscrire</h1>
 							<br>
 							<p>
-								Choisissez parmi notre large éventail de programmes <br>
-								académiques, allant de la philosophie à l’ingénierie et <br>
-								aux sciences agronomiques et vétérinaires.
+								Choisissez parmi notre large éventail de programmes académiques, 
+								 allant de la philosophie aux sciences et technologies,
+								  aux sciences agronomiques 
+								   et vétérinaires, 
+								  aux sciences sociales et de gestion,
+								   à l'administration des affaires - Business School .
 							</p>
-							<a href="#main" style="color: white;" class="btn btn-secondary">Commencer</a>
+							<a href="#titleForm" style="color: white;" class="btn btn-secondary">Commencer</a>
 						</div>
 						
 					</div>
@@ -79,7 +82,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-4 col-md-6 col-sm-12">
-						<div style="padding-top: 50px;">
+						<div id="titleForm" style="padding-top: 50px;">
 							<h2>Détails du candidat</h2>
 						</div>
 					</div>
@@ -95,7 +98,7 @@
         {% endfor %}
     </div>
 {% endif %}
-				<form method="post" enctype="multipart/form-data" class="row">	
+				<form method="post" id="formSub" enctype="multipart/form-data" class="row">	
 					
 
 					{% csrf_token %}
@@ -103,7 +106,7 @@
 						<div class="form20">
 								<div>
 									<label>Nom</label><br>
-									<input type="text" name="last_name"  class="forms-group" id="last_name" placeholder="Entrez votre nom" required>
+									<input type="text" id="last_name" name="last_name"  class="forms-group" id="last_name" placeholder="Entrez votre nom" required>
 								</div>
 							<br>
 							<div>
@@ -223,7 +226,7 @@
 								<br>
 								<div>
 									<label>Tel:</label><br>
-									<input type="text" class="forms-group" name="tuteur_number" id="prénom" placeholder="Entrez le prénom du tuteur" required>
+									<input type="text" class="forms-group" name="tuteur_number" id="prénom" placeholder="Entrez le numero du tuteur" required>
 								</div>
 						</div>
 					</div>
